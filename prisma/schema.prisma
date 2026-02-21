@@ -26,6 +26,15 @@ model WatchedAddress {
   createdAt    DateTime @default(now())
   user         User     @relation(fields: [userId], references: [id])
   alerts       Alert[]
+  recipients   AlertRecipient[]
+}
+
+model AlertRecipient {
+  id        String   @id @default(cuid())
+  addressId String
+  email     String
+  createdAt DateTime @default(now())
+  address   WatchedAddress @relation(fields: [addressId], references: [id])
 }
 
 model Alert {
