@@ -34,37 +34,43 @@ const labelStyle = {
 
 export default function Home() {
   const [step, setStep] = useState(1)
-  const [userId, setUserId] = useState(null)
-  const [form, setForm] = useState({ email: "", pseudonym: "" })
+  const [form, setForm] = useState({ email: "", pseudonym: "", password: "", confirmPassword: "" })
   const [addrForm, setAddrForm] = useState({ address: "", label: "", instructions: "" })
   const [message, setMessage] = useState("")
+  const [loading, setLoading] = useState(false)
 
   async function handleRegister(e) {
     e.preventDefault()
     setMessage("")
-    const res = await fetch("/api/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    })
-    const data = await res.json()
-    if (res.ok) {
-      setUserId(data.user.id)
-      setStep(2)
-    } else {
-      setMessage(data.error || "Erreur")
+    if (form.password.length < 8) {
+      setMessage("Mot de passe trop court (8 caracteres minimum)")
+      return
     }
+    if (form.password !== form.confirmPassword) {
+      setMessage("Les mots de passe ne correspondent pas")
+      return
+    }
+    setStep(2)
   }
 
   async function handleAddAddress(e) {
     e.preventDefault()
     setMessage("")
-    const res = await fetch("/api/addresses", {
+    setLoading(true)
+    const res = await fetch("/api/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...addrForm, userId }),
+      body: JSON.stringify({
+        email: form.email,
+        pseudonym: form.pseudonym,
+        password: form.password,
+        address: addrForm.address,
+        label: addrForm.label,
+        instructions: addrForm.instructions,
+      }),
     })
     const data = await res.json()
+    setLoading(false)
     if (res.ok) {
       setStep(3)
     } else {
@@ -96,13 +102,28 @@ export default function Home() {
               onChange={function(e) { setForm({...form, email: e.target.value}) }}
               style={inputStyle} placeholder="vous@exemple.com" />
           </div>
-          <div style={{marginBottom: "16px"}}>
+          <div style={{marginBottom: "12px"}}>
             <label style={labelStyle}>Pseudonyme</label>
             <input type="text" required value={form.pseudonym}
               onChange={function(e) { setForm({...form, pseudonym: e.target.value}) }}
               style={inputStyle} placeholder="Votre nom ou pseudo" />
           </div>
+          <div style={{marginBottom: "12px"}}>
+            <label style={labelStyle}>Mot de passe</label>
+            <input type="password" required value={form.password}
+              onChange={function(e) { setForm({...form, password: e.target.value}) }}
+              style={inputStyle} placeholder="8 caracteres minimum" />
+          </div>
+          <div style={{marginBottom: "16px"}}>
+            <label style={labelStyle}>Confirmer le mot de passe</label>
+            <input type="password" required value={form.confirmPassword}
+              onChange={function(e) { setForm({...form, confirmPassword: e.target.value}) }}
+              style={inputStyle} placeholder="Repetez le mot de passe" />
+          </div>
           <button type="submit" style={btnStyle}>Continuer</button>
+          <p style={{textAlign: "center", marginTop: "16px", fontSize: "13px", color: "#666"}}>
+            Deja inscrit ? <a href="/login" style={{color: "#00d4aa"}}>Se connecter</a>
+          </p>
         </form>
       )}
 
@@ -128,17 +149,19 @@ export default function Home() {
               style={{...inputStyle, resize: "vertical"}}
               placeholder="Ex: Contacter Rem... Ne signer aucune transaction..." />
           </div>
-          <button type="submit" style={btnStyle}>Activer la surveillance</button>
+          <button type="submit" style={btnStyle} disabled={loading}>
+            {loading ? "Activation..." : "Activer la surveillance"}
+          </button>
         </form>
       )}
 
       {step === 3 && (
         <div style={{textAlign: "center"}}>
-          <div style={{fontSize: "48px", marginBottom: "16px"}}>OK</div>
+          <div style={{fontSize: "48px", marginBottom: "16px"}}>✓</div>
           <h2 style={{fontSize: "18px", color: "#00d4aa", marginBottom: "8px"}}>Surveillance activee !</h2>
           <p style={{color: "#888", marginBottom: "24px"}}>Vous recevrez un email a chaque mouvement sortant detecte.</p>
-          <a href="/dashboard" style={{display: "inline-block", padding: "12px 24px", background: "#222", border: "1px solid #444", borderRadius: "6px", color: "#e0e0e0", textDecoration: "none"}}>
-            Voir le dashboard
+          <a href="/login" style={{display: "inline-block", padding: "12px 24px", background: "#00d4aa", borderRadius: "6px", color: "#000", textDecoration: "none", fontWeight: "bold"}}>
+            Acceder a mon espace
           </a>
         </div>
       )}
