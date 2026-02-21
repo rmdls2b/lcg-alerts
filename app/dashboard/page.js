@@ -1,7 +1,4 @@
-
-cd ~/projets/lcg-alerts
-cat > app/dashboard/page.js << 'DASHEOF'
-"use client"
+≈"use client"
 import { useState, useEffect } from "react"
 
 const btnStyle = {
