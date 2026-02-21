@@ -1,27 +1,38 @@
 import { PrismaClient } from "@prisma/client"
 import { NextResponse } from "next/server"
+import bcrypt from "bcryptjs"
 
 const prisma = new PrismaClient()
 
 export async function POST(request) {
   try {
-    const body = await request.json()
-    const email = body.email
-    const pseudonym = body.pseudonym
-
-    if (!email || !pseudonym) {
-      return NextResponse.json({ error: "Email et pseudonyme requis" }, { status: 400 })
+    const { email, pseudonym, password, address, label, instructions } = await request.json()
+    if (!email || !pseudonym || !password || !address) {
+      return NextResponse.json({ error: "Champs manquants" }, { status: 400 })
     }
-
-    const existing = await prisma.user.findUnique({ where: { email: email } })
+    if (password.length < 8) {
+      return NextResponse.json({ error: "Mot de passe trop court (8 caracteres minimum)" }, { status: 400 })
+    }
+    const existing = await prisma.user.findUnique({ where: { email } })
     if (existing) {
-      return NextResponse.json({ user: existing }, { status: 200 })
+      return NextResponse.json({ error: "Email deja utilise" }, { status: 400 })
     }
-
+    const hashed = await bcrypt.hash(password, 10)
     const user = await prisma.user.create({
-      data: { email: email, pseudonym: pseudonym },
+      data: {
+        email,
+        pseudonym,
+        password: hashed,
+        addresses: {
+          create: {
+            address: address.toLowerCase(),
+            label: label || "",
+            instructions: instructions || "",
+          }
+        }
+      }
     })
-    return NextResponse.json({ user: user }, { status: 201 })
+    return NextResponse.json({ ok: true, userId: user.id }, { status: 201 })
   } catch (error) {
     return NextResponse.json({ error: "Erreur: " + error.message }, { status: 500 })
   }
