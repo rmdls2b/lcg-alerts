@@ -1,3 +1,6 @@
+
+cd ~/projets/lcg-alerts
+cat > app/dashboard/page.js << 'DASHEOF'
 "use client"
 import { useState, useEffect } from "react"
 
