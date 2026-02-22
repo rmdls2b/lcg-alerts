@@ -40,7 +40,7 @@ export async function POST(request) {
       await resend.emails.send({
         from: "WalleRt <" + (process.env.ALERT_FROM_EMAIL || "onboarding@resend.dev") + ">",
         to: allEmails,
-        subject: `ALERTE - ${value} ${asset} sortant détecté`,
+        subject: `🚨 WalleRt — Signal d'urgence activé : action immédiate requise`,
         html: `<div style="font-family:Arial;max-width:600px;margin:0 auto;background:#0a0a0a;color:#e0e0e0;border:1px solid #ff4444;border-radius:12px;padding:40px;">
           <h1 style="color:#ff4444;text-align:center;font-size:28px;">ALERTE TRANSACTION</h1>
           <p style="color:#ff8888;text-align:center;margin-bottom:24px;">Mouvement sortant détecté</p>
