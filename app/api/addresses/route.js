@@ -3,6 +3,21 @@ import { NextResponse } from 'next/server'
 
 const prisma = new PrismaClient()
 
+async function addAddressToAlchemy(address) {
+  await fetch("https://dashboard.alchemy.com/api/update-webhook-addresses", {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Alchemy-Token": process.env.ALCHEMY_API_KEY,
+    },
+    body: JSON.stringify({
+      webhook_id: "wh_71oaymhjegok01aq",
+      addresses_to_add: [address],
+      addresses_to_remove: [],
+    }),
+  })
+}
+
 export async function POST(request) {
   try {
     const { userId, address, label, instructions } = await request.json()
@@ -12,6 +27,7 @@ export async function POST(request) {
     const watched = await prisma.watchedAddress.create({
       data: { userId, address: address.toLowerCase(), label: label || '', instructions: instructions || '' },
     })
+    await addAddressToAlchemy(address.toLowerCase())
     return NextResponse.json({ address: watched }, { status: 201 })
   } catch (error) {
     return NextResponse.json({ error: 'Erreur: ' + error.message }, { status: 500 })
