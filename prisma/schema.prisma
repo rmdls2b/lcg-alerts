@@ -8,34 +8,34 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(cuid())
-  email     String   @unique
-  pseudonym String
-  password  String   @default("")
-  createdAt DateTime @default(now())
-  addresses WatchedAddress[]
+  id           String   @id @default(cuid())
+  email        String   @unique
+  pseudonym    String
+  password     String   @default("")
+  instructions String   @default("")
+  createdAt    DateTime @default(now())
+  addresses    WatchedAddress[]
+  recipients   AlertRecipient[]
 }
 
 model WatchedAddress {
-  id           String   @id @default(cuid())
-  userId       String
-  address      String
-  chain        String   @default("ethereum")
-  label        String   @default("")
-  instructions String   @default("")
-  isActive     Boolean  @default(true)
-  createdAt    DateTime @default(now())
-  user         User     @relation(fields: [userId], references: [id])
-  alerts       Alert[]
-  recipients   AlertRecipient[]
+  id        String   @id @default(cuid())
+  userId    String
+  address   String
+  chain     String   @default("ethereum")
+  label     String   @default("")
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+  alerts    Alert[]
 }
 
 model AlertRecipient {
   id        String   @id @default(cuid())
-  addressId String
+  userId    String
   email     String
   createdAt DateTime @default(now())
-  address   WatchedAddress @relation(fields: [addressId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
 }
 
 model Alert {
