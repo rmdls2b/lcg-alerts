@@ -31,7 +31,7 @@ export default function Dashboard() {
   }
 
   async function loadData() {
-    const res = await fetch("/api/dashboard-data")
+    const res = await fetch("/api/dashboard-data", { cache: "no-store" })
     if (res.ok) setData(await res.json())
   }
 
