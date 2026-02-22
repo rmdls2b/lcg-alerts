@@ -42,7 +42,7 @@ export default function LoginClient() {
         </button>
       </form>
       <p style={{ color: "#666", fontSize: "13px", marginTop: "16px" }}>
-        Pas encore de compte ? <a href="/" style={{ color: "#00d4aa" }}>S inscrire</a>
+        Pas encore de compte ? <a href="/" style={{ color: "#00d4aa" }}>S inscrire</a> — <a href="/mot-de-passe-oublie" style={{ color: "#666" }}>Mot de passe oublie</a>
       </p>
     </div>
   )
