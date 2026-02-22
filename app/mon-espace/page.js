@@ -108,7 +108,7 @@ export default function MonEspace() {
         </button>
       </div>
 
-      {data && data.addresses.map(function(addr) {
+      {data && data.addresses && data.addresses.map(function(addr) {
         return (
           <div key={addr.id} style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "20px", marginBottom: "16px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
