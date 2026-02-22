@@ -7,21 +7,17 @@ export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url)
     const userId = searchParams.get("userId")
-    if (!userId) return NextResponse.json({ addresses: [] })
+    if (!userId) return NextResponse.json({ user: null, addresses: [], recipients: [] })
     const user = await prisma.user.findUnique({
       where: { id: userId },
       include: {
-        addresses: {
-          include: {
-            recipients: true,
-            alerts: { orderBy: { createdAt: "desc" }, take: 5 },
-          },
-        },
+        addresses: { orderBy: { createdAt: "asc" } },
+        recipients: { orderBy: { createdAt: "asc" } },
       },
     })
-    if (!user) return NextResponse.json({ addresses: [] })
-    return NextResponse.json({ addresses: user.addresses })
+    if (!user) return NextResponse.json({ user: null, addresses: [], recipients: [] })
+    return NextResponse.json({ user, addresses: user.addresses, recipients: user.recipients })
   } catch (error) {
-    return NextResponse.json({ addresses: [] })
+    return NextResponse.json({ user: null, addresses: [], recipients: [] })
   }
 }

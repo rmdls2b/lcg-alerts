@@ -3,21 +3,30 @@ import { NextResponse } from "next/server"
 
 const prisma = new PrismaClient()
 
+async function addAddressToAlchemy(address) {
+  await fetch("https://dashboard.alchemy.com/api/update-webhook-addresses", {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json", "X-Alchemy-Token": process.env.ALCHEMY_API_KEY },
+    body: JSON.stringify({ webhook_id: "wh_71oaymhjegok01aq", addresses_to_add: [address], addresses_to_remove: [] }),
+  })
+}
+
+async function removeAddressFromAlchemy(address) {
+  await fetch("https://dashboard.alchemy.com/api/update-webhook-addresses", {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json", "X-Alchemy-Token": process.env.ALCHEMY_API_KEY },
+    body: JSON.stringify({ webhook_id: "wh_71oaymhjegok01aq", addresses_to_add: [], addresses_to_remove: [address] }),
+  })
+}
+
 export async function POST(request) {
   try {
     const { id } = await request.json()
-    if (!id) {
-      return NextResponse.json({ error: "id requis" }, { status: 400 })
-    }
-    const current = await prisma.watchedAddress.findUnique({ where: { id: id } })
-    if (!current) {
-      return NextResponse.json({ error: "Adresse non trouvee" }, { status: 404 })
-    }
-    const updated = await prisma.watchedAddress.update({
-      where: { id: id },
-      data: { isActive: !current.isActive },
-    })
-    return NextResponse.json({ address: updated })
+    const addr = await prisma.watchedAddress.findUnique({ where: { id } })
+    const updated = await prisma.watchedAddress.update({ where: { id }, data: { isActive: !addr.isActive } })
+    if (updated.isActive) { await addAddressToAlchemy(updated.address) }
+    else { await removeAddressFromAlchemy(updated.address) }
+    return NextResponse.json({ ok: true })
   } catch (error) {
     return NextResponse.json({ error: "Erreur: " + error.message }, { status: 500 })
   }
