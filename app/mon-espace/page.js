@@ -201,3 +201,4 @@ export default function MonEspace() {
     </div>
   )
 }
+export const dynamic = 'force-dynamic'
