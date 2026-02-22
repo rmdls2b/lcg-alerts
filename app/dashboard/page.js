@@ -2,10 +2,17 @@
 import { useState, useEffect } from "react"
 
 export default function Dashboard() {
-  const [auth, setAuth] = useState(typeof window !== "undefined" && sessionStorage.getItem("lcg_admin") === "1")
+  const [auth, setAuth] = useState(false)
   const [pwd, setPwd] = useState("")
   const [data, setData] = useState(null)
   const [confirmDelete, setConfirmDelete] = useState(null)
+
+  useEffect(function() {
+    if (sessionStorage.getItem("lcg_admin") === "1") {
+      setAuth(true)
+      loadData()
+    }
+  }, [])
 
   async function handleAuth(e) {
     e.preventDefault()
@@ -14,8 +21,13 @@ export default function Dashboard() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ password: pwd }),
     })
-    if (res.ok) { sessionStorage.setItem("lcg_admin", "1"); setAuth(true); loadData() }
-    else alert("Mot de passe incorrect")
+    if (res.ok) {
+      sessionStorage.setItem("lcg_admin", "1")
+      setAuth(true)
+      loadData()
+    } else {
+      alert("Mot de passe incorrect")
+    }
   }
 
   async function loadData() {
@@ -24,13 +36,18 @@ export default function Dashboard() {
   }
 
   async function deleteUser(userId) {
-    await fetch("/api/delete-account", {
+    const res = await fetch("/api/delete-account", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ userId }),
+      body: JSON.stringify({ userId: userId }),
     })
-    setConfirmDelete(null)
-    loadData()
+    if (res.ok) {
+      setConfirmDelete(null)
+      loadData()
+    } else {
+      const d = await res.json()
+      alert("Erreur: " + d.error)
+    }
   }
 
   if (!auth) return (
