@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react"
 
 export default function Dashboard() {
-  const [auth, setAuth] = useState(false)
+  const [auth, setAuth] = useState(typeof window !== "undefined" && sessionStorage.getItem("lcg_admin") === "1")
   const [pwd, setPwd] = useState("")
   const [data, setData] = useState(null)
   const [confirmDelete, setConfirmDelete] = useState(null)
@@ -14,7 +14,7 @@ export default function Dashboard() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ password: pwd }),
     })
-    if (res.ok) { setAuth(true); loadData() }
+    if (res.ok) { sessionStorage.setItem("lcg_admin", "1"); setAuth(true); loadData() }
     else alert("Mot de passe incorrect")
   }
 
