@@ -11,6 +11,9 @@ export default function MonEspaceClient() {
   const [newEmail, setNewEmail] = useState({})
   const [editInstructions, setEditInstructions] = useState({})
   const [confirmDelete, setConfirmDelete] = useState(false)
+  const [showAddAddress, setShowAddAddress] = useState(false)
+  const [newAddr, setNewAddr] = useState({ address: "", label: "", instructions: "" })
+  const [addingAddr, setAddingAddr] = useState(false)
 
   useEffect(function() {
     const stored = localStorage.getItem("lcg_user")
@@ -47,6 +50,22 @@ export default function MonEspaceClient() {
   async function removeRecipient(id) {
     await fetch("/api/recipients?id=" + id, { method: "DELETE" })
     loadData(user.userId)
+  }
+
+  async function addAddress(e) {
+    e.preventDefault()
+    setAddingAddr(true)
+    const res = await fetch("/api/addresses", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ userId: user.userId, address: newAddr.address, label: newAddr.label, instructions: newAddr.instructions }),
+    })
+    if (res.ok) {
+      setNewAddr({ address: "", label: "", instructions: "" })
+      setShowAddAddress(false)
+      loadData(user.userId)
+    }
+    setAddingAddr(false)
   }
 
   async function deleteAccount() {
@@ -122,7 +141,42 @@ export default function MonEspaceClient() {
         )
       })}
 
-      <div style={{ marginTop: "40px", borderTop: "1px solid #222", paddingTop: "24px" }}>
+      <div style={{ marginBottom: "24px" }}>
+        {!showAddAddress ? (
+          <button onClick={function() { setShowAddAddress(true) }} style={{ ...btnStyle, backgroundColor: "#111", border: "1px solid #00d4aa", color: "#00d4aa", padding: "10px 20px" }}>
+            + Ajouter une adresse
+          </button>
+        ) : (
+          <form onSubmit={addAddress} style={{ background: "#111", border: "1px solid #00d4aa", borderRadius: "8px", padding: "20px" }}>
+            <h3 style={{ fontSize: "16px", color: "#00d4aa", marginBottom: "16px" }}>Nouvelle adresse</h3>
+            <div style={{ marginBottom: "12px" }}>
+              <label style={{ fontSize: "12px", color: "#888", display: "block", marginBottom: "4px" }}>Adresse Ethereum</label>
+              <input type="text" required value={newAddr.address} onChange={function(e) { setNewAddr({ ...newAddr, address: e.target.value }) }}
+                style={{ ...inputStyle, width: "100%", fontFamily: "monospace", boxSizing: "border-box" }} placeholder="0x..." />
+            </div>
+            <div style={{ marginBottom: "12px" }}>
+              <label style={{ fontSize: "12px", color: "#888", display: "block", marginBottom: "4px" }}>Nom du coffre</label>
+              <input type="text" value={newAddr.label} onChange={function(e) { setNewAddr({ ...newAddr, label: e.target.value }) }}
+                style={{ ...inputStyle, width: "100%", boxSizing: "border-box" }} placeholder="Ex: Coffre principal" />
+            </div>
+            <div style={{ marginBottom: "16px" }}>
+              <label style={{ fontSize: "12px", color: "#888", display: "block", marginBottom: "4px" }}>Instructions d urgence</label>
+              <textarea rows={3} value={newAddr.instructions} onChange={function(e) { setNewAddr({ ...newAddr, instructions: e.target.value }) }}
+                style={{ ...inputStyle, width: "100%", resize: "vertical", boxSizing: "border-box" }} />
+            </div>
+            <div style={{ display: "flex", gap: "8px" }}>
+              <button type="submit" disabled={addingAddr} style={{ ...btnStyle, backgroundColor: "#00d4aa", color: "#000" }}>
+                {addingAddr ? "Ajout..." : "Ajouter"}
+              </button>
+              <button type="button" onClick={function() { setShowAddAddress(false) }} style={{ ...btnStyle, backgroundColor: "#333", color: "#ccc" }}>
+                Annuler
+              </button>
+            </div>
+          </form>
+        )}
+      </div>
+
+      <div style={{ marginTop: "16px", borderTop: "1px solid #222", paddingTop: "24px" }}>
         {!confirmDelete ? (
           <button onClick={function() { setConfirmDelete(true) }} style={{ ...btnStyle, backgroundColor: "#1a0000", border: "1px solid #661111", color: "#ff6666", padding: "10px 20px" }}>
             Supprimer mon compte
