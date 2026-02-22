@@ -2,10 +2,13 @@ export default function Accueil() {
   return (
     <div style={{ maxWidth: "700px", margin: "0 auto", padding: "60px 20px" }}>
       <div style={{ textAlign: "center", marginBottom: "80px" }}>
-        <h1 style={{ fontSize: "42px", fontWeight: "bold", marginBottom: "16px" }}>
-          Surveillance Blockchain
+        <h1 style={{ fontSize: "64px", fontWeight: "bold", marginBottom: "8px", letterSpacing: "-2px" }}>
+          Walle<span style={{ color: "#00d4aa" }}>R</span>t
         </h1>
-        <p style={{ color: "#888", fontSize: "18px", marginBottom: "40px" }}>
+        <p style={{ color: "#666", fontSize: "20px", marginBottom: "16px", letterSpacing: "2px", textTransform: "uppercase" }}>
+          Surveillance Blockchain
+        </p>
+        <p style={{ color: "#888", fontSize: "16px", marginBottom: "40px" }}>
           Recevez une alerte email instantanee a chaque mouvement sortant detecte.
         </p>
         <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
