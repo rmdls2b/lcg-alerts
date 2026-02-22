@@ -14,12 +14,14 @@ export default function Login() {
     const res = await fetch("/api/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email: email, password: password }),
     })
     const data = await res.json()
     if (res.ok) {
-      localStorage.setItem("lcg_user", JSON.stringify({ userId: data.userId, pseudonym: data.pseudonym, email }))
-      window.location.href = "/mon-espace"
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem("lcg_user", JSON.stringify({ userId: data.userId, pseudonym: data.pseudonym, email: email }))
+        window.location.href = "/mon-espace"
+      }
     } else {
       setError(data.error)
       setLoading(false)
@@ -34,14 +36,14 @@ export default function Login() {
         <input
           type="email"
           value={email}
-          onChange={e => setEmail(e.target.value)}
+          onChange={function(e) { setEmail(e.target.value) }}
           placeholder="Email"
           style={{ width: "100%", padding: "12px", backgroundColor: "#111", border: "1px solid #333", borderRadius: "6px", color: "#e0e0e0", outline: "none", marginBottom: "12px", boxSizing: "border-box" }}
         />
         <input
           type="password"
           value={password}
-          onChange={e => setPassword(e.target.value)}
+          onChange={function(e) { setPassword(e.target.value) }}
           placeholder="Mot de passe"
           style={{ width: "100%", padding: "12px", backgroundColor: "#111", border: "1px solid #333", borderRadius: "6px", color: "#e0e0e0", outline: "none", marginBottom: "12px", boxSizing: "border-box" }}
         />
