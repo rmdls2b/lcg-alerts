@@ -93,7 +93,55 @@ export default function MonEspaceClient() {
         <button onClick={logout} style={{ ...btnStyle, backgroundColor: "#222", border: "1px solid #333", color: "#888" }}>Deconnexion</button>
       </div>
 
-      {/* Emails destinataires */}
+      {/* Wallets surveilles */}
+      <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "20px", marginBottom: "16px" }}>
+        <h2 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>Wallets surveilles</h2>
+        {data.addresses.length === 0 && <p style={{ color: "#555", fontSize: "13px", marginBottom: "12px" }}>Aucun wallet surveille.</p>}
+        {data.addresses.map(function(addr) {
+          return (
+            <div key={addr.id} style={{ display: "flex", alignItems: "center", gap: "10px", padding: "10px 0", borderBottom: "1px solid #1a1a1a" }}>
+              <span style={{ color: addr.isActive ? "#00d4aa" : "#444", fontSize: "16px" }}>{addr.isActive ? "●" : "○"}</span>
+              <div style={{ flex: 1 }}>
+                <span style={{ fontFamily: "monospace", fontSize: "12px" }}>{addr.address.slice(0, 14)}...{addr.address.slice(-8)}</span>
+                {addr.label && <span style={{ color: "#666", fontSize: "12px", marginLeft: "8px" }}>({addr.label})</span>}
+              </div>
+              <button onClick={function() { toggleAddress(addr.id) }} style={{ ...btnStyle, backgroundColor: addr.isActive ? "#1a1a00" : "#001a0a", border: "1px solid " + (addr.isActive ? "#444400" : "#004422"), color: addr.isActive ? "#aaaa00" : "#00aa44", fontSize: "11px" }}>
+                {addr.isActive ? "Desactiver" : "Activer"}
+              </button>
+              {confirmDeleteAddr === addr.id ? (
+                <div style={{ display: "flex", gap: "4px" }}>
+                  <button onClick={function() { deleteAddress(addr.id) }} style={{ ...btnStyle, backgroundColor: "#ff4444", color: "#fff", fontSize: "11px" }}>Confirmer</button>
+                  <button onClick={function() { setConfirmDeleteAddr(null) }} style={{ ...btnStyle, backgroundColor: "#333", color: "#ccc", fontSize: "11px" }}>Annuler</button>
+                </div>
+              ) : (
+                <button onClick={function() { setConfirmDeleteAddr(addr.id) }} style={{ ...btnStyle, backgroundColor: "#1a0000", border: "1px solid #440000", color: "#ff4444", fontSize: "11px" }}>Supprimer</button>
+              )}
+            </div>
+          )
+        })}
+        {!showAddAddress ? (
+          <button onClick={function() { setShowAddAddress(true) }} style={{ ...btnStyle, backgroundColor: "transparent", border: "1px solid #00d4aa", color: "#00d4aa", marginTop: "12px" }}>
+            + Ajouter un wallet
+          </button>
+        ) : (
+          <form onSubmit={addAddress} style={{ marginTop: "16px", paddingTop: "16px", borderTop: "1px solid #222" }}>
+            <div style={{ marginBottom: "10px" }}>
+              <input type="text" required value={newAddr.address} onChange={function(e) { setNewAddr({ ...newAddr, address: e.target.value }) }}
+                style={{ ...inputStyle, width: "100%", fontFamily: "monospace", boxSizing: "border-box" }} placeholder="0x..." />
+            </div>
+            <div style={{ marginBottom: "10px" }}>
+              <input type="text" value={newAddr.label} onChange={function(e) { setNewAddr({ ...newAddr, label: e.target.value }) }}
+                style={{ ...inputStyle, width: "100%", boxSizing: "border-box" }} placeholder="Nom du wallet (optionnel)" />
+            </div>
+            <div style={{ display: "flex", gap: "8px" }}>
+              <button type="submit" disabled={addingAddr} style={{ ...btnStyle, backgroundColor: "#00d4aa", color: "#000" }}>{addingAddr ? "Ajout..." : "Ajouter"}</button>
+              <button type="button" onClick={function() { setShowAddAddress(false) }} style={{ ...btnStyle, backgroundColor: "#333", color: "#ccc" }}>Annuler</button>
+            </div>
+          </form>
+        )}
+      </div>
+
+      {/* Emails d alerte */}
       <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "20px", marginBottom: "16px" }}>
         <h2 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>Emails d alerte</h2>
         <div style={{ fontSize: "13px", color: "#ccc", marginBottom: "8px" }}>— {user.email} (principal)</div>
@@ -120,55 +168,6 @@ export default function MonEspaceClient() {
         <button onClick={saveInstructions} style={{ ...btnStyle, backgroundColor: "#00d4aa", color: "#000", marginTop: "8px" }}>
           {instructionsSaved ? "Sauvegarde !" : "Sauvegarder"}
         </button>
-      </div>
-
-      {/* Adresses surveillees */}
-      <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "20px", marginBottom: "16px" }}>
-        <h2 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>Wallets surveilles</h2>
-        {data.addresses.length === 0 && <p style={{ color: "#555", fontSize: "13px" }}>Aucun wallet surveille.</p>}
-        {data.addresses.map(function(addr) {
-          return (
-            <div key={addr.id} style={{ display: "flex", alignItems: "center", gap: "10px", padding: "10px 0", borderBottom: "1px solid #1a1a1a" }}>
-              <span style={{ color: addr.isActive ? "#00d4aa" : "#444", fontSize: "16px" }}>{addr.isActive ? "●" : "○"}</span>
-              <div style={{ flex: 1 }}>
-                <span style={{ fontFamily: "monospace", fontSize: "12px" }}>{addr.address.slice(0, 14)}...{addr.address.slice(-8)}</span>
-                {addr.label && <span style={{ color: "#666", fontSize: "12px", marginLeft: "8px" }}>({addr.label})</span>}
-              </div>
-              <button onClick={function() { toggleAddress(addr.id) }} style={{ ...btnStyle, backgroundColor: addr.isActive ? "#1a1a00" : "#001a0a", border: "1px solid " + (addr.isActive ? "#444400" : "#004422"), color: addr.isActive ? "#aaaa00" : "#00aa44", fontSize: "11px" }}>
-                {addr.isActive ? "Desactiver" : "Activer"}
-              </button>
-              {confirmDeleteAddr === addr.id ? (
-                <div style={{ display: "flex", gap: "4px" }}>
-                  <button onClick={function() { deleteAddress(addr.id) }} style={{ ...btnStyle, backgroundColor: "#ff4444", color: "#fff", fontSize: "11px" }}>Confirmer</button>
-                  <button onClick={function() { setConfirmDeleteAddr(null) }} style={{ ...btnStyle, backgroundColor: "#333", color: "#ccc", fontSize: "11px" }}>Annuler</button>
-                </div>
-              ) : (
-                <button onClick={function() { setConfirmDeleteAddr(addr.id) }} style={{ ...btnStyle, backgroundColor: "#1a0000", border: "1px solid #440000", color: "#ff4444", fontSize: "11px" }}>Supprimer</button>
-              )}
-            </div>
-          )
-        })}
-
-        {!showAddAddress ? (
-          <button onClick={function() { setShowAddAddress(true) }} style={{ ...btnStyle, backgroundColor: "transparent", border: "1px solid #00d4aa", color: "#00d4aa", marginTop: "12px" }}>
-            + Ajouter un wallet
-          </button>
-        ) : (
-          <form onSubmit={addAddress} style={{ marginTop: "16px", paddingTop: "16px", borderTop: "1px solid #222" }}>
-            <div style={{ marginBottom: "10px" }}>
-              <input type="text" required value={newAddr.address} onChange={function(e) { setNewAddr({ ...newAddr, address: e.target.value }) }}
-                style={{ ...inputStyle, width: "100%", fontFamily: "monospace", boxSizing: "border-box" }} placeholder="0x..." />
-            </div>
-            <div style={{ marginBottom: "10px" }}>
-              <input type="text" value={newAddr.label} onChange={function(e) { setNewAddr({ ...newAddr, label: e.target.value }) }}
-                style={{ ...inputStyle, width: "100%", boxSizing: "border-box" }} placeholder="Nom du wallet (optionnel)" />
-            </div>
-            <div style={{ display: "flex", gap: "8px" }}>
-              <button type="submit" disabled={addingAddr} style={{ ...btnStyle, backgroundColor: "#00d4aa", color: "#000" }}>{addingAddr ? "Ajout..." : "Ajouter"}</button>
-              <button type="button" onClick={function() { setShowAddAddress(false) }} style={{ ...btnStyle, backgroundColor: "#333", color: "#ccc" }}>Annuler</button>
-            </div>
-          </form>
-        )}
       </div>
 
       {/* Supprimer le compte */}
