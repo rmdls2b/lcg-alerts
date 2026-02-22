@@ -4,6 +4,23 @@ import bcrypt from "bcryptjs"
 
 const prisma = new PrismaClient()
 
+async function addAddressToAlchemy(address) {
+  const webhookId = "wh_71oaymhjegok01aq"
+  const apiKey = process.env.ALCHEMY_API_KEY
+  await fetch("https://dashboard.alchemy.com/api/update-webhook-addresses", {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Alchemy-Token": apiKey,
+    },
+    body: JSON.stringify({
+      webhook_id: webhookId,
+      addresses_to_add: [address],
+      addresses_to_remove: [],
+    }),
+  })
+}
+
 export async function POST(request) {
   try {
     const { email, pseudonym, password, address, label, instructions } = await request.json()
@@ -32,6 +49,7 @@ export async function POST(request) {
         }
       }
     })
+    await addAddressToAlchemy(address.toLowerCase())
     return NextResponse.json({ ok: true, userId: user.id }, { status: 201 })
   } catch (error) {
     return NextResponse.json({ error: "Erreur: " + error.message }, { status: 500 })
