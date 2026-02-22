@@ -5,11 +5,11 @@ export default function Accueil() {
         <h1 style={{ fontSize: "64px", fontWeight: "bold", marginBottom: "8px", letterSpacing: "-2px" }}>
           Walle<span style={{ color: "#00d4aa" }}>R</span>t
         </h1>
-        <p style={{ color: "#666", fontSize: "20px", marginBottom: "16px", letterSpacing: "2px", textTransform: "uppercase" }}>
-          Surveillance Blockchain
+        <p style={{ color: "#aaa", fontSize: "22px", marginBottom: "12px" }}>
+          Surveillance de votre portefeuille
         </p>
-        <p style={{ color: "#888", fontSize: "16px", marginBottom: "40px" }}>
-          Recevez une alerte email instantanee a chaque mouvement sortant detecte.
+        <p style={{ color: "#666", fontSize: "16px", marginBottom: "40px" }}>
+          Declenchezune alerte en temps reel en cas de mouvement sortant detecte.
         </p>
         <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
           <a href="/" style={{ padding: "14px 32px", backgroundColor: "#00d4aa", color: "#000", borderRadius: "6px", textDecoration: "none", fontWeight: "bold", fontSize: "16px" }}>
