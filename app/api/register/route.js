@@ -23,7 +23,7 @@ async function addAddressToAlchemy(address) {
 
 async function sendWelcomeEmail(email, pseudonym) {
   await resend.emails.send({
-    from: process.env.ALERT_FROM_EMAIL,
+    from: "Legacy Crypto Guard <" + process.env.ALERT_FROM_EMAIL + ">",
     to: email,
     subject: "Bienvenue sur LCG Alerts",
     html: `

@@ -41,7 +41,7 @@ export async function POST(request) {
     await prisma.user.delete({ where: { id: userId } })
 
     await resend.emails.send({
-      from: process.env.ALERT_FROM_EMAIL,
+      from: "Legacy Crypto Guard <" + process.env.ALERT_FROM_EMAIL + ">",
       to: user.email,
       subject: "Votre compte LCG Alerts a ete supprime",
       html: `
