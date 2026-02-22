@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client"
 import { NextResponse } from "next/server"
 import bcrypt from "bcryptjs"
-import { Resend } from "resend"
+const { Resend } = require("resend")
 
 const prisma = new PrismaClient()
 const resend = new Resend(process.env.RESEND_API_KEY)
