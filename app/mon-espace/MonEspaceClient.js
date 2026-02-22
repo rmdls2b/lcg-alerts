@@ -1,5 +1,4 @@
 "use client"
-"use client"
 import { useState, useEffect } from "react"
 
 const inputStyle = { flex: 1, padding: "6px 10px", backgroundColor: "#0a0a0a", border: "1px solid #333", borderRadius: "4px", color: "#e0e0e0", outline: "none", fontSize: "13px" }
