@@ -9,7 +9,7 @@ export default function Accueil() {
           Surveillance de votre portefeuille
         </p>
         <p style={{ color: "#666", fontSize: "16px", marginBottom: "40px" }}>
-          Declenchezune alerte en temps reel en cas de mouvement sortant detecte.
+          Declenchez une alerte en temps reel en cas de mouvement sortant detecte.
         </p>
         <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
           <a href="/" style={{ padding: "14px 32px", backgroundColor: "#00d4aa", color: "#000", borderRadius: "6px", textDecoration: "none", fontWeight: "bold", fontSize: "16px" }}>
@@ -20,13 +20,12 @@ export default function Accueil() {
           </a>
         </div>
       </div>
-
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "16px", marginBottom: "80px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "16px" }}>
         {[
           { title: "Plusieurs wallets", desc: "Surveillez autant d adresses que necessaire depuis un seul compte." },
           { title: "Alertes email en temps reel", desc: "Notification instantanee a chaque transaction sortante detectee." },
           { title: "Plusieurs destinataires", desc: "Configurez plusieurs adresses email pour chaque alerte." },
-          { title: "Instructions d urgence", desc: "Redigez des consignes qui s affichent dans chaque email d alerte." },
+          { title: "Instructions d urgence", desc: "Redigez les consignes precises pour chaque email d alerte." },
         ].map(function(item) {
           return (
             <div key={item.title} style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "24px" }}>
@@ -35,10 +34,6 @@ export default function Accueil() {
             </div>
           )
         })}
-      </div>
-
-      <div style={{ textAlign: "center", borderTop: "1px solid #222", paddingTop: "40px", color: "#555", fontSize: "13px" }}>
-        Surveillance blockchain professionnelle
       </div>
     </div>
   )
