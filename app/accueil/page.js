@@ -6,7 +6,7 @@ export default function Accueil() {
           Walle<span style={{ color: "#00d4aa" }}>R</span>t
         </h1>
         <p style={{ color: "#fff", fontSize: "22px", fontWeight: "bold", marginBottom: "12px" }}>
-          Alertez vos contacts en cas de transfert crypto sous la contrainte
+          {"Donnez l'alerte en cas de transfert crypto sous la contrainte"}
         </p>
         <p style={{ color: "#aaa", fontSize: "16px", marginBottom: "40px" }}>
           {"WalleRt transforme votre wallet en alarme silencieuse, instantanée et active 24h/24"}
