@@ -18,7 +18,7 @@ export async function POST(request) {
     await resend.emails.send({
       from: "Crypto Guard <" + process.env.ALERT_FROM_EMAIL + ">",
       to: email,
-      subject: "Bienvenue sur WalleRt",
+      subject: "Bienvenue sur Wallert",
       html: `<div style="font-family:sans-serif;max-width:500px;margin:0 auto;background:#0a0a0a;color:#e0e0e0;padding:32px;border-radius:8px"><h1 style="color:#00d4aa;font-size:22px;margin-bottom:16px">Bienvenue ${pseudonym}</h1><p style="color:#ccc;line-height:1.6">Votre compte LCG Alerts est actif. Connectez-vous pour ajouter vos wallets a surveiller.</p><div style="margin-top:32px;padding-top:16px;border-top:1px solid #222;font-size:12px;color:#555">Legacy Crypto Guard — Surveillance blockchain professionnelle</div></div>`,
     })
     return NextResponse.json({ ok: true }, { status: 201 })

@@ -28,7 +28,7 @@ export async function POST(request) {
     await resend.emails.send({
       from: "Crypto Guard <" + process.env.ALERT_FROM_EMAIL + ">",
       to: user.email,
-      subject: "Votre compte WalleRt a été supprimé",
+      subject: "Votre compte Wallert a été supprimé",
       html: `<div style="font-family:sans-serif;max-width:500px;margin:0 auto;background:#0a0a0a;color:#e0e0e0;padding:32px;border-radius:8px"><h1 style="color:#e0e0e0;font-size:22px;margin-bottom:16px">Compte supprime</h1><p style="color:#ccc;line-height:1.6">Bonjour ${user.pseudonym}, votre compte et toutes vos adresses ont ete supprimes.</p><div style="margin-top:32px;padding-top:16px;border-top:1px solid #222;font-size:12px;color:#555">Legacy Crypto Guard</div></div>`,
     })
     return NextResponse.json({ ok: true })

@@ -1,7 +1,7 @@
 import "./globals.css"
 
 export const metadata = {
-  title: "WalleRt — Surveillance Blockchain",
+  title: "Wallert — Surveillance Blockchain",
   description: "Surveillance blockchain — alertes en temps reel",
 }
 

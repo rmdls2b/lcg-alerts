@@ -61,7 +61,7 @@ export default function Home() {
 
   return (
     <div style={{ maxWidth: "500px", margin: "40px auto" }}>
-      <h1 style={{ fontSize: "28px", fontWeight: "bold", textAlign: "center", marginBottom: "8px" }}>WalleRt</h1>
+      <h1 style={{ fontSize: "28px", fontWeight: "bold", textAlign: "center", marginBottom: "8px" }}>Walle<span style={{ color: "#00d4aa" }}>r</span>t</h1>
       <p style={{ color: "#888", textAlign: "center", marginBottom: "40px" }}>Surveillance blockchain — alertes en temps réel</p>
 
       {message && (

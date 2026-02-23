@@ -38,9 +38,9 @@ export async function POST(request) {
     const emails = [user.email, ...user.channels.filter(c => c.type === "email" && c.isActive).map(c => c.value)]
 
     await resend.emails.send({
-      from: "WalleRt <" + (process.env.ALERT_FROM_EMAIL || "onboarding@resend.dev") + ">",
+      from: "Wallert <" + (process.env.ALERT_FROM_EMAIL || "onboarding@resend.dev") + ">",
       to: emails,
-      subject: `[TEST] WalleRt — Signal d'urgence activé : action immédiate requise`,
+      subject: `[TEST] Wallert — Signal d'urgence activé : action immédiate requise`,
       html: `<div style="font-family:Arial;max-width:600px;margin:0 auto;background:#0a0a0a;color:#e0e0e0;border:1px solid #ff4444;border-radius:12px;padding:40px;">
         <div style="background:#332200;border:1px solid #665500;border-radius:6px;padding:10px;margin-bottom:20px;text-align:center;">
           <span style="color:#ffaa00;font-weight:bold;">⚠️ CECI EST UN TEST — PAS UNE VRAIE ALERTE</span>
@@ -57,7 +57,7 @@ export async function POST(request) {
           <a href="${ackUrl}" style="display:inline-block;background:#00d4aa;color:#000;padding:14px 36px;border-radius:6px;text-decoration:none;font-weight:bold;font-size:16px;">✓ J'ai pris en charge cette alerte</a>
         </div>` : ""}
         ${instructionsHtml}
-        <p style="color:#555;font-size:12px;margin-top:30px;border-top:1px solid #222;padding-top:15px;text-align:center;">WalleRt — Protégez vos cryptos</p>
+        <p style="color:#555;font-size:12px;margin-top:30px;border-top:1px solid #222;padding-top:15px;text-align:center;">Wallert — Protégez vos cryptos</p>
       </div>`,
     })
 

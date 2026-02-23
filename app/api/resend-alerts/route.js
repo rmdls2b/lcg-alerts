@@ -40,9 +40,9 @@ export async function GET(request) {
       // Envoi emails
       const emails = [user.email, ...user.channels.filter(c => c.type === "email" && c.isActive).map(c => c.value)]
       await resend.emails.send({
-        from: "WalleRt <" + (process.env.ALERT_FROM_EMAIL || "onboarding@resend.dev") + ">",
+        from: "Wallert <" + (process.env.ALERT_FROM_EMAIL || "onboarding@resend.dev") + ">",
         to: emails,
-        subject: `[RAPPEL] WalleRt — Signal d'urgence toujours en attente`,
+        subject: `[RAPPEL] Wallert — Signal d'urgence toujours en attente`,
         html: `<div style="font-family:Arial;max-width:600px;margin:0 auto;background:#0a0a0a;color:#e0e0e0;border:1px solid #ff4444;border-radius:12px;padding:40px;">
           <div style="background:#441100;border:1px solid #883300;border-radius:6px;padding:10px;margin-bottom:20px;text-align:center;">
             <span style="color:#ff8800;font-weight:bold;">🔁 RAPPEL — Alerte non confirmée</span>

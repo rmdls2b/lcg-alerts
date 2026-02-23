@@ -18,7 +18,7 @@ export async function POST(request) {
         const groupName = chat.title || "Groupe"
         // Chercher un canal telegram en attente (value vide) pour cet utilisateur
         // On ne peut pas savoir quel user a ajouté le bot, donc on envoie un message dans le groupe
-        await sendTelegramMessage(chatId, "✅ WalleRt Bot ajouté au groupe !\n\nPour lier ce groupe à votre compte, copiez cet identifiant et collez-le dans votre dashboard :\n\n<code>" + chatId + "</code>")
+        await sendTelegramMessage(chatId, "✅ Wallert Bot ajouté au groupe !\n\nPour lier ce groupe à votre compte, copiez cet identifiant et collez-le dans votre dashboard :\n\n<code>" + chatId + "</code>")
         return NextResponse.json({ status: "ok" })
       }
     }
@@ -42,12 +42,12 @@ export async function POST(request) {
             data: { value: chatId, isActive: true },
           })
 
-          await sendTelegramMessage(chatId, "✅ Alertes WalleRt activées !\n\nVous recevrez une notification ici en cas de mouvement détecté sur une adresse surveillée.")
+          await sendTelegramMessage(chatId, "✅ Alertes Wallert activées !\n\nVous recevrez une notification ici en cas de mouvement détecté sur une adresse surveillée.")
           return NextResponse.json({ status: "ok" })
         }
       }
 
-      await sendTelegramMessage(chatId, "Bienvenue sur WalleRt Bot.\n\nPour activer les alertes, utilisez le lien fourni par votre contact.")
+      await sendTelegramMessage(chatId, "Bienvenue sur Wallert Bot.\n\nPour activer les alertes, utilisez le lien fourni par votre contact.")
     }
 
     return NextResponse.json({ status: "ok" })

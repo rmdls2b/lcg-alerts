@@ -9,7 +9,7 @@ export default function Accueil() {
           {"Donnez l'alerte en cas de transfert crypto sous la contrainte"}
         </p>
         <p style={{ color: "#aaa", fontSize: "16px", marginBottom: "40px" }}>
-          {"WalleRt transforme votre wallet en alarme silencieuse, instantanée et active 24h/24"}
+          {"Wallert transforme votre wallet en alarme silencieuse, instantanée et active 24h/24"}
         </p>
         <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
           <a href="/" style={{ padding: "8px 16px", fontSize: "14px", backgroundColor: "#00d4aa", color: "#000", borderRadius: "6px", textDecoration: "none", fontWeight: "bold", fontSize: "16px" }}>
@@ -37,7 +37,7 @@ export default function Accueil() {
             <div>
               <h3 style={{ fontSize: "16px", color: "#fff", marginBottom: "8px" }}>Paramétrez votre protocole de secours</h3>
               <p style={{ color: "#888", fontSize: "14px", lineHeight: "1.7" }}>
-               {"Enregistrez l'adresse de ce portefeuille sur WalleRt. Définissez votre cercle de confiance : proches ou services à prévenir, ainsi que les instructions précises qu'ils recevrons."}
+               {"Enregistrez l'adresse de ce portefeuille sur Wallert. Définissez votre cercle de confiance : proches ou services à prévenir, ainsi que les instructions précises qu'ils recevrons."}
               </p>
             </div>
           </div>
@@ -47,7 +47,7 @@ export default function Accueil() {
             <div>
               <h3 style={{ fontSize: "16px", color: "#fff", marginBottom: "8px" }}>Donnez l'alerte par le transfert</h3>
               <p style={{ color: "#888", fontSize: "14px", lineHeight: "1.7" }}>
-                {"En cas d'agression, commencez par transférer les fonds de ce portefeuille. Pour l'agresseur, c'est un butin. Pour WalleRt, c'est le signal instantané qui déclenche l'intervention de votre cercle de confiance."}
+                {"En cas d'agression, commencez par transférer les fonds de ce portefeuille. Pour l'agresseur, c'est un butin. Pour Wallert, c'est le signal instantané qui déclenche l'intervention de votre cercle de confiance."}
               </p>
             </div>
           </div>
@@ -57,7 +57,7 @@ export default function Accueil() {
       <div style={{ background: "#0d1f1a", border: "1px solid #1a3a2a", borderRadius: "8px", padding: "24px", marginBottom: "40px" }}>
         <h3 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>Sécurité & confidentialité</h3>
         <p style={{ color: "#888", fontSize: "13px", lineHeight: "1.7" }}>
-          WalleRt ne stocke que les adresses publiques de vos wallets. Les emails de vos contacts sont chiffrés et ne sont jamais partagés avec des tiers.
+          Wallert ne stocke que les adresses publiques de vos wallets. Les emails de vos contacts sont chiffrés et ne sont jamais partagés avec des tiers.
         </p>
       </div>
     </div>
