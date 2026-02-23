@@ -13,6 +13,7 @@ model User {
   pseudonym      String
   password       String          @default("")
   instructions   String          @default("")
+  recurringAlerts Boolean  @default(false)
   createdAt      DateTime        @default(now())
   addresses      WatchedAddress[]
   channels       AlertChannel[]

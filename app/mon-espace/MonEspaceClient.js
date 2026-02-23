@@ -11,6 +11,7 @@ export default function MonEspaceClient() {
   const [loading, setLoading] = useState(true)
   const [instructions, setInstructions] = useState("")
   const [instructionsSaved, setInstructionsSaved] = useState(false)
+  const [recurringAlerts, setRecurringAlerts] = useState(false)
   const [confirmDelete, setConfirmDelete] = useState(false)
   const [confirmDeleteAddr, setConfirmDeleteAddr] = useState(null)
   const [confirmDeleteChannel, setConfirmDeleteChannel] = useState(null)
@@ -38,6 +39,7 @@ export default function MonEspaceClient() {
       const json = await res.json()
       setData(json)
       setInstructions(json.user ? json.user.instructions : "")
+      setRecurringAlerts(json.user ? json.user.recurringAlerts : false)
     }
     setLoading(false)
   }
@@ -80,6 +82,12 @@ export default function MonEspaceClient() {
     await fetch("/api/channels?id=" + id, { method: "DELETE" })
     setConfirmDeleteChannel(null)
     loadData(user.userId)
+  }
+
+  async function toggleRecurring() {
+    const newVal = !recurringAlerts
+    setRecurringAlerts(newVal)
+    await fetch("/api/user/update", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userId: user.userId, recurringAlerts: newVal }) })
   }
 
   async function toggleAddress(id) {
@@ -256,6 +264,15 @@ export default function MonEspaceClient() {
         <button onClick={async function() { await fetch("/api/test-alert", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userId: user.userId }) }); alert("Alerte test envoyée !") }} style={{ ...btnStyle, backgroundColor: "#332200", border: "1px solid #665500", color: "#ffaa00" }}>
           Envoyer une alerte test
         </button>
+        <div style={{ marginTop: "16px", paddingTop: "16px", borderTop: "1px solid #222", display: "flex", alignItems: "center", gap: "10px" }}>
+          <button onClick={toggleRecurring} style={{ width: "40px", height: "22px", borderRadius: "11px", border: "none", cursor: "pointer", backgroundColor: recurringAlerts ? "#00d4aa" : "#333", position: "relative", transition: "background 0.2s" }}>
+            <span style={{ position: "absolute", top: "2px", left: recurringAlerts ? "20px" : "2px", width: "18px", height: "18px", borderRadius: "50%", backgroundColor: "#fff", transition: "left 0.2s" }}></span>
+          </button>
+          <div>
+            <span style={{ fontSize: "13px", color: "#ccc" }}>Rappels récurrents</span>
+            <p style={{ fontSize: "11px", color: "#666", margin: "2px 0 0 0" }}>{"Renvoie l'alerte toutes les 5 min jusqu'à confirmation d'un destinataire"}</p>
+          </div>
+        </div>
       </div>
 
       {/* Instructions d urgence */}

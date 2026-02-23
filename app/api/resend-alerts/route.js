@@ -12,9 +12,10 @@ export async function GET(request) {
 
     const pendingAlerts = await prisma.alert.findMany({
       where: {
-        status: "pending",
+       status: "pending",
         acknowledgedAt: null,
         lastSentAt: { lt: cutoff },
+        address: { user: { recurringAlerts: true } },
       },
       include: {
         address: {
