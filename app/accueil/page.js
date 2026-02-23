@@ -13,7 +13,7 @@ export default function Accueil() {
         </p>
         <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
           <a href="/" style={{ padding: "14px 32px", backgroundColor: "#00d4aa", color: "#000", borderRadius: "6px", textDecoration: "none", fontWeight: "bold", fontSize: "16px" }}>
-            Créer un compte
+            Activer ma protection
           </a>
           <a href="/login" style={{ padding: "14px 32px", backgroundColor: "transparent", color: "#e0e0e0", border: "1px solid #333", borderRadius: "6px", textDecoration: "none", fontSize: "16px" }}>
             Se connecter
@@ -37,7 +37,7 @@ export default function Accueil() {
             <div>
               <h3 style={{ fontSize: "16px", color: "#fff", marginBottom: "8px" }}>Paramétrez votre protocole de secours</h3>
               <p style={{ color: "#888", fontSize: "14px", lineHeight: "1.7" }}>
-               {"Enregistrez l'adresse publique de ce portefeuille sur WalleRt. Définissez votre cercle de confiance : proches ou services à prévenir, ainsi que les instructions précises qu'ils recevrons."}
+               {"Enregistrez l'adresse de ce portefeuille sur WalleRt. Définissez votre cercle de confiance : proches ou services à prévenir, ainsi que les instructions précises qu'ils recevrons."}
               </p>
             </div>
           </div>
