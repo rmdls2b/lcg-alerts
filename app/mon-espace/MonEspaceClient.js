@@ -54,6 +54,11 @@ export default function MonEspaceClient() {
     loadData(user.userId)
   }
 
+  async function toggleTelegram(id, active) {
+    await fetch("/api/recipients", { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id, telegramActive: active }) })
+    loadData(user.userId)
+  }
+
   async function toggleAddress(id) {
     await fetch("/api/addresses/toggle", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id }) })
     loadData(user.userId)
@@ -160,7 +165,12 @@ export default function MonEspaceClient() {
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: "6px", marginLeft: "14px" }}>
                 {r.telegramChatId ? (
-                  <span style={{ fontSize: "11px", color: "#00d4aa" }}>✓ Telegram activé</span>
+                  <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                    <span style={{ fontSize: "11px", color: r.telegramActive ? "#00d4aa" : "#666" }}>{r.telegramActive ? "✓ Telegram activé" : "○ Telegram désactivé"}</span>
+                    <button onClick={function() { toggleTelegram(r.id, !r.telegramActive) }} style={{ ...btnStyle, backgroundColor: r.telegramActive ? "#1a1a00" : "#001a0a", border: "1px solid " + (r.telegramActive ? "#444400" : "#004422"), color: r.telegramActive ? "#aaaa00" : "#00aa44", padding: "2px 8px", fontSize: "11px" }}>
+                      {r.telegramActive ? "Désactiver" : "Activer"}
+                    </button>
+                  </div>
                 ) : (
                   <button onClick={function() { copyTelegramLink(r.id) }} style={{ ...btnStyle, backgroundColor: "#0088cc22", border: "1px solid #0088cc44", color: "#0088cc", padding: "2px 8px", fontSize: "11px" }}>
                     Copier le lien Telegram
@@ -176,7 +186,7 @@ export default function MonEspaceClient() {
         </div>
       </div>
 
-     {/* Tester l alerte */}
+      {/* Tester l alerte */}
       <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "20px", marginBottom: "16px" }}>
         <h2 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>Tester mon alerte</h2>
         <p style={{ color: "#888", fontSize: "13px", marginBottom: "12px" }}>{"Envoyez une fausse alerte pour vérifier que vos contacts reçoivent bien les notifications (email + Telegram)."}</p>

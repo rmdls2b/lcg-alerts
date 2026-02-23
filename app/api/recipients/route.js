@@ -13,6 +13,16 @@ export async function POST(request) {
   }
 }
 
+export async function PATCH(request) {
+  try {
+    const { id, telegramActive } = await request.json()
+    await prisma.alertRecipient.update({ where: { id }, data: { telegramActive } })
+    return NextResponse.json({ ok: true })
+  } catch (error) {
+    return NextResponse.json({ error: "Erreur: " + error.message }, { status: 500 })
+  }
+}
+
 export async function DELETE(request) {
   try {
     const { searchParams } = new URL(request.url)

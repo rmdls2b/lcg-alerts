@@ -25,7 +25,7 @@ export async function POST(request) {
         if (recipient) {
           await prisma.alertRecipient.update({
             where: { id: recipientId },
-            data: { telegramChatId: chatId },
+            data: { telegramChatId: chatId, telegramActive: true },
           })
 
           await sendTelegramMessage(chatId, "✅ Alertes WalleRt activées !\n\nVous recevrez une notification ici en cas de mouvement détecté sur une adresse surveillée.")

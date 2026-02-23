@@ -51,7 +51,7 @@ export async function POST(request) {
 
     // Envoi Telegram
     for (const recipient of user.recipients) {
-      if (recipient.telegramChatId) {
+      if (recipient.telegramChatId && recipient.telegramActive) {
         const telegramText = `⚠️ <b>[TEST] ALERTE WALLERT</b>\n\nCeci est un test — pas une vraie alerte.\n\n💰 Montant : ${value} ${asset}\n📤 De : <code>${shortFrom}</code>\n📥 Vers : <code>${shortTo}</code>${user.instructions ? "\n\n⚠️ <b>INSTRUCTIONS D'URGENCE :</b>\n" + user.instructions : ""}`
         await sendTelegramMessage(recipient.telegramChatId, telegramText)
       }

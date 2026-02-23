@@ -45,6 +45,7 @@ model AlertRecipient {
   userId    String
   email     String
   telegramChatId  String?
+  telegramActive  Boolean  @default(false)
   createdAt DateTime @default(now())
   user      User     @relation(fields: [userId], references: [id])
 }
