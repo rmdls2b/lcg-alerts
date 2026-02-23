@@ -21,7 +21,7 @@ export default function Accueil() {
         </div>
       </div>
           <div style={{ marginBottom: "80px" }}>
-        <h2 style={{ fontSize: "20px", color: "#fff", marginBottom: "32px", textAlign: "center" }}>Comment ça fonctionne</h2>
+        <h2 style={{ fontSize: "20px", color: "#fff", marginBottom: "32px", textAlign: "center" }}>Principes clés</h2>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
           <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "28px", display: "flex", gap: "20px" }}>
@@ -49,7 +49,7 @@ export default function Accueil() {
             <div>
               <h3 style={{ fontSize: "16px", color: "#fff", marginBottom: "8px" }}>Donnez l'alerte par le transfert</h3>
               <p style={{ color: "#888", fontSize: "14px", lineHeight: "1.7" }}>
-                {"En cas d'agression, commencez par transférer les fonds de ce portefeuille. Pour l'agresseur, c'est un butin. Pour WalleRt, c'est le signal qui déclenche instantanément l'alerte à votre cercle de confiance."}
+                {"En cas d'agression, commencez par transférer les fonds de ce portefeuille. Pour l'agresseur, c'est un butin. Pour WalleRt, c'est le signal instantané qui déclenche l'intervention de votre cercle de confiance."}
               </p>
             </div>
           </div>
