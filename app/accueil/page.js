@@ -6,10 +6,10 @@ export default function Accueil() {
           Walle<span style={{ color: "#00d4aa" }}>R</span>t
         </h1>
         <p style={{ color: "#aaa", fontSize: "22px", marginBottom: "12px" }}>
-          Votre portefeuille crypto devient une alarme silencieuse.
+          Votre portefeuille crypto devient une alarme silencieuse
         </p>
         <p style={{ color: "#666", fontSize: "16px", marginBottom: "40px" }}>
-          {"Alertez instantanément vos tiers de confiance en cas de mouvement forcé de vos fonds."}
+          {"Alertez instantanément vos proches en cas de mouvement forcé de vos fonds."}
         </p>
         <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
           <a href="/" style={{ padding: "14px 32px", backgroundColor: "#00d4aa", color: "#000", borderRadius: "6px", textDecoration: "none", fontWeight: "bold", fontSize: "16px" }}>
