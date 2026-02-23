@@ -176,6 +176,15 @@ export default function MonEspaceClient() {
         </div>
       </div>
 
+     {/* Tester l alerte */}
+      <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "20px", marginBottom: "16px" }}>
+        <h2 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>Tester mon alerte</h2>
+        <p style={{ color: "#888", fontSize: "13px", marginBottom: "12px" }}>{"Envoyez une fausse alerte pour vérifier que vos contacts reçoivent bien les notifications (email + Telegram)."}</p>
+        <button onClick={async function() { await fetch("/api/test-alert", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userId: user.userId }) }); alert("Alerte test envoyée !") }} style={{ ...btnStyle, backgroundColor: "#332200", border: "1px solid #665500", color: "#ffaa00" }}>
+          Envoyer une alerte test
+        </button>
+      </div>
+
       {/* Instructions d urgence */}
       <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "20px", marginBottom: "16px" }}>
         <h2 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>{"Instructions d'urgence"}</h2>
