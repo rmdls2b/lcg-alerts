@@ -52,15 +52,17 @@ model AlertChannel {
 }
 
 model Alert {
-  id        String   @id @default(cuid())
-  addressId String
-  txHash    String
-  fromAddr  String
-  toAddr    String
-  amount    String
-  asset     String   @default("ETH")
-  chain     String   @default("ethereum")
-  status    String   @default("sent")
-  createdAt DateTime @default(now())
-  address   WatchedAddress @relation(fields: [addressId], references: [id])
+  id             String    @id @default(cuid())
+  addressId      String
+  txHash         String
+  fromAddr       String
+  toAddr         String
+  amount         String
+  asset          String    @default("ETH")
+  chain          String    @default("ethereum")
+  status         String    @default("pending")
+  acknowledgedAt DateTime?
+  lastSentAt     DateTime  @default(now())
+  createdAt      DateTime  @default(now())
+  address        WatchedAddress @relation(fields: [addressId], references: [id])
 }
