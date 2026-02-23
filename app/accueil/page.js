@@ -22,10 +22,10 @@ export default function Accueil() {
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "16px" }}>
         {[
-          { title: "Surveillance de wallets", desc: "Surveillez une à plusieurs adresses depuis un seul compte." },
-          { title: "Alertes en temps reel", desc: "Notification instantanée à chaque transaction sortante détectée." },
-          { title: "Contacts d'urgence", desc: "Configurez plusieurs adresses email pour chaque alerte." },
-          { title: "Instructions d'urgence", desc: "Rédigez les consignes précises pour votre email d'alerte." },
+          { title: "Surveillance multi-wallets", desc: "Surveillez vos adresses stratégiques depuis un tableau de bord unique, sans jamais compromettre vos clés privées." },
+          { title: "Alertes instantanées", desc: "Dès qu'un mouvement est initié, l'alerte est lancée. Chaque seconde compte pour garantir votre sécurité." },
+          { title: "Contacts d'urgence", desc: "Définissez les personnes à prévenir en priorité pour qu'elles puissent agir immédiatement en votre nom" },
+          { title: "Instructions de secours", desc: "Renseignez les consignes exactes à transmettre : procédure de sécurité, numéros à contacter, etc." },
         ].map(function(item) {
           return (
             <div key={item.title} style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "24px" }}>
