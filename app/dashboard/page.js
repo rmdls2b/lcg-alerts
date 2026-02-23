@@ -72,8 +72,8 @@ export default function Dashboard() {
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "16px", marginBottom: "40px" }}>
         {[
           { label: "Clients", value: data.totalUsers },
-          { label: "Adresses surveillees", value: data.totalAddresses },
-          { label: "Alertes envoyees", value: data.totalAlerts },
+          { label: "Adresses surveillées", value: data.totalAddresses },
+          { label: "Alertes envoyées", value: data.totalAlerts },
         ].map(function(stat) {
           return (
             <div key={stat.label} style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "20px" }}>
