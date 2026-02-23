@@ -17,7 +17,7 @@ export default function ResetPassword() {
   async function handleSubmit(e) {
     e.preventDefault()
     setError("")
-    if (password.length < 8) { setError("Mot de passe trop court (8 caracteres minimum)"); return }
+    if (password.length < 8) { setError("Mot de passe trop court (8 caractères minimum)"); return }
     if (password !== confirm) { setError("Les mots de passe ne correspondent pas"); return }
     setLoading(true)
     const res = await fetch("/api/reset-password", {
@@ -34,7 +34,7 @@ export default function ResetPassword() {
   if (done) return (
     <div style={{ maxWidth: "400px", margin: "80px auto", textAlign: "center" }}>
       <div style={{ fontSize: "48px", marginBottom: "16px" }}>✓</div>
-      <h2 style={{ fontSize: "18px", color: "#00d4aa", marginBottom: "8px" }}>Mot de passe modifie</h2>
+      <h2 style={{ fontSize: "18px", color: "#00d4aa", marginBottom: "8px" }}>Mot de passe modifié</h2>
       <a href="/login" style={{ display: "inline-block", marginTop: "16px", padding: "12px 24px", background: "#00d4aa", borderRadius: "6px", color: "#000", textDecoration: "none", fontWeight: "bold" }}>
         Se connecter
       </a>
