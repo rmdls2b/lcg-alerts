@@ -8,7 +8,7 @@ export default function Accueil() {
         <p style={{ color: "#aaa", fontSize: "22px", marginBottom: "12px" }}>
           Transformez votre wallet en alarme silencieuse
         </p>
-        <p style={{ color: "#fff", fontSize: "16px", marginBottom: "40px" }}>
+        <p style={{ color: "#fff", fontSize: "16px", fontWeight: "bold", marginBottom: "40px" }}>
           {"Alerte instantanée de vos contacts de confiance en cas de transfert sous la contrainte."}
         </p>
         <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
