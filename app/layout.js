@@ -17,8 +17,7 @@ export default function RootLayout({ children }) {
   <a href="/mon-espace" style={{color: "#ccc", textDecoration: "none"}}>Mon espace</a>
   <a href="/dashboard" style={{color: "#555", textDecoration: "none"}}>Admin</a>
 </div>
-          </div>
-        </nav>
+    </nav>
         <main style={{maxWidth: "800px", margin: "0 auto", padding: "24px"}}>
           {children}
         </main>
