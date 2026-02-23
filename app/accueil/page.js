@@ -29,7 +29,7 @@ export default function Accueil() {
             <div>
               <h3 style={{ fontSize: "16px", color: "#fff", marginBottom: "8px" }}>Dédiez un portefeuille à votre sécurité</h3>
               <p style={{ color: "#888", fontSize: "14px", lineHeight: "1.7" }}>
-                Utilisez une adresse spécifique contenant un montant symbolique (ex : 50 €) qui servira exclusivement de bouton d'alarme. Elle devient votre interrupteur d'urgence sans jamais exposer le reste de votre capital.
+                {"Isolez une partie de vos fonds sur une adresse spécifique contenant un montant suffisamment crédible pour satisfaire un agresseur. Ce wallet devient votre bouton d'alarme."}
               </p>
             </div>
           </div>
@@ -39,7 +39,7 @@ export default function Accueil() {
             <div>
               <h3 style={{ fontSize: "16px", color: "#fff", marginBottom: "8px" }}>Paramétrez votre protocole de secours</h3>
               <p style={{ color: "#888", fontSize: "14px", lineHeight: "1.7" }}>
-                Enregistrez simplement l'adresse publique sur WalleRt. Définissez ensuite votre cercle de confiance : les personnes à prévenir, votre message d'urgence et les instructions précises qu'elles devront suivre.
+               {"Enregistrez l'adresse publique de ce portefeuille sur WalleRt. Définissez votre cercle de confiance : proches ou services à prévenir, ainsi que les instructions précises qu'ils recevrons."}
               </p>
             </div>
           </div>
@@ -47,9 +47,9 @@ export default function Accueil() {
           <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "28px", display: "flex", gap: "20px" }}>
             <div style={{ fontSize: "28px", fontWeight: "bold", color: "#00d4aa", minWidth: "40px" }}>3</div>
             <div>
-              <h3 style={{ fontSize: "16px", color: "#fff", marginBottom: "8px" }}>Donnez l'alerte par un simple transfert</h3>
+              <h3 style={{ fontSize: "16px", color: "#fff", marginBottom: "8px" }}>Donnez l'alerte par le transfert</h3>
               <p style={{ color: "#888", fontSize: "14px", lineHeight: "1.7" }}>
-                En cas de menace, effectuez un transfert depuis ce portefeuille. WalleRt détecte le mouvement sur la blockchain et prévient instantanément vos proches en leur transmettant vos instructions.
+                {"En cas d'agression, commencez par transférer les fonds de ce portefeuille. Pour l'agresseur, c'est un butin. Pour WalleRt, c'est le signal qui déclenche instantanément l'alerte à votre cercle de confiance."}
               </p>
             </div>
           </div>
@@ -59,7 +59,7 @@ export default function Accueil() {
       <div style={{ background: "#0d1f1a", border: "1px solid #1a3a2a", borderRadius: "8px", padding: "24px", marginBottom: "40px" }}>
         <h3 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>Sécurité & confidentialité</h3>
         <p style={{ color: "#888", fontSize: "13px", lineHeight: "1.7" }}>
-          WalleRt ne stocke que les adresses publiques de vos wallets — jamais vos clés privées. Vos fonds restent sous votre contrôle exclusif. Les emails de vos contacts sont chiffrés et ne sont jamais partagés avec des tiers.
+          WalleRt ne stocke que les adresses publiques de vos wallets. Les emails de vos contacts sont chiffrés et ne sont jamais partagés avec des tiers.
         </p>
       </div>
     </div>
