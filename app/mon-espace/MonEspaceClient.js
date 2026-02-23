@@ -90,13 +90,13 @@ export default function MonEspaceClient() {
     <div style={{ maxWidth: "700px", margin: "0 auto" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "32px" }}>
         <h1 style={{ fontSize: "24px", fontWeight: "bold" }}>Bonjour {user.pseudonym}</h1>
-        <button onClick={logout} style={{ ...btnStyle, backgroundColor: "#222", border: "1px solid #333", color: "#888" }}>Deconnexion</button>
+        <button onClick={logout} style={{ ...btnStyle, backgroundColor: "#222", border: "1px solid #333", color: "#888" }}>Déconnexion</button>
       </div>
 
       {/* Wallets surveilles */}
       <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "20px", marginBottom: "16px" }}>
-        <h2 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>Wallets surveilles</h2>
-        {data.addresses.length === 0 && <p style={{ color: "#555", fontSize: "13px", marginBottom: "12px" }}>Aucun wallet surveille.</p>}
+        <h2 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>Wallets surveillés</h2>
+        {data.addresses.length === 0 && <p style={{ color: "#555", fontSize: "13px", marginBottom: "12px" }}>Aucun wallet surveillé.</p>}
         {data.addresses.map(function(addr) {
           return (
             <div key={addr.id} style={{ display: "flex", alignItems: "center", gap: "10px", padding: "10px 0", borderBottom: "1px solid #1a1a1a" }}>
@@ -143,7 +143,7 @@ export default function MonEspaceClient() {
 
       {/* Emails d alerte */}
       <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "20px", marginBottom: "16px" }}>
-        <h2 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>Emails d alerte</h2>
+        <h2 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>{"Emails d'alerte"}</h2>
         <div style={{ fontSize: "13px", color: "#ccc", marginBottom: "8px" }}>— {user.email} (principal)</div>
         {data.recipients.map(function(r) {
           return (
@@ -161,10 +161,10 @@ export default function MonEspaceClient() {
 
       {/* Instructions d urgence */}
       <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "20px", marginBottom: "16px" }}>
-        <h2 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>Instructions d urgence</h2>
+        <h2 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>{"Instructions d'urgence"}</h2>
         <textarea rows={4} value={instructions} onChange={function(e) { setInstructions(e.target.value) }}
           style={{ width: "100%", padding: "8px", backgroundColor: "#0a0a0a", border: "1px solid #333", borderRadius: "4px", color: "#e0e0e0", outline: "none", fontSize: "13px", resize: "vertical", boxSizing: "border-box" }}
-          placeholder="Ex: Appeler le 06... Contacter Me Dupont... Ne pas signer de transaction..." />
+          placeholder="Ex: Appeler le 06... Contacter la police... />
         <button onClick={saveInstructions} style={{ ...btnStyle, backgroundColor: "#00d4aa", color: "#000", marginTop: "8px" }}>
           {instructionsSaved ? "Sauvegarde !" : "Sauvegarder"}
         </button>
@@ -178,7 +178,7 @@ export default function MonEspaceClient() {
           </button>
         ) : (
           <div style={{ background: "#1a0000", border: "1px solid #661111", borderRadius: "8px", padding: "16px" }}>
-            <p style={{ color: "#ff8888", marginBottom: "12px" }}>Etes-vous sur ? Cette action est irreversible.</p>
+            <p style={{ color: "#ff8888", marginBottom: "12px" }}>{"Etes-vous sur ? Cette action est irreversible."}</p>
             <div style={{ display: "flex", gap: "8px" }}>
               <button onClick={deleteAccount} style={{ ...btnStyle, backgroundColor: "#ff4444", color: "#fff" }}>Oui, supprimer</button>
               <button onClick={function() { setConfirmDelete(false) }} style={{ ...btnStyle, backgroundColor: "#333", color: "#ccc" }}>Annuler</button>
