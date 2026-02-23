@@ -9,11 +9,11 @@ export default function Accueil() {
           Surveillance de votre portefeuille
         </p>
         <p style={{ color: "#666", fontSize: "16px", marginBottom: "40px" }}>
-          Declenchez une alerte en temps reel en cas de mouvement sortant detecte.
+          Déclenchez une alerte en temps reel en cas de mouvement sortant détecté.
         </p>
         <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
           <a href="/" style={{ padding: "14px 32px", backgroundColor: "#00d4aa", color: "#000", borderRadius: "6px", textDecoration: "none", fontWeight: "bold", fontSize: "16px" }}>
-            Creer un compte
+            Créer un compte
           </a>
           <a href="/login" style={{ padding: "14px 32px", backgroundColor: "transparent", color: "#e0e0e0", border: "1px solid #333", borderRadius: "6px", textDecoration: "none", fontSize: "16px" }}>
             Se connecter
