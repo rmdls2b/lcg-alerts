@@ -6,10 +6,10 @@ export default function Accueil() {
           Walle<span style={{ color: "#00d4aa" }}>R</span>t
         </h1>
         <p style={{ color: "#aaa", fontSize: "22px", marginBottom: "12px" }}>
-          Transformez un wallet en alarme silencieuse
+          Transformez votre wallet en alarme silencieuse
         </p>
         <p style={{ color: "#666", fontSize: "16px", marginBottom: "40px" }}>
-          {"Un transfert de fonds forcé sous la menace permet d'alerter instantanément vos contacts de confiance."}
+          {"Un transfert de fonds réalisé sous la menace alerte instantanément vos contacts de confiance."}
         </p>
         <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
           <a href="/" style={{ padding: "14px 32px", backgroundColor: "#00d4aa", color: "#000", borderRadius: "6px", textDecoration: "none", fontWeight: "bold", fontSize: "16px" }}>
