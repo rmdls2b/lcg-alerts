@@ -1,42 +1,33 @@
 import { PrismaClient } from "@prisma/client"
 import { Resend } from "resend"
 import { NextResponse } from "next/server"
-
 const prisma = new PrismaClient()
 const resend = new Resend(process.env.RESEND_API_KEY)
-
 export async function POST(request) {
   try {
     const payload = await request.json()
     const activities = payload?.event?.activity || []
-
     for (const tx of activities) {
       const fromAddress = (tx.fromAddress || "").toLowerCase()
       const toAddress = (tx.toAddress || "").toLowerCase()
       const value = tx.value || 0
       const asset = tx.asset || "ETH"
       const txHash = tx.hash || ""
-
       const watched = await prisma.watchedAddress.findFirst({
         where: { address: fromAddress, isActive: true },
         include: { user: { include: { recipients: true } } },
       })
-
       if (!watched) continue
-
       await prisma.alert.create({
         data: { addressId: watched.id, txHash, fromAddr: fromAddress, toAddr: toAddress, amount: String(value), asset, chain: watched.chain },
       })
-
       const shortFrom = fromAddress.slice(0, 8) + "..." + fromAddress.slice(-6)
       const shortTo = toAddress.slice(0, 8) + "..." + toAddress.slice(-6)
       const explorerUrl = "https://etherscan.io/tx/" + txHash
       const instructionsHtml = watched.user.instructions
         ? `<div style="background:#1a0000;border-left:3px solid #ff4444;padding:15px;margin:20px 0;border-radius:4px;"><strong style="color:#ff4444;">INSTRUCTIONS D'URGENCE :</strong><br><br>${watched.user.instructions.replace(/\n/g, "<br>")}</div>`
         : ""
-
       const allEmails = [watched.user.email, ...watched.user.recipients.map(r => r.email)]
-
       await resend.emails.send({
         from: "WalleRt <" + (process.env.ALERT_FROM_EMAIL || "onboarding@resend.dev") + ">",
         to: allEmails,
@@ -57,10 +48,26 @@ export async function POST(request) {
           <p style="color:#555;font-size:12px;margin-top:30px;border-top:1px solid #222;padding-top:15px;text-align:center;">WalleRt — Protégez vos cryptos</p>
         </div>`,
       })
+
+      // Envoi Telegram
+      for (const recipient of watched.user.recipients) {
+        if (recipient.telegramChatId) {
+          const telegramText = `🚨 <b>ALERTE WALLERT</b>\n\nMouvement sortant détecté !\n\n💰 Montant : ${value} ${asset}\n📤 De : <code>${shortFrom}</code>\n📥 Vers : <code>${shortTo}</code>\n\n🔗 <a href="${explorerUrl}">Voir sur Etherscan</a>${watched.user.instructions ? "\n\n⚠️ <b>INSTRUCTIONS D'URGENCE :</b>\n" + watched.user.instructions : ""}`
+          await sendTelegramMessage(recipient.telegramChatId, telegramText)
+        }
+      }
     }
     return NextResponse.json({ status: "ok" })
   } catch (error) {
     console.error("Webhook error:", error)
     return NextResponse.json({ status: "ok" })
   }
+}
+
+async function sendTelegramMessage(chatId, text) {
+  await fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ chat_id: chatId, text, parse_mode: "HTML" }),
+  })
 }
