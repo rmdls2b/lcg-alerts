@@ -133,7 +133,7 @@ export default function MonEspaceClient() {
   return (
     <div style={{ maxWidth: "700px", margin: "0 auto" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "32px" }}>
-        <h1 style={{ fontSize: "18px", fontWeight: "bold" }}>Gestion des alertes</h1>
+        <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "#888" }}>Gestion des alertes</h1>
         <button onClick={logout} style={{ ...btnStyle, backgroundColor: "#222", border: "1px solid #333", color: "#888" }}>Déconnexion</button>
       </div>
 
@@ -268,15 +268,6 @@ export default function MonEspaceClient() {
         )}
       </div>
 
-      {/* Tester l alerte */}
-      <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "20px", marginBottom: "16px" }}>
-        <h2 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>Tester mon alerte</h2>
-        <p style={{ color: "#888", fontSize: "13px", marginBottom: "12px" }}>{"Envoyez une fausse alerte pour vérifier que vos contacts reçoivent bien les notifications."}</p>
-        <button onClick={async function() { await fetch("/api/test-alert", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userId: user.userId }) }); alert("Alerte test envoyée !") }} style={{ ...btnStyle, backgroundColor: "#332200", border: "1px solid #665500", color: "#ffaa00" }}>
-          Envoyer une alerte test
-        </button>
-      </div>
-
       {/* Instructions d urgence */}
       <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "20px", marginBottom: "16px" }}>
         <h2 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>{"Instructions d'urgence"}</h2>
@@ -285,6 +276,15 @@ export default function MonEspaceClient() {
           placeholder="Ex: Appeler le 06... Contacter la police..."/>
         <button onClick={saveInstructions} style={{ ...btnStyle, backgroundColor: "#00d4aa", color: "#000", marginTop: "8px" }}>
           {instructionsSaved ? "Sauvegarde !" : "Sauvegarder"}
+        </button>
+      </div>
+
+      {/* Tester l alerte */}
+      <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "20px", marginBottom: "16px" }}>
+        <h2 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>Tester mon alerte</h2>
+        <p style={{ color: "#888", fontSize: "13px", marginBottom: "12px" }}>{"Envoyez une fausse alerte pour vérifier que vos contacts reçoivent bien les notifications."}</p>
+        <button onClick={async function() { await fetch("/api/test-alert", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userId: user.userId }) }); alert("Alerte test envoyée !") }} style={{ ...btnStyle, backgroundColor: "#332200", border: "1px solid #665500", color: "#ffaa00" }}>
+          Envoyer une alerte test
         </button>
       </div>
 
