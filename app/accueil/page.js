@@ -2,9 +2,11 @@ export default function Accueil() {
   return (
     <div style={{ maxWidth: "700px", margin: "0 auto", padding: "60px 20px" }}>
       <div style={{ textAlign: "center", marginBottom: "80px" }}>
+        <h1 style={{ fontSize: "30px", fontWeight: "bold", marginBottom: "8px", letterSpacing: "-2px" }}>
+          Walle<span style={{ color: "#00d4aa" }}>R</span>t
         </h1>
         <p style={{ color: "#fff", fontSize: "22px", fontWeight: "bold", marginBottom: "12px" }}>
-          Alertez instantanément vos contacts en cas de transfert sous la contrainte
+          Alerte instantannée de vos contacts en cas de transfert crypto sous la contrainte
         </p>
         <p style={{ color: "#aaa", fontSize: "16px", marginBottom: "40px" }}>
           {"WalleRt transforme votre wallet en alarme silencieuse, active 24h/24"}
