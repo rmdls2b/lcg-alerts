@@ -6,7 +6,7 @@ export default function Accueil() {
           Walle<span style={{ color: "#00d4aa" }}>R</span>t
         </h1>
         <p style={{ color: "#aaa", fontSize: "22px", marginBottom: "12px" }}>
-          Votre portefeuille crypto devient une alarme silencieuse
+          Votre wallet devient une alarme silencieuse
         </p>
         <p style={{ color: "#666", fontSize: "16px", marginBottom: "40px" }}>
           {"Alertez instantanément vos proches en cas de mouvement forcé de vos fonds."}
