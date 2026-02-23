@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 
 const inputStyle = { flex: 1, padding: "6px 10px", backgroundColor: "#0a0a0a", border: "1px solid #333", borderRadius: "4px", color: "#e0e0e0", outline: "none", fontSize: "13px" }
 const btnStyle = { padding: "6px 14px", borderRadius: "4px", border: "none", cursor: "pointer", fontSize: "13px", fontWeight: "bold" }
+const BOT_USERNAME = "walleRt_guard_bot"
 
 export default function MonEspaceClient() {
   const [user, setUser] = useState(null)
@@ -83,6 +84,11 @@ export default function MonEspaceClient() {
     window.location.href = "/login"
   }
 
+  function copyTelegramLink(recipientId) {
+    const link = "https://t.me/" + BOT_USERNAME + "?start=" + recipientId
+    navigator.clipboard.writeText(link)
+  }
+
   if (loading) return <p style={{ textAlign: "center", marginTop: "40px" }}>Chargement...</p>
   if (!user || !data) return null
 
@@ -141,15 +147,26 @@ export default function MonEspaceClient() {
         )}
       </div>
 
-      {/* Emails d alerte */}
+      {/* Contacts d alerte */}
       <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "20px", marginBottom: "16px" }}>
-        <h2 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>{"Emails d'alerte"}</h2>
+        <h2 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>{"Contacts d'alerte"}</h2>
         <div style={{ fontSize: "13px", color: "#ccc", marginBottom: "8px" }}>— {user.email} (principal)</div>
         {data.recipients.map(function(r) {
           return (
-            <div key={r.id} style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
-              <span style={{ fontSize: "13px", color: "#ccc" }}>— {r.email}</span>
-              <button onClick={function() { removeRecipient(r.id) }} style={{ ...btnStyle, backgroundColor: "#331111", color: "#ff6666", padding: "2px 8px", fontSize: "11px" }}>supprimer</button>
+            <div key={r.id} style={{ padding: "8px 0", borderBottom: "1px solid #1a1a1a" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
+                <span style={{ fontSize: "13px", color: "#ccc" }}>— {r.email}</span>
+                <button onClick={function() { removeRecipient(r.id) }} style={{ ...btnStyle, backgroundColor: "#331111", color: "#ff6666", padding: "2px 8px", fontSize: "11px" }}>supprimer</button>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: "6px", marginLeft: "14px" }}>
+                {r.telegramChatId ? (
+                  <span style={{ fontSize: "11px", color: "#00d4aa" }}>✓ Telegram activé</span>
+                ) : (
+                  <button onClick={function() { copyTelegramLink(r.id) }} style={{ ...btnStyle, backgroundColor: "#0088cc22", border: "1px solid #0088cc44", color: "#0088cc", padding: "2px 8px", fontSize: "11px" }}>
+                    Copier le lien Telegram
+                  </button>
+                )}
+              </div>
             </div>
           )
         })}
