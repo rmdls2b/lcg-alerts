@@ -6,10 +6,10 @@ export default function Accueil() {
           Walle<span style={{ color: "#00d4aa" }}>R</span>t
         </h1>
         <p style={{ color: "#fff", fontSize: "22px", fontWeight: "bold", marginBottom: "12px" }}>
-          Alerte instantannée de vos contacts en cas de transfert crypto sous la contrainte
+          Alertez vos contacts en cas de transfert crypto sous la contrainte
         </p>
         <p style={{ color: "#aaa", fontSize: "16px", marginBottom: "40px" }}>
-          {"WalleRt transforme votre wallet en alarme silencieuse, active 24h/24"}
+          {"WalleRt transforme votre wallet en alarme silencieuse, instantanée et active 24h/24"}
         </p>
         <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
           <a href="/" style={{ padding: "8px 16px", fontSize: "14px", backgroundColor: "#00d4aa", color: "#000", borderRadius: "6px", textDecoration: "none", fontWeight: "bold", fontSize: "16px" }}>
