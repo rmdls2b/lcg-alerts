@@ -9,7 +9,7 @@ export default function Accueil() {
           Transformez votre wallet en alarme silencieuse
         </p>
         <p style={{ color: "#666", fontSize: "16px", marginBottom: "40px" }}>
-          {"Un transfert de fonds réalisé sous la menace alerte instantanément vos contacts de confiance."}
+          {"Alerte instantanée de vos contacts de confiance en cas de transfert sous la contrainte."}
         </p>
         <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
           <a href="/" style={{ padding: "14px 32px", backgroundColor: "#00d4aa", color: "#000", borderRadius: "6px", textDecoration: "none", fontWeight: "bold", fontSize: "16px" }}>
