@@ -9,7 +9,7 @@ export default function Accueil() {
           Surveillance de votre portefeuille
         </p>
         <p style={{ color: "#666", fontSize: "16px", marginBottom: "40px" }}>
-          Déclenchez une alerte en temps reel en cas de mouvement sortant détecté.
+          {"Transformez votre wallet en système d'alerte instantané."}
         </p>
         <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
           <a href="/" style={{ padding: "14px 32px", backgroundColor: "#00d4aa", color: "#000", borderRadius: "6px", textDecoration: "none", fontWeight: "bold", fontSize: "16px" }}>
