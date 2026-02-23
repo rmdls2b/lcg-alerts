@@ -164,7 +164,7 @@ export default function MonEspaceClient() {
         <h2 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>{"Instructions d'urgence"}</h2>
         <textarea rows={4} value={instructions} onChange={function(e) { setInstructions(e.target.value) }}
           style={{ width: "100%", padding: "8px", backgroundColor: "#0a0a0a", border: "1px solid #333", borderRadius: "4px", color: "#e0e0e0", outline: "none", fontSize: "13px", resize: "vertical", boxSizing: "border-box" }}
-          placeholder="Ex: Appeler le 06... Contacter la police... />
+          placeholder="Ex: Appeler le 06... Contacter la police..."/>
         <button onClick={saveInstructions} style={{ ...btnStyle, backgroundColor: "#00d4aa", color: "#000", marginTop: "8px" }}>
           {instructionsSaved ? "Sauvegarde !" : "Sauvegarder"}
         </button>
