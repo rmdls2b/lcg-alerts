@@ -9,7 +9,6 @@ export default function MonEspaceClient() {
   const [user, setUser] = useState(null)
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
-  const [newEmail, setNewEmail] = useState("")
   const [instructions, setInstructions] = useState("")
   const [instructionsSaved, setInstructionsSaved] = useState(false)
   const [confirmDelete, setConfirmDelete] = useState(false)
@@ -18,6 +17,11 @@ export default function MonEspaceClient() {
   const [showAddAddress, setShowAddAddress] = useState(false)
   const [newAddr, setNewAddr] = useState({ address: "", label: "" })
   const [addingAddr, setAddingAddr] = useState(false)
+  const [showAddEmail, setShowAddEmail] = useState(false)
+  const [newEmail, setNewEmail] = useState("")
+  const [newEmailLabel, setNewEmailLabel] = useState("")
+  const [showAddTelegram, setShowAddTelegram] = useState(false)
+  const [newTelegramLabel, setNewTelegramLabel] = useState("")
   const [copied, setCopied] = useState(null)
 
   useEffect(function() {
@@ -46,13 +50,15 @@ export default function MonEspaceClient() {
 
   async function addEmailChannel() {
     if (!newEmail) return
-    await fetch("/api/channels", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userId: user.userId, type: "email", value: newEmail }) })
+    await fetch("/api/channels", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userId: user.userId, type: "email", value: newEmail, label: newEmailLabel }) })
     setNewEmail("")
+    setNewEmailLabel("")
+    setShowAddEmail(false)
     loadData(user.userId)
   }
 
   async function addTelegramChannel() {
-    const res = await fetch("/api/channels", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userId: user.userId, type: "telegram", value: "" }) })
+    const res = await fetch("/api/channels", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userId: user.userId, type: "telegram", value: "", label: newTelegramLabel }) })
     if (res.ok) {
       const json = await res.json()
       const link = "https://t.me/" + BOT_USERNAME + "?start=" + json.channel.id
@@ -60,6 +66,8 @@ export default function MonEspaceClient() {
       setCopied(json.channel.id)
       setTimeout(function() { setCopied(null) }, 3000)
     }
+    setNewTelegramLabel("")
+    setShowAddTelegram(false)
     loadData(user.userId)
   }
 
@@ -185,7 +193,7 @@ export default function MonEspaceClient() {
               <span style={{ fontSize: "14px" }}>{icon}</span>
               <span style={{ fontSize: "13px", color: ch.isActive ? "#ccc" : "#666", flex: 1 }}>
                 {displayValue}
-                {ch.label && <span style={{ color: "#555", marginLeft: "6px" }}>({ch.label})</span>}
+                {ch.label && <span style={{ color: "#888", marginLeft: "6px" }}>— {ch.label}</span>}
               </span>
               {ch.type === "telegram" && !ch.value && (
                 <button onClick={function() { copyTelegramLink(ch.id) }} style={{ ...btnStyle, backgroundColor: "#0088cc22", border: "1px solid #0088cc44", color: "#0088cc", padding: "2px 8px", fontSize: "11px" }}>
@@ -206,15 +214,39 @@ export default function MonEspaceClient() {
             </div>
           )
         })}
-        <div style={{ display: "flex", gap: "8px", marginTop: "12px", flexWrap: "wrap" }}>
-          <div style={{ display: "flex", gap: "8px", flex: 1 }}>
-            <input type="email" placeholder="Ajouter un email..." value={newEmail} onChange={function(e) { setNewEmail(e.target.value) }} style={inputStyle} />
-            <button onClick={addEmailChannel} style={{ ...btnStyle, backgroundColor: "#00d4aa", color: "#000" }}>Ajouter</button>
+
+        {/* Ajout email */}
+        {showAddEmail ? (
+          <div style={{ marginTop: "12px", paddingTop: "12px", borderTop: "1px solid #222" }}>
+            <div style={{ display: "flex", gap: "8px", marginBottom: "8px" }}>
+              <input type="email" required placeholder="Email..." value={newEmail} onChange={function(e) { setNewEmail(e.target.value) }} style={inputStyle} />
+              <input type="text" placeholder="Label (optionnel)" value={newEmailLabel} onChange={function(e) { setNewEmailLabel(e.target.value) }} style={{ ...inputStyle, maxWidth: "160px" }} />
+            </div>
+            <div style={{ display: "flex", gap: "8px" }}>
+              <button onClick={addEmailChannel} style={{ ...btnStyle, backgroundColor: "#00d4aa", color: "#000" }}>Ajouter</button>
+              <button onClick={function() { setShowAddEmail(false); setNewEmail(""); setNewEmailLabel("") }} style={{ ...btnStyle, backgroundColor: "#333", color: "#ccc" }}>Annuler</button>
+            </div>
           </div>
-          <button onClick={addTelegramChannel} style={{ ...btnStyle, backgroundColor: "#0088cc22", border: "1px solid #0088cc44", color: "#0088cc" }}>
-            + Telegram
-          </button>
-        </div>
+        ) : showAddTelegram ? (
+          <div style={{ marginTop: "12px", paddingTop: "12px", borderTop: "1px solid #222" }}>
+            <div style={{ marginBottom: "8px" }}>
+              <input type="text" placeholder="Label (ex: frère, avocat, groupe famille...)" value={newTelegramLabel} onChange={function(e) { setNewTelegramLabel(e.target.value) }} style={{ ...inputStyle, width: "100%", boxSizing: "border-box" }} />
+            </div>
+            <div style={{ display: "flex", gap: "8px" }}>
+              <button onClick={addTelegramChannel} style={{ ...btnStyle, backgroundColor: "#0088cc", color: "#fff" }}>Créer et copier le lien</button>
+              <button onClick={function() { setShowAddTelegram(false); setNewTelegramLabel("") }} style={{ ...btnStyle, backgroundColor: "#333", color: "#ccc" }}>Annuler</button>
+            </div>
+          </div>
+        ) : (
+          <div style={{ display: "flex", gap: "8px", marginTop: "12px" }}>
+            <button onClick={function() { setShowAddEmail(true) }} style={{ ...btnStyle, backgroundColor: "transparent", border: "1px solid #00d4aa", color: "#00d4aa" }}>
+              + Email
+            </button>
+            <button onClick={function() { setShowAddTelegram(true) }} style={{ ...btnStyle, backgroundColor: "transparent", border: "1px solid #0088cc", color: "#0088cc" }}>
+              + Telegram
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Tester l alerte */}

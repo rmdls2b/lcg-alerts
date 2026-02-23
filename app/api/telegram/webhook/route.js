@@ -7,6 +7,21 @@ export async function POST(request) {
   try {
     const payload = await request.json()
     const message = payload?.message
+    const myChatMember = payload?.my_chat_member
+
+    // Detection ajout du bot a un groupe
+    if (myChatMember) {
+      const chat = myChatMember.chat
+      const newStatus = myChatMember.new_chat_member?.status
+      if ((chat.type === "group" || chat.type === "supergroup") && (newStatus === "member" || newStatus === "administrator")) {
+        const chatId = String(chat.id)
+        const groupName = chat.title || "Groupe"
+        // Chercher un canal telegram en attente (value vide) pour cet utilisateur
+        // On ne peut pas savoir quel user a ajouté le bot, donc on envoie un message dans le groupe
+        await sendTelegramMessage(chatId, "✅ WalleRt Bot ajouté au groupe !\n\nPour lier ce groupe à votre compte, copiez cet identifiant et collez-le dans votre dashboard :\n\n<code>" + chatId + "</code>")
+        return NextResponse.json({ status: "ok" })
+      }
+    }
 
     if (!message) return NextResponse.json({ status: "ok" })
 
