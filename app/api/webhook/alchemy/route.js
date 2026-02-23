@@ -15,7 +15,7 @@ export async function POST(request) {
       const txHash = tx.hash || ""
       const watched = await prisma.watchedAddress.findFirst({
         where: { address: fromAddress, isActive: true },
-        include: { user: { include: { recipients: true } } },
+        include: { user: { include: { channels: true } } },
       })
       if (!watched) continue
       await prisma.alert.create({
@@ -27,10 +27,12 @@ export async function POST(request) {
       const instructionsHtml = watched.user.instructions
         ? `<div style="background:#1a0000;border-left:3px solid #ff4444;padding:15px;margin:20px 0;border-radius:4px;"><strong style="color:#ff4444;">INSTRUCTIONS D'URGENCE :</strong><br><br>${watched.user.instructions.replace(/\n/g, "<br>")}</div>`
         : ""
-      const allEmails = [watched.user.email, ...watched.user.recipients.map(r => r.email)]
+
+      // Envoi emails
+      const emails = [watched.user.email, ...watched.user.channels.filter(c => c.type === "email" && c.isActive).map(c => c.value)]
       await resend.emails.send({
         from: "WalleRt <" + (process.env.ALERT_FROM_EMAIL || "onboarding@resend.dev") + ">",
-        to: allEmails,
+        to: emails,
         subject: `WalleRt — Signal d'urgence activé : action immédiate requise`,
         html: `<div style="font-family:Arial;max-width:600px;margin:0 auto;background:#0a0a0a;color:#e0e0e0;border:1px solid #ff4444;border-radius:12px;padding:40px;">
           <h1 style="color:#ff4444;text-align:center;font-size:28px;">ALERTE TRANSACTION</h1>
@@ -50,10 +52,10 @@ export async function POST(request) {
       })
 
       // Envoi Telegram
-      for (const recipient of watched.user.recipients) {
-        if (recipient.telegramChatId && recipient.telegramActive) {
+      for (const channel of watched.user.channels) {
+        if (channel.type === "telegram" && channel.isActive && channel.value) {
           const telegramText = `🚨 <b>ALERTE WALLERT</b>\n\nMouvement sortant détecté !\n\n💰 Montant : ${value} ${asset}\n📤 De : <code>${shortFrom}</code>\n📥 Vers : <code>${shortTo}</code>\n\n🔗 <a href="${explorerUrl}">Voir sur Etherscan</a>${watched.user.instructions ? "\n\n⚠️ <b>INSTRUCTIONS D'URGENCE :</b>\n" + watched.user.instructions : ""}`
-          await sendTelegramMessage(recipient.telegramChatId, telegramText)
+          await sendTelegramMessage(channel.value, telegramText)
         }
       }
     }

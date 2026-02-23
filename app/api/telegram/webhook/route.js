@@ -13,19 +13,18 @@ export async function POST(request) {
     const chatId = String(message.chat.id)
     const text = message.text || ""
 
-    // Quand le contact clique le lien et fait Start
     if (text.startsWith("/start")) {
-      const recipientId = text.replace("/start ", "").trim()
+      const channelId = text.replace("/start ", "").trim()
 
-      if (recipientId && recipientId !== "/start") {
-        const recipient = await prisma.alertRecipient.findUnique({
-          where: { id: recipientId },
+      if (channelId && channelId !== "/start") {
+        const channel = await prisma.alertChannel.findUnique({
+          where: { id: channelId },
         })
 
-        if (recipient) {
-          await prisma.alertRecipient.update({
-            where: { id: recipientId },
-            data: { telegramChatId: chatId, telegramActive: true },
+        if (channel && channel.type === "telegram") {
+          await prisma.alertChannel.update({
+            where: { id: channelId },
+            data: { value: chatId, isActive: true },
           })
 
           await sendTelegramMessage(chatId, "✅ Alertes WalleRt activées !\n\nVous recevrez une notification ici en cas de mouvement détecté sur une adresse surveillée.")

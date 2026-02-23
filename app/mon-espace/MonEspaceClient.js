@@ -14,9 +14,11 @@ export default function MonEspaceClient() {
   const [instructionsSaved, setInstructionsSaved] = useState(false)
   const [confirmDelete, setConfirmDelete] = useState(false)
   const [confirmDeleteAddr, setConfirmDeleteAddr] = useState(null)
+  const [confirmDeleteChannel, setConfirmDeleteChannel] = useState(null)
   const [showAddAddress, setShowAddAddress] = useState(false)
   const [newAddr, setNewAddr] = useState({ address: "", label: "" })
   const [addingAddr, setAddingAddr] = useState(false)
+  const [copied, setCopied] = useState(null)
 
   useEffect(function() {
     const stored = localStorage.getItem("lcg_user")
@@ -42,20 +44,33 @@ export default function MonEspaceClient() {
     setTimeout(function() { setInstructionsSaved(false) }, 2000)
   }
 
-  async function addRecipient() {
+  async function addEmailChannel() {
     if (!newEmail) return
-    await fetch("/api/recipients", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userId: user.userId, email: newEmail }) })
+    await fetch("/api/channels", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userId: user.userId, type: "email", value: newEmail }) })
     setNewEmail("")
     loadData(user.userId)
   }
 
-  async function removeRecipient(id) {
-    await fetch("/api/recipients?id=" + id, { method: "DELETE" })
+  async function addTelegramChannel() {
+    const res = await fetch("/api/channels", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userId: user.userId, type: "telegram", value: "" }) })
+    if (res.ok) {
+      const json = await res.json()
+      const link = "https://t.me/" + BOT_USERNAME + "?start=" + json.channel.id
+      navigator.clipboard.writeText(link)
+      setCopied(json.channel.id)
+      setTimeout(function() { setCopied(null) }, 3000)
+    }
     loadData(user.userId)
   }
 
-  async function toggleTelegram(id, active) {
-    await fetch("/api/recipients", { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id, telegramActive: active }) })
+  async function toggleChannel(id, active) {
+    await fetch("/api/channels", { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id, isActive: active }) })
+    loadData(user.userId)
+  }
+
+  async function removeChannel(id) {
+    await fetch("/api/channels?id=" + id, { method: "DELETE" })
+    setConfirmDeleteChannel(null)
     loadData(user.userId)
   }
 
@@ -89,9 +104,11 @@ export default function MonEspaceClient() {
     window.location.href = "/login"
   }
 
-  function copyTelegramLink(recipientId) {
-    const link = "https://t.me/" + BOT_USERNAME + "?start=" + recipientId
+  function copyTelegramLink(channelId) {
+    const link = "https://t.me/" + BOT_USERNAME + "?start=" + channelId
     navigator.clipboard.writeText(link)
+    setCopied(channelId)
+    setTimeout(function() { setCopied(null) }, 3000)
   }
 
   if (loading) return <p style={{ textAlign: "center", marginTop: "40px" }}>Chargement...</p>
@@ -152,44 +169,58 @@ export default function MonEspaceClient() {
         )}
       </div>
 
-      {/* Contacts d alerte */}
+      {/* Canaux d alerte */}
       <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "20px", marginBottom: "16px" }}>
-        <h2 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>{"Contacts d'alerte"}</h2>
-        <div style={{ fontSize: "13px", color: "#ccc", marginBottom: "8px" }}>— {user.email} (principal)</div>
-        {data.recipients.map(function(r) {
+        <h2 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>{"Canaux d'alerte"}</h2>
+        <div style={{ padding: "8px 0", borderBottom: "1px solid #1a1a1a", display: "flex", alignItems: "center", gap: "8px" }}>
+          <span style={{ fontSize: "14px" }}>📧</span>
+          <span style={{ fontSize: "13px", color: "#ccc", flex: 1 }}>{user.email} (principal)</span>
+          <span style={{ fontSize: "11px", color: "#00d4aa" }}>● Toujours actif</span>
+        </div>
+        {data.channels.map(function(ch) {
+          const icon = ch.type === "email" ? "📧" : "💬"
+          const displayValue = ch.type === "email" ? ch.value : (ch.value ? "Telegram" : "Telegram (en attente)")
           return (
-            <div key={r.id} style={{ padding: "8px 0", borderBottom: "1px solid #1a1a1a" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
-                <span style={{ fontSize: "13px", color: "#ccc" }}>— {r.email}</span>
-                <button onClick={function() { removeRecipient(r.id) }} style={{ ...btnStyle, backgroundColor: "#331111", color: "#ff6666", padding: "2px 8px", fontSize: "11px" }}>supprimer</button>
-              </div>
-              <div style={{ display: "flex", alignItems: "center", gap: "6px", marginLeft: "14px" }}>
-                {r.telegramChatId ? (
-                  <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                    <span style={{ fontSize: "11px", color: r.telegramActive ? "#00d4aa" : "#666" }}>{r.telegramActive ? "✓ Telegram activé" : "○ Telegram désactivé"}</span>
-                    <button onClick={function() { toggleTelegram(r.id, !r.telegramActive) }} style={{ ...btnStyle, backgroundColor: r.telegramActive ? "#1a1a00" : "#001a0a", border: "1px solid " + (r.telegramActive ? "#444400" : "#004422"), color: r.telegramActive ? "#aaaa00" : "#00aa44", padding: "2px 8px", fontSize: "11px" }}>
-                      {r.telegramActive ? "Désactiver" : "Activer"}
-                    </button>
-                  </div>
-                ) : (
-                  <button onClick={function() { copyTelegramLink(r.id) }} style={{ ...btnStyle, backgroundColor: "#0088cc22", border: "1px solid #0088cc44", color: "#0088cc", padding: "2px 8px", fontSize: "11px" }}>
-                    Copier le lien Telegram
-                  </button>
-                )}
-              </div>
+            <div key={ch.id} style={{ padding: "8px 0", borderBottom: "1px solid #1a1a1a", display: "flex", alignItems: "center", gap: "8px" }}>
+              <span style={{ fontSize: "14px" }}>{icon}</span>
+              <span style={{ fontSize: "13px", color: ch.isActive ? "#ccc" : "#666", flex: 1 }}>
+                {displayValue}
+                {ch.label && <span style={{ color: "#555", marginLeft: "6px" }}>({ch.label})</span>}
+              </span>
+              {ch.type === "telegram" && !ch.value && (
+                <button onClick={function() { copyTelegramLink(ch.id) }} style={{ ...btnStyle, backgroundColor: "#0088cc22", border: "1px solid #0088cc44", color: "#0088cc", padding: "2px 8px", fontSize: "11px" }}>
+                  {copied === ch.id ? "Lien copié !" : "Copier le lien"}
+                </button>
+              )}
+              <button onClick={function() { toggleChannel(ch.id, !ch.isActive) }} style={{ ...btnStyle, backgroundColor: ch.isActive ? "#1a1a00" : "#001a0a", border: "1px solid " + (ch.isActive ? "#444400" : "#004422"), color: ch.isActive ? "#aaaa00" : "#00aa44", padding: "2px 8px", fontSize: "11px" }}>
+                {ch.isActive ? "Désactiver" : "Activer"}
+              </button>
+              {confirmDeleteChannel === ch.id ? (
+                <div style={{ display: "flex", gap: "4px" }}>
+                  <button onClick={function() { removeChannel(ch.id) }} style={{ ...btnStyle, backgroundColor: "#ff4444", color: "#fff", fontSize: "11px" }}>Confirmer</button>
+                  <button onClick={function() { setConfirmDeleteChannel(null) }} style={{ ...btnStyle, backgroundColor: "#333", color: "#ccc", fontSize: "11px" }}>Annuler</button>
+                </div>
+              ) : (
+                <button onClick={function() { setConfirmDeleteChannel(ch.id) }} style={{ ...btnStyle, backgroundColor: "#1a0000", border: "1px solid #440000", color: "#ff4444", padding: "2px 8px", fontSize: "11px" }}>Supprimer</button>
+              )}
             </div>
           )
         })}
-        <div style={{ display: "flex", gap: "8px", marginTop: "12px" }}>
-          <input type="email" placeholder="Ajouter un email..." value={newEmail} onChange={function(e) { setNewEmail(e.target.value) }} style={inputStyle} />
-          <button onClick={addRecipient} style={{ ...btnStyle, backgroundColor: "#00d4aa", color: "#000" }}>Ajouter</button>
+        <div style={{ display: "flex", gap: "8px", marginTop: "12px", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: "8px", flex: 1 }}>
+            <input type="email" placeholder="Ajouter un email..." value={newEmail} onChange={function(e) { setNewEmail(e.target.value) }} style={inputStyle} />
+            <button onClick={addEmailChannel} style={{ ...btnStyle, backgroundColor: "#00d4aa", color: "#000" }}>Ajouter</button>
+          </div>
+          <button onClick={addTelegramChannel} style={{ ...btnStyle, backgroundColor: "#0088cc22", border: "1px solid #0088cc44", color: "#0088cc" }}>
+            + Telegram
+          </button>
         </div>
       </div>
 
       {/* Tester l alerte */}
       <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "20px", marginBottom: "16px" }}>
         <h2 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>Tester mon alerte</h2>
-        <p style={{ color: "#888", fontSize: "13px", marginBottom: "12px" }}>{"Envoyez une fausse alerte pour vérifier que vos contacts reçoivent bien les notifications (email + Telegram)."}</p>
+        <p style={{ color: "#888", fontSize: "13px", marginBottom: "12px" }}>{"Envoyez une fausse alerte pour vérifier que vos contacts reçoivent bien les notifications."}</p>
         <button onClick={async function() { await fetch("/api/test-alert", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userId: user.userId }) }); alert("Alerte test envoyée !") }} style={{ ...btnStyle, backgroundColor: "#332200", border: "1px solid #665500", color: "#ffaa00" }}>
           Envoyer une alerte test
         </button>

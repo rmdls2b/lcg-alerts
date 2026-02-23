@@ -15,7 +15,7 @@ model User {
   instructions   String          @default("")
   createdAt      DateTime        @default(now())
   addresses      WatchedAddress[]
-  recipients     AlertRecipient[]
+  channels       AlertChannel[]
   passwordResets PasswordReset[]
 }
 
@@ -40,12 +40,13 @@ model WatchedAddress {
   alerts    Alert[]
 }
 
-model AlertRecipient {
+model AlertChannel {
   id        String   @id @default(cuid())
   userId    String
-  email     String
-  telegramChatId  String?
-  telegramActive  Boolean  @default(false)
+  type      String
+  value     String
+  isActive  Boolean  @default(true)
+  label     String   @default("")
   createdAt DateTime @default(now())
   user      User     @relation(fields: [userId], references: [id])
 }

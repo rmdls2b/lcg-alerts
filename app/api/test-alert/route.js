@@ -12,7 +12,7 @@ export async function POST(request) {
 
     const user = await prisma.user.findUnique({
       where: { id: userId },
-      include: { recipients: true },
+      include: { channels: true },
     })
     if (!user) return NextResponse.json({ error: "User not found" }, { status: 404 })
 
@@ -20,17 +20,16 @@ export async function POST(request) {
     const shortTo = "0xaa11bb...cc22dd"
     const value = "0.42"
     const asset = "ETH"
-    const explorerUrl = "https://etherscan.io"
 
     const instructionsHtml = user.instructions
       ? `<div style="background:#1a0000;border-left:3px solid #ff4444;padding:15px;margin:20px 0;border-radius:4px;"><strong style="color:#ff4444;">INSTRUCTIONS D'URGENCE :</strong><br><br>${user.instructions.replace(/\n/g, "<br>")}</div>`
       : ""
 
-    const allEmails = [user.email, ...user.recipients.map(r => r.email)]
+    const emails = [user.email, ...user.channels.filter(c => c.type === "email" && c.isActive).map(c => c.value)]
 
     await resend.emails.send({
       from: "WalleRt <" + (process.env.ALERT_FROM_EMAIL || "onboarding@resend.dev") + ">",
-      to: allEmails,
+      to: emails,
       subject: `[TEST] WalleRt — Signal d'urgence activé : action immédiate requise`,
       html: `<div style="font-family:Arial;max-width:600px;margin:0 auto;background:#0a0a0a;color:#e0e0e0;border:1px solid #ff4444;border-radius:12px;padding:40px;">
         <div style="background:#332200;border:1px solid #665500;border-radius:6px;padding:10px;margin-bottom:20px;text-align:center;">
@@ -50,10 +49,10 @@ export async function POST(request) {
     })
 
     // Envoi Telegram
-    for (const recipient of user.recipients) {
-      if (recipient.telegramChatId && recipient.telegramActive) {
+    for (const channel of user.channels) {
+      if (channel.type === "telegram" && channel.isActive && channel.value) {
         const telegramText = `⚠️ <b>[TEST] ALERTE WALLERT</b>\n\nCeci est un test — pas une vraie alerte.\n\n💰 Montant : ${value} ${asset}\n📤 De : <code>${shortFrom}</code>\n📥 Vers : <code>${shortTo}</code>${user.instructions ? "\n\n⚠️ <b>INSTRUCTIONS D'URGENCE :</b>\n" + user.instructions : ""}`
-        await sendTelegramMessage(recipient.telegramChatId, telegramText)
+        await sendTelegramMessage(channel.value, telegramText)
       }
     }
 
