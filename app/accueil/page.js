@@ -5,10 +5,10 @@ export default function Accueil() {
         <h1 style={{ fontSize: "64px", fontWeight: "bold", marginBottom: "8px", letterSpacing: "-2px" }}>
           Walle<span style={{ color: "#00d4aa" }}>R</span>t
         </h1>
-        <p style={{ color: "#aaa", fontSize: "22px", marginBottom: "12px" }}>
+        <p style={{ color: "#aaa", fontSize: "22px", fontWeight: "bold", marginBottom: "12px" }}>
           Transformez votre wallet en alarme silencieuse
         </p>
-        <p style={{ color: "#fff", fontSize: "16px", fontWeight: "bold", marginBottom: "40px" }}>
+        <p style={{ color: "#fff", fontSize: "16px", marginBottom: "40px" }}>
           {"Alerte instantanée de vos contacts de confiance en cas de transfert sous la contrainte."}
         </p>
         <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
