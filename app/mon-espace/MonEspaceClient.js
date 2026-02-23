@@ -133,7 +133,7 @@ export default function MonEspaceClient() {
   return (
     <div style={{ maxWidth: "700px", margin: "0 auto" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "32px" }}>
-        <h1 style={{ fontSize: "24px", fontWeight: "bold" }}>Bonjour {user.pseudonym}</h1>
+        <h1 style={{ fontSize: "18px", fontWeight: "bold" }}>Gestion des alertes</h1>
         <button onClick={logout} style={{ ...btnStyle, backgroundColor: "#222", border: "1px solid #333", color: "#888" }}>Déconnexion</button>
       </div>
 
