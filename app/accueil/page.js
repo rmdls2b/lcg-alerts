@@ -20,20 +20,47 @@ export default function Accueil() {
           </a>
         </div>
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "16px" }}>
-        {[
-          { title: "Surveillance multi-wallets", desc: "Surveillez vos adresses stratégiques depuis un tableau de bord unique, sans jamais compromettre vos clés privées." },
-          { title: "Alertes instantanées", desc: "Dès qu'un mouvement est initié, l'alerte est lancée. Chaque seconde compte pour garantir votre sécurité." },
-          { title: "Contacts d'urgence", desc: "Définissez les personnes à prévenir en priorité pour qu'elles puissent agir immédiatement en votre nom" },
-          { title: "Instructions de secours", desc: "Renseignez les consignes exactes à transmettre : procédure de sécurité, numéros à contacter, etc." },
-        ].map(function(item) {
-          return (
-            <div key={item.title} style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "24px" }}>
-              <h3 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "8px" }}>{item.title}</h3>
-              <p style={{ color: "#888", fontSize: "13px", lineHeight: "1.6" }}>{item.desc}</p>
+          <div style={{ marginBottom: "80px" }}>
+        <h2 style={{ fontSize: "20px", color: "#fff", marginBottom: "32px", textAlign: "center" }}>Comment ça fonctionne</h2>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+          <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "28px", display: "flex", gap: "20px" }}>
+            <div style={{ fontSize: "28px", fontWeight: "bold", color: "#00d4aa", minWidth: "40px" }}>1</div>
+            <div>
+              <h3 style={{ fontSize: "16px", color: "#fff", marginBottom: "8px" }}>Dédiez un portefeuille à votre sécurité</h3>
+              <p style={{ color: "#888", fontSize: "14px", lineHeight: "1.7" }}>
+                Utilisez une adresse spécifique contenant un montant symbolique (ex : 50 €) qui servira exclusivement de bouton d'alarme. Elle devient votre interrupteur d'urgence sans jamais exposer le reste de votre capital.
+              </p>
             </div>
-          )
-        })}
+          </div>
+
+          <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "28px", display: "flex", gap: "20px" }}>
+            <div style={{ fontSize: "28px", fontWeight: "bold", color: "#00d4aa", minWidth: "40px" }}>2</div>
+            <div>
+              <h3 style={{ fontSize: "16px", color: "#fff", marginBottom: "8px" }}>Paramétrez votre protocole de secours</h3>
+              <p style={{ color: "#888", fontSize: "14px", lineHeight: "1.7" }}>
+                Enregistrez simplement l'adresse publique sur WalleRt. Définissez ensuite votre cercle de confiance : les personnes à prévenir, votre message d'urgence et les instructions précises qu'elles devront suivre.
+              </p>
+            </div>
+          </div>
+
+          <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "28px", display: "flex", gap: "20px" }}>
+            <div style={{ fontSize: "28px", fontWeight: "bold", color: "#00d4aa", minWidth: "40px" }}>3</div>
+            <div>
+              <h3 style={{ fontSize: "16px", color: "#fff", marginBottom: "8px" }}>Donnez l'alerte par un simple transfert</h3>
+              <p style={{ color: "#888", fontSize: "14px", lineHeight: "1.7" }}>
+                En cas de menace, effectuez un transfert depuis ce portefeuille. WalleRt détecte le mouvement sur la blockchain et prévient instantanément vos proches en leur transmettant vos instructions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ background: "#0d1f1a", border: "1px solid #1a3a2a", borderRadius: "8px", padding: "24px", marginBottom: "40px" }}>
+        <h3 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>Sécurité & confidentialité</h3>
+        <p style={{ color: "#888", fontSize: "13px", lineHeight: "1.7" }}>
+          WalleRt ne stocke que les adresses publiques de vos wallets — jamais vos clés privées. Vos fonds restent sous votre contrôle exclusif. Les emails de vos contacts sont chiffrés et ne sont jamais partagés avec des tiers.
+        </p>
       </div>
     </div>
   )
