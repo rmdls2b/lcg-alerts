@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
         <nav style={{borderBottom: "1px solid #1a1a1a", padding: "16px"}}>
           <div style={{maxWidth: "800px", margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center"}}>
             <a href="/accueil" style={{color: "#fff", fontWeight: "bold", fontSize: "24px", textDecoration: "none"}}>
-              Walle<span style={{color: "#00d4aa"}}>R</span>t
+              Walle<span style={{color: "#00d4aa"}}>r</span>t
             </a>
             <div style={{display: "flex", gap: "20px", fontSize: "14px", alignItems: "center"}}>
               <a href="/mon-espace" style={{color: "#ccc", textDecoration: "none"}}>Mon espace</a>
