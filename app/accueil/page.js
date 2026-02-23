@@ -11,11 +11,11 @@ export default function Accueil() {
         <p style={{ color: "#fff", fontSize: "16px", marginBottom: "40px" }}>
           {"Alerte instantanée de vos contacts de confiance en cas de transfert sous la contrainte."}
         </p>
-        <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
-          <a href="/" style={{ padding: "10px 20px", backgroundColor: "#00d4aa", color: "#000", borderRadius: "6px", textDecoration: "none", fontWeight: "bold", fontSize: "16px" }}>
+        <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
+          <a href="/" style={{ padding: "8px 16px", fontSize: "14px", backgroundColor: "#00d4aa", color: "#000", borderRadius: "6px", textDecoration: "none", fontWeight: "bold", fontSize: "16px" }}>
             Activer ma protection
           </a>
-          <a href="/login" style={{ padding: "10px 20px", backgroundColor: "transparent", color: "#e0e0e0", border: "1px solid #333", borderRadius: "6px", textDecoration: "none", fontSize: "16px" }}>
+          <a href="/login" style={{ padding: "8px 16px", fontSize: "14px", backgroundColor: "transparent", color: "#e0e0e0", border: "1px solid #333", borderRadius: "6px", textDecoration: "none", fontSize: "16px" }}>
             Se connecter
           </a>
         </div>
