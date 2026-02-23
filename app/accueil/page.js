@@ -21,8 +21,6 @@ export default function Accueil() {
         </div>
       </div>
           <div style={{ marginBottom: "80px" }}>
-        <h2 style={{ fontSize: "20px", color: "#fff", marginBottom: "32px", textAlign: "center" }}>Principes clés</h2>
-
         <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
           <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "28px", display: "flex", gap: "20px" }}>
             <div style={{ fontSize: "28px", fontWeight: "bold", color: "#00d4aa", minWidth: "40px" }}>1</div>
