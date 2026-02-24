@@ -1,26 +1,27 @@
 export default function Accueil() {
   return (
     <div style={{ maxWidth: "700px", margin: "0 auto", padding: "60px 20px" }}>
-      <div style={{ textAlign: "center", marginBottom: "80px" }}>
-        <h1 style={{ fontSize: "30px", fontWeight: "bold", marginBottom: "16px", letterSpacing: "-2px" }}>
+      <div style={{ marginBottom: "80px" }}>
+        <h1 style={{ fontSize: "36px", fontWeight: "bold", marginBottom: "24px", letterSpacing: "-2px", lineHeight: "1.1" }}>
           Walle<span style={{ color: "#00d4aa" }}>r</span>t
         </h1>
-        <p style={{ color: "#fff", fontSize: "22px", fontWeight: "bold", marginBottom: "12px" }}>
+        <p style={{ color: "#fff", fontSize: "22px", fontWeight: "bold", marginBottom: "12px", lineHeight: "1.4" }}>
           {"Donnez l'alerte en cas de transfert crypto sous la contrainte"}
         </p>
-        <p style={{ color: "#aaa", fontSize: "16px", marginBottom: "40px" }}>
+        <p style={{ color: "#aaa", fontSize: "16px", marginBottom: "48px", lineHeight: "1.6", maxWidth: "500px" }}>
           {"Wallert transforme votre wallet en alarme silencieuse, instantanée et active 24h/24"}
         </p>
-        <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-          <a href="/" style={{ padding: "8px 16px", fontSize: "14px", backgroundColor: "#00d4aa", color: "#000", borderRadius: "6px", textDecoration: "none", fontWeight: "bold", fontSize: "16px" }}>
+        <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+          <a href="/" style={{ padding: "12px 24px", backgroundColor: "#00d4aa", color: "#000", borderRadius: "6px", textDecoration: "none", fontWeight: "bold", fontSize: "16px" }}>
             Activer ma protection
           </a>
-          <a href="/login" style={{ padding: "8px 16px", fontSize: "14px", backgroundColor: "transparent", color: "#e0e0e0", border: "1px solid #333", borderRadius: "6px", textDecoration: "none", fontSize: "16px" }}>
+          <a href="/login" style={{ padding: "12px 24px", backgroundColor: "transparent", color: "#e0e0e0", border: "1px solid #333", borderRadius: "6px", textDecoration: "none", fontSize: "16px" }}>
             Se connecter
           </a>
         </div>
       </div>
-          <div style={{ marginBottom: "80px" }}>
+
+      <div style={{ marginBottom: "80px" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
           <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "28px", display: "flex", gap: "20px" }}>
             <div style={{ fontSize: "28px", fontWeight: "bold", color: "#00d4aa", minWidth: "40px" }}>1</div>
@@ -37,7 +38,7 @@ export default function Accueil() {
             <div>
               <h3 style={{ fontSize: "16px", color: "#fff", marginBottom: "8px" }}>Paramétrez votre protocole de secours</h3>
               <p style={{ color: "#888", fontSize: "14px", lineHeight: "1.7" }}>
-               {"Enregistrez l'adresse de ce portefeuille sur Wallert. Définissez votre cercle de confiance : proches ou services à prévenir, ainsi que les instructions précises qu'ils recevrons."}
+                {"Enregistrez l'adresse de ce portefeuille sur Wallert. Définissez votre cercle de confiance : proches ou services à prévenir, ainsi que les instructions précises qu'ils recevrons."}
               </p>
             </div>
           </div>
