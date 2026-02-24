@@ -62,7 +62,7 @@ export default function Home() {
   return (
     <div style={{ maxWidth: "500px", margin: "40px auto" }}>
       <h1 style={{ fontSize: "28px", fontWeight: "bold", textAlign: "center", marginBottom: "8px" }}>Walle<span style={{ color: "#00d4aa" }}>r</span>t</h1>
-      <p style={{ color: "#888", textAlign: "center", marginBottom: "40px" }}>Surveillance blockchain — alertes en temps réel</p>
+      <p style={{ color: "#888", textAlign: "center", marginBottom: "40px" }}>Surveillance de wallets — alertes en temps réel</p>
 
       {message && (
         <div style={{ background: "#330000", border: "1px solid #ff4444", color: "#ff8888", padding: "12px", borderRadius: "6px", marginBottom: "20px" }}>
@@ -75,10 +75,6 @@ export default function Home() {
         <div style={{ marginBottom: "12px" }}>
           <label style={{ display: "block", fontSize: "13px", color: "#888", marginBottom: "4px" }}>Email</label>
           <input type="email" required value={form.email} onChange={function(e) { setForm({...form, email: e.target.value}) }} style={inputStyle} placeholder="vous@exemple.com" />
-        </div>
-        <div style={{ marginBottom: "12px" }}>
-          <label style={{ display: "block", fontSize: "13px", color: "#888", marginBottom: "4px" }}>Pseudonyme</label>
-          <input type="text" required value={form.pseudonym} onChange={function(e) { setForm({...form, pseudonym: e.target.value}) }} style={inputStyle} placeholder="Votre nom ou pseudo" />
         </div>
         <div style={{ marginBottom: "12px" }}>
           <label style={{ display: "block", fontSize: "13px", color: "#888", marginBottom: "4px" }}>Mot de passe</label>
