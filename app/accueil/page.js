@@ -15,12 +15,12 @@ export default function Accueil() {
               {"Wallert transforme votre wallet en alarme silencieuse, instantanée et active 24h/24"}
             </p>
             <div className="flex gap-4 flex-wrap">
-              <a href="/" className="px-8 py-4 bg-[#00d4aa] text-black rounded-lg font-bold text-lg hover:bg-[#00b892] transition-colors">
-                Activer ma protection
-              </a>
-              <a href="/login" className="px-8 py-4 border border-gray-700 text-gray-300 rounded-lg text-lg hover:border-gray-500 transition-colors">
-                Se connecter
-              </a>
+<a href="/" className="px-6 py-3 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors">
+  Activer ma protection
+</a>
+<a href="/login" className="px-6 py-3 border border-gray-700 text-gray-300 rounded-lg text-sm hover:border-gray-500 transition-colors">
+  Se connecter
+</a>
             </div>
           </div>
           <div className="flex-1 flex justify-center w-full max-w-md lg:max-w-none">
