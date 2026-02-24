@@ -28,16 +28,17 @@ export default function Accueil() {
               <div className="border border-gray-800 rounded-2xl p-8 bg-[#0a0a0a]">
                 <p className="text-gray-500 text-sm text-center mb-6 uppercase tracking-widest">Surveillance en temps réel</p>
                 <div className="border border-gray-800 rounded-xl p-5 mb-4">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-[#00d4aa] text-lg">●</span>
-                    <span className="text-gray-300 text-sm font-mono">0x8a3f...c9b2</span>
-                  </div>
-                  <span className="text-gray-600 text-xs">Wallet surveillé</span>
+<div className="flex items-center gap-3">
+  <span className="text-[#00d4aa] text-lg">●</span>
+  <span className="text-gray-300 text-sm font-mono">0x8a3f...c9b2</span>
+  <span className="text-gray-600 text-xs ml-auto">Wallet surveillé</span>
+</div>
                 </div>
                 <div className="text-center text-gray-700 text-2xl my-3">↓</div>
                 <div className="border border-red-500/50 rounded-xl p-5 bg-red-500/5 mb-4">
                   <div className="flex items-center justify-center gap-2">
                     <span className="text-red-400 text-sm font-bold tracking-wide">⚡ MOUVEMENT DÉTECTÉ</span>
+                    <p className="text-red-400/50 text-xs mt-1">Transfert sortant</p>
                   </div>
                 </div>
                 <div className="text-center text-gray-700 text-2xl my-3">↓</div>
@@ -51,8 +52,8 @@ export default function Accueil() {
                     <p className="text-gray-500 text-xs">Telegram</p>
                   </div>
                   <div className="border border-gray-800 rounded-xl p-4 text-center flex-1">
-                    <span className="text-2xl block mb-1">📱</span>
-                    <p className="text-gray-500 text-xs">SMS</p>
+                  <span className="text-2xl block mb-1">📱</span>
+                  <p className="text-gray-500 text-xs">WhatsApp</p>
                   </div>
                 </div>
               </div>
