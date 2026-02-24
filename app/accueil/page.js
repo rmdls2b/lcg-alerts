@@ -83,7 +83,7 @@ export default function Accueil() {
           <div className="bg-[#111] border border-gray-800 rounded-xl p-7 flex gap-5">
             <div className="text-3xl font-bold text-[#00d4aa] min-w-[40px]">2</div>
             <div>
-              <h3 className="text-base text-white mb-2 font-semibold">Paramétrez votre protocole de secours</h3>
+              <h3 className="text-base text-white mb-2 font-semibold">Définissez votre protocole de secours</h3>
               <p className="text-gray-500 text-sm leading-relaxed">
                 {"Enregistrez l'adresse de ce portefeuille sur Wallert. Définissez votre cercle de confiance : proches ou services à prévenir, ainsi que les instructions précises qu'ils recevront."}
               </p>
@@ -93,7 +93,7 @@ export default function Accueil() {
           <div className="bg-[#111] border border-gray-800 rounded-xl p-7 flex gap-5">
             <div className="text-3xl font-bold text-[#00d4aa] min-w-[40px]">3</div>
             <div>
-              <h3 className="text-base text-white mb-2 font-semibold">{"Donnez l'alerte par le transfert"}</h3>
+              <h3 className="text-base text-white mb-2 font-semibold">{"Déclenchez l'alerte via le transfert"}</h3>
               <p className="text-gray-500 text-sm leading-relaxed">
                 {"En cas d'agression, commencez par transférer les fonds de ce portefeuille. Pour l'agresseur, c'est un butin. Pour Wallert, c'est le signal instantané qui déclenche l'intervention de votre cercle de confiance."}
               </p>
