@@ -2,13 +2,13 @@ export default function Accueil() {
   return (
     <div>
       {/* Hero */}
-      <div className="min-h-[calc(100vh-65px)] flex items-center px-6 md:px-16 lg:px-24 max-w-[1400px] mx-auto">
-        <div className="flex flex-col lg:flex-row items-center gap-16 w-full">
+      <div className="min-h-[calc(100vh-65px)] flex items-center px-8 md:px-20 lg:px-32 max-w-[1400px] mx-auto">
+        <div className="flex flex-col lg:flex-row items-center gap-20 w-full">
           <div className="flex-1">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tighter leading-none">
+            <h1 className="text-4xl md:text-5xl font-bold mb-8 tracking-tighter leading-none">
               Walle<span className="text-[#00d4aa]">r</span>t
             </h1>
-            <p className="text-white text-xl md:text-2xl lg:text-3xl font-bold mb-4 leading-tight max-w-xl">
+            <p className="text-white text-xl md:text-2xl font-bold mb-4 leading-tight max-w-xl">
               {"Donnez l'alerte en cas de transfert crypto sous la contrainte"}
             </p>
             <p className="text-gray-500 text-base md:text-lg mb-12 max-w-lg leading-relaxed">
@@ -24,36 +24,41 @@ export default function Accueil() {
             </div>
           </div>
           <div className="flex-1 flex justify-center w-full">
-            <div className="w-full max-w-[340px]">
+            <div className="w-full max-w-[320px]">
               <div className="border border-gray-800 rounded-2xl p-6 bg-[#0a0a0a]">
-                <p className="text-gray-500 text-xs text-center mb-5 uppercase tracking-widest">Surveillance en temps réel</p>
                 <div className="border border-gray-800 rounded-xl p-4 mb-3">
                   <div className="flex items-center gap-3">
-                    <span className="text-[#00d4aa] text-lg">●</span>
-                    <span className="text-gray-300 text-sm font-mono">0x8a3f...c9b2</span>
-                    <span className="text-gray-500 text-sm ml-auto">Wallet surveillé</span>
+                    <span className="text-[#00d4aa] text-sm">●</span>
+                    <span className="text-gray-300 text-xs font-mono">0x8a3f...c9b2</span>
+                    <span className="text-gray-500 text-xs ml-auto">Wallet surveillé</span>
                   </div>
                 </div>
-                <div className="text-center text-gray-700 text-xl my-2">↓</div>
-                <div className="border border-red-500/50 rounded-xl p-4 bg-red-500/5 mb-3">
+                <div className="text-center text-gray-700 text-lg my-1">↓</div>
+                <div className="border border-red-500/50 rounded-xl p-3 bg-red-500/5 mb-3">
                   <div className="flex flex-col items-center justify-center gap-1">
-                    <span className="text-red-400 text-sm font-bold tracking-wide">⚡ MOUVEMENT DÉTECTÉ</span>
-                    <span className="text-red-400/50 text-xs">Transfert sortant</span>
+                    <span className="text-red-400 text-xs font-bold tracking-wide">⚡ MOUVEMENT DÉTECTÉ</span>
+                    <span className="text-red-400/50 text-[10px]">Transfert sortant</span>
                   </div>
                 </div>
-                <div className="text-center text-gray-700 text-xl my-2">↓</div>
+                <div className="text-center text-gray-700 text-lg my-1">↓</div>
+                <div className="border border-[#00d4aa]/30 rounded-xl p-3 bg-[#00d4aa]/5 mb-3">
+                  <div className="flex flex-col items-center justify-center gap-1">
+                    <span className="text-[#00d4aa] text-xs font-bold tracking-wide">🔔 ALERTE DÉCLENCHÉE</span>
+                    <span className="text-[#00d4aa]/50 text-[10px]">Cercle de confiance notifié</span>
+                  </div>
+                </div>
                 <div className="flex gap-2 justify-center">
-                  <div className="border border-gray-800 rounded-xl p-3 text-center flex-1">
-                    <span className="text-xl block mb-1">📧</span>
-                    <p className="text-gray-500 text-[10px]">Email</p>
+                  <div className="border border-gray-800 rounded-lg p-2 text-center flex-1">
+                    <span className="text-base block">📧</span>
+                    <p className="text-gray-600 text-[9px]">Email</p>
                   </div>
-                  <div className="border border-gray-800 rounded-xl p-3 text-center flex-1">
-                    <span className="text-xl block mb-1">💬</span>
-                    <p className="text-gray-500 text-[10px]">Telegram</p>
+                  <div className="border border-gray-800 rounded-lg p-2 text-center flex-1">
+                    <span className="text-base block">💬</span>
+                    <p className="text-gray-600 text-[9px]">Telegram</p>
                   </div>
-                  <div className="border border-gray-800 rounded-xl p-3 text-center flex-1">
-                    <span className="text-xl block mb-1">📱</span>
-                    <p className="text-gray-500 text-[10px]">WhatsApp</p>
+                  <div className="border border-gray-800 rounded-lg p-2 text-center flex-1">
+                    <span className="text-base block">📱</span>
+                    <p className="text-gray-600 text-[9px]">WhatsApp</p>
                   </div>
                 </div>
               </div>
@@ -63,7 +68,7 @@ export default function Accueil() {
       </div>
 
       {/* Étapes */}
-      <div className="max-w-3xl mx-auto px-6 py-20">
+      <div className="max-w-3xl mx-auto px-8 py-20">
         <div className="flex flex-col gap-6">
           <div className="bg-[#111] border border-gray-800 rounded-xl p-7 flex gap-5">
             <div className="text-3xl font-bold text-[#00d4aa] min-w-[40px]">1</div>
