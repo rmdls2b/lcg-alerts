@@ -37,28 +37,28 @@ export default function Accueil() {
                 <div className="border border-red-500/50 rounded-xl p-3 bg-red-500/5 mb-3">
                   <div className="flex flex-col items-center justify-center gap-1">
                     <span className="text-red-400 text-xs font-bold tracking-wide">⚡ MOUVEMENT DÉTECTÉ</span>
-                    <span className="text-red-400/50 text-[10px]">Transfert sortant</span>
+                    <span className="text-red-400/50 text-[11px]">Transfert sortant</span>
                   </div>
                 </div>
                 <div className="text-center text-gray-700 text-lg my-1">↓</div>
                 <div className="border border-[#00d4aa]/30 rounded-xl p-3 bg-[#00d4aa]/5 mb-3">
                   <div className="flex flex-col items-center justify-center gap-1">
                     <span className="text-[#00d4aa] text-xs font-bold tracking-wide">🔔 ALERTE DÉCLENCHÉE</span>
-                    <span className="text-[#00d4aa]/50 text-[10px]">Cercle de confiance notifié</span>
+                    <span className="text-[#00d4aa]/50 text-[11px]">Cercle de confiance notifié</span>
                   </div>
                 </div>
                 <div className="flex gap-2 justify-center">
                   <div className="border border-gray-800 rounded-lg p-2 text-center flex-1">
                     <span className="text-base block">📧</span>
-                    <p className="text-gray-600 text-[9px]">Email</p>
+                    <p className="text-gray-600 text-[11px]">Email</p>
                   </div>
                   <div className="border border-gray-800 rounded-lg p-2 text-center flex-1">
                     <span className="text-base block">💬</span>
-                    <p className="text-gray-600 text-[9px]">Telegram</p>
+                    <p className="text-gray-600 text-[11px]">Telegram</p>
                   </div>
                   <div className="border border-gray-800 rounded-lg p-2 text-center flex-1">
                     <span className="text-base block">📱</span>
-                    <p className="text-gray-600 text-[9px]">WhatsApp</p>
+                    <p className="text-gray-600 text-[11px]">WhatsApp</p>
                   </div>
                 </div>
               </div>
