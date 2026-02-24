@@ -2,8 +2,8 @@ export default function Accueil() {
   return (
     <div>
       {/* Hero */}
-      <div className="min-h-[calc(100vh-65px)] flex items-center px-8 md:px-20 lg:px-32 max-w-[1400px] mx-auto">
-        <div className="flex flex-col lg:flex-row items-center gap-20 w-full">
+      <div className="lg:min-h-[calc(100vh-65px)] flex items-center py-16 lg:py-0 px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 w-full">
           <div className="flex-1">
             <h1 className="text-4xl md:text-5xl font-bold mb-8 tracking-tighter leading-none">
               Walle<span className="text-[#00d4aa]">r</span>t
@@ -11,10 +11,10 @@ export default function Accueil() {
             <p className="text-white text-xl md:text-2xl font-bold mb-4 leading-tight max-w-xl">
               {"Donnez l'alerte en cas de transfert crypto sous la contrainte"}
             </p>
-            <p className="text-gray-500 text-base md:text-lg mb-12 max-w-lg leading-relaxed">
+            <p className="text-gray-500 text-base md:text-lg mb-10 max-w-lg leading-relaxed">
               {"Wallert transforme votre wallet en alarme silencieuse, instantanée et active 24h/24"}
             </p>
-            <div className="flex gap-4 flex-wrap">
+            <div className="flex gap-4">
               <a href="/" className="px-6 py-3 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors">
                 Activer ma protection
               </a>
@@ -23,7 +23,7 @@ export default function Accueil() {
               </a>
             </div>
           </div>
-          <div className="flex-1 flex justify-center w-full">
+          <div className="flex-1 flex justify-center w-full max-w-sm lg:max-w-none mx-auto">
             <div className="w-full max-w-[320px]">
               <div className="border border-gray-800 rounded-2xl p-6 bg-[#0a0a0a]">
                 <div className="border border-gray-800 rounded-xl p-4 mb-3">
@@ -68,7 +68,7 @@ export default function Accueil() {
       </div>
 
       {/* Étapes */}
-      <div className="max-w-3xl mx-auto px-8 py-20">
+      <div className="max-w-3xl mx-auto px-6 py-20">
         <div className="flex flex-col gap-6">
           <div className="bg-[#111] border border-gray-800 rounded-xl p-7 flex gap-5">
             <div className="text-3xl font-bold text-[#00d4aa] min-w-[40px]">1</div>
