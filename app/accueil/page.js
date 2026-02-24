@@ -9,7 +9,7 @@ export default function Accueil() {
               Walle<span className="text-[#00d4aa]">r</span>t
             </h1>
             <p className="text-white text-xl md:text-2xl font-bold mb-4 leading-tight max-w-xl">
-              {"Donnez l'alerte en cas de transfert crypto sous la contrainte"}
+              {"Donnez l'alerte en cas de transfert de crypto sous la contrainte"}
             </p>
             <p className="text-gray-500 text-base md:text-lg mb-10 max-w-lg leading-relaxed">
               {"Wallert transforme votre wallet en alarme silencieuse, instantanée et active 24h/24"}
@@ -85,7 +85,7 @@ export default function Accueil() {
             <div>
               <h3 className="text-base text-white mb-2 font-semibold">Paramétrez votre protocole de secours</h3>
               <p className="text-gray-500 text-sm leading-relaxed">
-                {"Enregistrez l'adresse de ce portefeuille sur Wallert. Définissez votre cercle de confiance : proches ou services à prévenir, ainsi que les instructions précises qu'ils recevrons."}
+                {"Enregistrez l'adresse de ce portefeuille sur Wallert. Définissez votre cercle de confiance : proches ou services à prévenir, ainsi que les instructions précises qu'ils recevront."}
               </p>
             </div>
           </div>
