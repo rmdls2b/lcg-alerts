@@ -14,16 +14,16 @@ export default function Accueil() {
             <p className="text-gray-500 text-base md:text-lg mb-10 max-w-lg leading-relaxed">
               {"Wallert transforme votre wallet en alarme silencieuse, instantanée et active 24h/24"}
             </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <a href="/" className="px-6 py-3 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors text-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
+              <a href="/" className="inline-block w-fit px-6 py-3 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors">
                 Activer ma protection
               </a>
-              <a href="/login" className="px-6 py-3 border border-gray-700 text-gray-300 rounded-lg text-sm hover:border-gray-500 transition-colors text-center">
+              <a href="/login" className="inline-block w-fit px-6 py-3 border border-gray-700 text-gray-300 rounded-lg text-sm hover:border-gray-500 transition-colors">
                 Se connecter
               </a>
             </div>
           </div>
-          <div className="flex-1 flex justify-center w-full max-w-sm lg:max-w-none mx-auto">
+          <div className="hidden lg:flex flex-1 justify-center w-full max-w-sm lg:max-w-none mx-auto">
             <div className="w-full max-w-[320px]">
               <div className="border border-gray-800 rounded-2xl p-6 bg-[#0a0a0a]">
                 <div className="border border-gray-800 rounded-xl p-4 mb-3">
