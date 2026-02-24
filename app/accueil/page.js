@@ -15,45 +15,45 @@ export default function Accueil() {
               {"Wallert transforme votre wallet en alarme silencieuse, instantanée et active 24h/24"}
             </p>
             <div className="flex gap-4 flex-wrap">
-<a href="/" className="px-6 py-3 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors">
-  Activer ma protection
-</a>
-<a href="/login" className="px-6 py-3 border border-gray-700 text-gray-300 rounded-lg text-sm hover:border-gray-500 transition-colors">
-  Se connecter
-</a>
+              <a href="/" className="px-6 py-3 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors">
+                Activer ma protection
+              </a>
+              <a href="/login" className="px-6 py-3 border border-gray-700 text-gray-300 rounded-lg text-sm hover:border-gray-500 transition-colors">
+                Se connecter
+              </a>
             </div>
           </div>
-          <div className="flex-1 flex justify-center w-full max-w-md lg:max-w-none">
-            <div className="w-full max-w-[420px]">
-              <div className="border border-gray-800 rounded-2xl p-8 bg-[#0a0a0a]">
-                <p className="text-gray-500 text-sm text-center mb-6 uppercase tracking-widest">Surveillance en temps réel</p>
-                <div className="border border-gray-800 rounded-xl p-5 mb-4">
-<div className="flex items-center gap-3">
-  <span className="text-[#00d4aa] text-lg">●</span>
-  <span className="text-gray-300 text-sm font-mono">0x8a3f...c9b2</span>
-  <span className="text-gray-600 text-xs ml-auto">Wallet surveillé</span>
-</div>
+          <div className="flex-1 flex justify-center w-full">
+            <div className="w-full max-w-[340px]">
+              <div className="border border-gray-800 rounded-2xl p-6 bg-[#0a0a0a]">
+                <p className="text-gray-500 text-xs text-center mb-5 uppercase tracking-widest">Surveillance en temps réel</p>
+                <div className="border border-gray-800 rounded-xl p-4 mb-3">
+                  <div className="flex items-center gap-3">
+                    <span className="text-[#00d4aa] text-lg">●</span>
+                    <span className="text-gray-300 text-sm font-mono">0x8a3f...c9b2</span>
+                    <span className="text-gray-500 text-sm ml-auto">Wallet surveillé</span>
+                  </div>
                 </div>
-                <div className="text-center text-gray-700 text-2xl my-3">↓</div>
-                <div className="border border-red-500/50 rounded-xl p-5 bg-red-500/5 mb-4">
-                  <div className="flex items-center justify-center gap-2">
+                <div className="text-center text-gray-700 text-xl my-2">↓</div>
+                <div className="border border-red-500/50 rounded-xl p-4 bg-red-500/5 mb-3">
+                  <div className="flex flex-col items-center justify-center gap-1">
                     <span className="text-red-400 text-sm font-bold tracking-wide">⚡ MOUVEMENT DÉTECTÉ</span>
-                    <p className="text-red-400/50 text-xs mt-1">Transfert sortant</p>
+                    <span className="text-red-400/50 text-xs">Transfert sortant</span>
                   </div>
                 </div>
-                <div className="text-center text-gray-700 text-2xl my-3">↓</div>
-                <div className="flex gap-3 justify-center">
-                  <div className="border border-gray-800 rounded-xl p-4 text-center flex-1">
-                    <span className="text-2xl block mb-1">📧</span>
-                    <p className="text-gray-500 text-xs">Email</p>
+                <div className="text-center text-gray-700 text-xl my-2">↓</div>
+                <div className="flex gap-2 justify-center">
+                  <div className="border border-gray-800 rounded-xl p-3 text-center flex-1">
+                    <span className="text-xl block mb-1">📧</span>
+                    <p className="text-gray-500 text-[10px]">Email</p>
                   </div>
-                  <div className="border border-gray-800 rounded-xl p-4 text-center flex-1">
-                    <span className="text-2xl block mb-1">💬</span>
-                    <p className="text-gray-500 text-xs">Telegram</p>
+                  <div className="border border-gray-800 rounded-xl p-3 text-center flex-1">
+                    <span className="text-xl block mb-1">💬</span>
+                    <p className="text-gray-500 text-[10px]">Telegram</p>
                   </div>
-                  <div className="border border-gray-800 rounded-xl p-4 text-center flex-1">
-                  <span className="text-2xl block mb-1">📱</span>
-                  <p className="text-gray-500 text-xs">WhatsApp</p>
+                  <div className="border border-gray-800 rounded-xl p-3 text-center flex-1">
+                    <span className="text-xl block mb-1">📱</span>
+                    <p className="text-gray-500 text-[10px]">WhatsApp</p>
                   </div>
                 </div>
               </div>
