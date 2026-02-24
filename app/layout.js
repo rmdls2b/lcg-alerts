@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
     <html lang="fr">
       <body style={{backgroundColor: "#0a0a0a", color: "#e0e0e0", minHeight: "100vh"}}>
         <nav style={{borderBottom: "1px solid #1a1a1a", padding: "16px"}}>
-          <div style={{maxWidth: "800px", margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+          <div style={{maxWidth: "1400px", margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0 24px"}}>
             <a href="/accueil" style={{color: "#fff", fontWeight: "bold", fontSize: "24px", textDecoration: "none"}}>
               Walle<span style={{color: "#00d4aa"}}>r</span>t
             </a>
@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
             </div>
           </div>
         </nav>
-        <main style={{maxWidth: "800px", margin: "0 auto", padding: "24px"}}>
+        <main>
           {children}
         </main>
       </body>
