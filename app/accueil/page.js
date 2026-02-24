@@ -1,57 +1,59 @@
 export default function Accueil() {
   return (
     <div>
-      {/* Hero - plein écran */}
-      <div style={{ minHeight: "calc(100vh - 65px)", display: "flex", alignItems: "center", padding: "0 60px", maxWidth: "1200px", margin: "0 auto" }}>
-        <div style={{ flex: 1, paddingRight: "60px" }}>
-          <h1 style={{ fontSize: "56px", fontWeight: "bold", marginBottom: "28px", letterSpacing: "-3px", lineHeight: "1.05" }}>
-            Walle<span style={{ color: "#00d4aa" }}>r</span>t
-          </h1>
-          <p style={{ color: "#fff", fontSize: "24px", fontWeight: "bold", marginBottom: "16px", lineHeight: "1.4", maxWidth: "500px" }}>
-            {"Donnez l'alerte en cas de transfert crypto sous la contrainte"}
-          </p>
-          <p style={{ color: "#888", fontSize: "17px", marginBottom: "48px", lineHeight: "1.6", maxWidth: "440px" }}>
-            {"Wallert transforme votre wallet en alarme silencieuse, instantanée et active 24h/24"}
-          </p>
-          <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-            <a href="/" style={{ padding: "14px 28px", backgroundColor: "#00d4aa", color: "#000", borderRadius: "6px", textDecoration: "none", fontWeight: "bold", fontSize: "16px" }}>
-              Activer ma protection
-            </a>
-            <a href="/login" style={{ padding: "14px 28px", backgroundColor: "transparent", color: "#e0e0e0", border: "1px solid #333", borderRadius: "6px", textDecoration: "none", fontSize: "16px" }}>
-              Se connecter
-            </a>
+      {/* Hero */}
+      <div className="min-h-[calc(100vh-65px)] flex items-center px-6 md:px-16 lg:px-24 max-w-[1400px] mx-auto">
+        <div className="flex flex-col lg:flex-row items-center gap-16 w-full">
+          <div className="flex-1">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tighter leading-none">
+              Walle<span className="text-[#00d4aa]">r</span>t
+            </h1>
+            <p className="text-white text-xl md:text-2xl lg:text-3xl font-bold mb-4 leading-tight max-w-xl">
+              {"Donnez l'alerte en cas de transfert crypto sous la contrainte"}
+            </p>
+            <p className="text-gray-500 text-base md:text-lg mb-12 max-w-lg leading-relaxed">
+              {"Wallert transforme votre wallet en alarme silencieuse, instantanée et active 24h/24"}
+            </p>
+            <div className="flex gap-4 flex-wrap">
+              <a href="/" className="px-8 py-4 bg-[#00d4aa] text-black rounded-lg font-bold text-lg hover:bg-[#00b892] transition-colors">
+                Activer ma protection
+              </a>
+              <a href="/login" className="px-8 py-4 border border-gray-700 text-gray-300 rounded-lg text-lg hover:border-gray-500 transition-colors">
+                Se connecter
+              </a>
+            </div>
           </div>
-        </div>
-        <div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
-          <div style={{ maxWidth: "380px", width: "100%" }}>
-            <div style={{ border: "1px solid #222", borderRadius: "12px", padding: "32px", background: "#111" }}>
-              <p style={{ color: "#888", fontSize: "14px", textAlign: "center", marginBottom: "24px" }}>Surveillance en temps réel</p>
-              <div style={{ border: "1px solid #222", borderRadius: "8px", padding: "16px", marginBottom: "16px" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" }}>
-                  <span style={{ color: "#00d4aa", fontSize: "16px" }}>●</span>
-                  <span style={{ color: "#ccc", fontSize: "13px", fontFamily: "monospace" }}>0x8a3f...c9b2</span>
+          <div className="flex-1 flex justify-center w-full max-w-md lg:max-w-none">
+            <div className="w-full max-w-[420px]">
+              <div className="border border-gray-800 rounded-2xl p-8 bg-[#0a0a0a]">
+                <p className="text-gray-500 text-sm text-center mb-6 uppercase tracking-widest">Surveillance en temps réel</p>
+                <div className="border border-gray-800 rounded-xl p-5 mb-4">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-[#00d4aa] text-lg">●</span>
+                    <span className="text-gray-300 text-sm font-mono">0x8a3f...c9b2</span>
+                  </div>
+                  <span className="text-gray-600 text-xs">Wallet surveillé</span>
                 </div>
-                <span style={{ color: "#555", fontSize: "12px" }}>Wallet surveillé</span>
-              </div>
-              <div style={{ textAlign: "center", color: "#333", fontSize: "20px", marginBottom: "16px" }}>↓</div>
-              <div style={{ border: "1px solid #ff4444", borderRadius: "8px", padding: "16px", background: "#1a0000" }}>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
-                  <span style={{ color: "#ff4444", fontSize: "14px", fontWeight: "bold" }}>⚡ MOUVEMENT DÉTECTÉ</span>
+                <div className="text-center text-gray-700 text-2xl my-3">↓</div>
+                <div className="border border-red-500/50 rounded-xl p-5 bg-red-500/5 mb-4">
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="text-red-400 text-sm font-bold tracking-wide">⚡ MOUVEMENT DÉTECTÉ</span>
+                  </div>
                 </div>
-              </div>
-              <div style={{ textAlign: "center", color: "#333", fontSize: "20px", marginBottom: "16px", marginTop: "16px" }}>↓</div>
-              <div style={{ display: "flex", gap: "12px", justifyContent: "center" }}>
-                <div style={{ border: "1px solid #222", borderRadius: "8px", padding: "12px 16px", textAlign: "center" }}>
-                  <span style={{ fontSize: "18px" }}>📧</span>
-                  <p style={{ color: "#888", fontSize: "11px", marginTop: "4px" }}>Email</p>
-                </div>
-                <div style={{ border: "1px solid #222", borderRadius: "8px", padding: "12px 16px", textAlign: "center" }}>
-                  <span style={{ fontSize: "18px" }}>💬</span>
-                  <p style={{ color: "#888", fontSize: "11px", marginTop: "4px" }}>Telegram</p>
-                </div>
-                <div style={{ border: "1px solid #222", borderRadius: "8px", padding: "12px 16px", textAlign: "center" }}>
-                  <span style={{ fontSize: "18px" }}>📱</span>
-                  <p style={{ color: "#888", fontSize: "11px", marginTop: "4px" }}>SMS</p>
+                <div className="text-center text-gray-700 text-2xl my-3">↓</div>
+                <div className="flex gap-3 justify-center">
+                  <div className="border border-gray-800 rounded-xl p-4 text-center flex-1">
+                    <span className="text-2xl block mb-1">📧</span>
+                    <p className="text-gray-500 text-xs">Email</p>
+                  </div>
+                  <div className="border border-gray-800 rounded-xl p-4 text-center flex-1">
+                    <span className="text-2xl block mb-1">💬</span>
+                    <p className="text-gray-500 text-xs">Telegram</p>
+                  </div>
+                  <div className="border border-gray-800 rounded-xl p-4 text-center flex-1">
+                    <span className="text-2xl block mb-1">📱</span>
+                    <p className="text-gray-500 text-xs">SMS</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -60,42 +62,42 @@ export default function Accueil() {
       </div>
 
       {/* Étapes */}
-      <div style={{ maxWidth: "800px", margin: "0 auto", padding: "80px 20px" }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-          <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "28px", display: "flex", gap: "20px" }}>
-            <div style={{ fontSize: "28px", fontWeight: "bold", color: "#00d4aa", minWidth: "40px" }}>1</div>
+      <div className="max-w-3xl mx-auto px-6 py-20">
+        <div className="flex flex-col gap-6">
+          <div className="bg-[#111] border border-gray-800 rounded-xl p-7 flex gap-5">
+            <div className="text-3xl font-bold text-[#00d4aa] min-w-[40px]">1</div>
             <div>
-              <h3 style={{ fontSize: "16px", color: "#fff", marginBottom: "8px" }}>Dédiez un portefeuille à votre sécurité</h3>
-              <p style={{ color: "#888", fontSize: "14px", lineHeight: "1.7" }}>
+              <h3 className="text-base text-white mb-2 font-semibold">Dédiez un portefeuille à votre sécurité</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">
                 {"Isolez une partie de vos fonds sur une adresse spécifique contenant un montant suffisamment crédible pour satisfaire un agresseur. Ce wallet devient votre bouton d'alarme."}
               </p>
             </div>
           </div>
 
-          <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "28px", display: "flex", gap: "20px" }}>
-            <div style={{ fontSize: "28px", fontWeight: "bold", color: "#00d4aa", minWidth: "40px" }}>2</div>
+          <div className="bg-[#111] border border-gray-800 rounded-xl p-7 flex gap-5">
+            <div className="text-3xl font-bold text-[#00d4aa] min-w-[40px]">2</div>
             <div>
-              <h3 style={{ fontSize: "16px", color: "#fff", marginBottom: "8px" }}>Paramétrez votre protocole de secours</h3>
-              <p style={{ color: "#888", fontSize: "14px", lineHeight: "1.7" }}>
+              <h3 className="text-base text-white mb-2 font-semibold">Paramétrez votre protocole de secours</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">
                 {"Enregistrez l'adresse de ce portefeuille sur Wallert. Définissez votre cercle de confiance : proches ou services à prévenir, ainsi que les instructions précises qu'ils recevrons."}
               </p>
             </div>
           </div>
 
-          <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "28px", display: "flex", gap: "20px" }}>
-            <div style={{ fontSize: "28px", fontWeight: "bold", color: "#00d4aa", minWidth: "40px" }}>3</div>
+          <div className="bg-[#111] border border-gray-800 rounded-xl p-7 flex gap-5">
+            <div className="text-3xl font-bold text-[#00d4aa] min-w-[40px]">3</div>
             <div>
-              <h3 style={{ fontSize: "16px", color: "#fff", marginBottom: "8px" }}>Donnez l'alerte par le transfert</h3>
-              <p style={{ color: "#888", fontSize: "14px", lineHeight: "1.7" }}>
+              <h3 className="text-base text-white mb-2 font-semibold">{"Donnez l'alerte par le transfert"}</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">
                 {"En cas d'agression, commencez par transférer les fonds de ce portefeuille. Pour l'agresseur, c'est un butin. Pour Wallert, c'est le signal instantané qui déclenche l'intervention de votre cercle de confiance."}
               </p>
             </div>
           </div>
         </div>
 
-        <div style={{ background: "#0d1f1a", border: "1px solid #1a3a2a", borderRadius: "8px", padding: "24px", marginTop: "40px" }}>
-          <h3 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>Sécurité & confidentialité</h3>
-          <p style={{ color: "#888", fontSize: "13px", lineHeight: "1.7" }}>
+        <div className="bg-[#0d1f1a] border border-[#1a3a2a] rounded-xl p-6 mt-10">
+          <h3 className="text-sm text-[#00d4aa] mb-3 font-semibold">Sécurité & confidentialité</h3>
+          <p className="text-gray-500 text-sm leading-relaxed">
             Wallert ne stocke que les adresses publiques de vos wallets. Les emails de vos contacts sont chiffrés et ne sont jamais partagés avec des tiers.
           </p>
         </div>
