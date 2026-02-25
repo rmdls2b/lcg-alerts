@@ -18,7 +18,7 @@ export default function Accueil() {
               {"Wallert transforme votre portefeuille en alarme silencieuse, instantanée et active 24h/24."}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
-              <a href="/" className="inline-block w-fit px-6 py-3 bg-[#00d4aa] text-white rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors">
+              <a href="/" className="inline-block w-fit px-6 py-3 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors">
                 Activer ma protection
               </a>
               <a href="/login" className="inline-block w-fit px-6 py-3 border border-gray-700 text-gray-300 rounded-lg text-sm hover:border-gray-500 transition-colors">
