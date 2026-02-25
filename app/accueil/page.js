@@ -72,12 +72,12 @@ export default function Accueil() {
 
 {/* Contexte */}
       <div className="max-w-3xl mx-auto px-6 py-24 border-t border-gray-800/50">
-        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Le contexte</p>
+        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Contexte</p>
         <h2 className="text-2xl md:text-3xl font-bold mb-6 leading-tight" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
-          La sécurité face à la contrainte physique.
+          Transfert de cryptos sous la contrainte physique.
         </h2>
         <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl">
-          {"Face à une menace directe, les sécurités informatiques deviennent inopérantes. Vous ne pouvez ni fuir, ni appeler à l'aide. Wallert transforme la cession forcée de vos fonds en un signal de détresse, invisible pour l'agresseur."}
+          {"Face à une agresssion et l'obligation de transférer vos fonds sous la force, vous ne pouvez ni fuir, ni appeler à l'aide. Wallert transforme ce transfert de vos fonds forcé en un signal de détresse invisible pour l'agresseur."}
         </p>
       </div>
 
@@ -85,28 +85,28 @@ export default function Accueil() {
       <div className="max-w-5xl mx-auto px-6 py-24 border-t border-gray-800/50">
         <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Dispositif</p>
         <h2 className="text-2xl md:text-3xl font-bold mb-12 leading-tight" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
-          {"Un protocole d'urgence en trois étapes."}
+          {"Un protocole de secours en trois étapes."}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
             <div className="text-2xl font-bold text-[#00d4aa] mb-4" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>01</div>
-            <h3 className="text-base font-bold text-white mb-3">Déclencheur</h3>
-            <p className="text-gray-500 text-sm leading-relaxed">
+            <h3 className="text-base font-bold text-white mb-3">Placer un portefeuille sous surveillance</h3>
+            <p className="text-gray-400 text-base leading-relaxed">
               {"Isolez une somme suffisamment crédible pour satisfaire un agresseur sur un portefeuille dédié à votre sécurité. Ce dernier devient votre bouton d'urgence. Wallert surveille les mouvements sortants de cette adresse en continu."}
             </p>
           </div>
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
             <div className="text-2xl font-bold text-[#00d4aa] mb-4" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>02</div>
-            <h3 className="text-base font-bold text-white mb-3">Réseau de confiance</h3>
-            <p className="text-gray-500 text-sm leading-relaxed">
+            <h3 className="text-base font-bold text-white mb-3">{"Réseau de confiance et canaux d'alerte"}</h3>
+            <p className="text-gray-400 text-base leading-relaxed">
               {"Configurez vos contacts d'urgence et les directives à suivre. Le système est conçu pour diffuser l'alerte simultanément sur plusieurs canaux : Email, Telegram, WhatsApp."}
             </p>
           </div>
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
             <div className="text-2xl font-bold text-[#00d4aa] mb-4" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>03</div>
-            <h3 className="text-base font-bold text-white mb-3">{"Intervention"}</h3>
-            <p className="text-gray-500 text-sm leading-relaxed">
-              {"Sous la menace, commencez par le transfert des fonds de ce portefeuille. Ce mouvement active instantanément le système et prévient votre cercle de confiance."}
+            <h3 className="text-base font-bold text-white mb-3">{"Déclenchement du signal et intervention"}</h3>
+            <p className="text-gray-400 text-base leading-relaxed">
+              {"Sous la menace, commencez par le transfert des fonds de ce portefeuille. Ce mouvement est détecté instantanément et déclenche l'alerte pour votre cercle de confiance."}
             </p>
           </div>
         </div>
