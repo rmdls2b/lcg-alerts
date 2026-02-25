@@ -92,7 +92,7 @@ export default function Accueil() {
             <div className="text-2xl font-bold text-[#00d4aa] mb-4" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>01</div>
             <h3 className="text-base font-bold text-white mb-3">Placer un portefeuille sous surveillance</h3>
             <p className="text-gray-400 text-base leading-relaxed">
-              {"Isolez une somme suffisamment crédible pour satisfaire un agresseur sur un portefeuille dédié à votre sécurité. Ce dernier devient votre bouton d'urgence. Wallert surveille les mouvements sortants de cette adresse en continu."}
+              {"Isolez une somme suffisamment crédible pour satisfaire un agresseur sur un portefeuille dédié à votre sécurité, qui devient votre bouton d'urgence. Wallert surveillera les mouvements sortants de cette adresse en continu."}
             </p>
           </div>
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
@@ -106,7 +106,7 @@ export default function Accueil() {
             <div className="text-2xl font-bold text-[#00d4aa] mb-4" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>03</div>
             <h3 className="text-base font-bold text-white mb-3">{"Déclenchement du signal et intervention"}</h3>
             <p className="text-gray-400 text-base leading-relaxed">
-              {"Sous la menace, commencez par le transfert des fonds de ce portefeuille. Ce mouvement est détecté instantanément et déclenche l'alerte pour votre cercle de confiance."}
+              {"Sous la menace, commencez par le transfert des fonds de ce portefeuille de sécurité. Le mouvement est détecté instantanément, et déclenche l'alerte à votre cercle de confiance."}
             </p>
           </div>
         </div>
