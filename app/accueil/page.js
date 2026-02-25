@@ -5,11 +5,11 @@ export default function Accueil() {
     <div className="lg:min-h-[calc(100vh-65px)] flex items-center py-16 lg:py-8 px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto">
       <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 w-full">
         <div className="flex-1">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tighter leading-none">
+          <h1 className="text-4xl md:text-5xl font-bold mb-8 tracking-tighter leading-none">
             Walle<span className="text-[#00d4aa]">r</span>t
             </h1>
     
-            <p className="text-white text-xl md:text-2xl font-bold mb-4 leading-tight max-w-xl">
+            <p className="text-white text-xl md:text-2xl font-bold mb-6 leading-tight max-w-xl">
               {"Votre wallet déclenche "}
               <span className="text-[#00d4aa] italic">{"l'alerte"}</span>
               {" en cas de transfert de crypto sous contrainte."}
