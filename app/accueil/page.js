@@ -2,21 +2,23 @@ export default function Accueil() {
   return (
     <div>
       {/* Hero */}
-
     <div className="lg:min-h-[calc(100vh-65px)] flex items-center py-16 lg:py-8 px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto">
       <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 w-full">
         <div className="flex-1">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tighter leading-none">
             Walle<span className="text-[#00d4aa]">r</span>t
             </h1>
+    
             <p className="text-white text-xl md:text-2xl font-bold mb-4 leading-tight max-w-xl">
-              {"Donnez l'alerte en cas de transfert de crypto sous la contrainte"}
+              {"Votre wallet déclenche "}
+              <span className="text-[#00d4aa] italic">{"l'alerte"}</span>
+              {" en cas de transfert de crypto sous contrainte."}
             </p>
-            <p className="text-gray-500 text-base md:text-lg mb-10 max-w-lg leading-relaxed">
-              {"Wallert transforme votre wallet en alarme silencieuse, instantanée et active 24h/24"}
+            <p className="text-gray-300 text-lg md:text-xl mb-10 max-w-lg leading-relaxed italic" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+              {"Wallert transforme votre portefeuille en alarme silencieuse, instantanée et active 24h/24."}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
-              <a href="/" className="inline-block w-fit px-6 py-3 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors">
+              <a href="/" className="inline-block w-fit px-6 py-3 bg-[#00d4aa] text-white rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors">
                 Activer ma protection
               </a>
               <a href="/login" className="inline-block w-fit px-6 py-3 border border-gray-700 text-gray-300 rounded-lg text-sm hover:border-gray-500 transition-colors">
