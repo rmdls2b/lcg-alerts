@@ -81,7 +81,7 @@ export default function Accueil() {
       </div>
 
       {/* Dispositif — 3 cartes */}
-      <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-24">
+      <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-16">
         <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Dispositif</p>
         <h2 className="text-white text-xl md:text-2xl font-bold mb-12 leading-tight">
           {"Un protocole de secours en trois étapes."}
@@ -112,7 +112,7 @@ export default function Accueil() {
       </div>
 
       {/* Garantie */}
-      <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-24">
+      <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-16">
         <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Garantie</p>
         <h2 className="text-white text-xl md:text-2xl font-bold mb-6 leading-tight">
           {"L'assurance d'une prise en charge."}
@@ -123,7 +123,7 @@ export default function Accueil() {
       </div>
 
       {/* CTA final */}
-      <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-24 text-center">
+      <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-16 text-center">
         <h2 className="text-white text-xl md:text-2xl font-bold mb-8">
           Anticipez les situations critiques.
         </h2>
