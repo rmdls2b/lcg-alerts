@@ -70,6 +70,20 @@ export default function Accueil() {
         </div>
       </div>
 
+{/* Contexte */}
+      <div className="max-w-3xl mx-auto px-6 py-24 border-t border-gray-800/50">
+        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Le contexte</p>
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 leading-tight" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+          La sécurité face à la contrainte physique.
+        </h2>
+        <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl">
+          {"Face à une menace directe, les sécurités informatiques deviennent inopérantes. Vous ne pouvez ni fuir, ni appeler à l'aide. Wallert transforme la cession forcée de vos fonds en un signal de détresse, invisible pour l'agresseur."}
+        </p>
+      </div>
+
+
+
+
       {/* Étapes */}
       <div className="max-w-3xl mx-auto px-6 py-20">
         <div className="flex flex-col gap-6">
