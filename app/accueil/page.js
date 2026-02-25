@@ -32,22 +32,22 @@ export default function Accueil() {
                 <div className="border border-gray-800 rounded-xl p-4 mb-3">
                   <div className="flex items-center gap-3">
                     <span className="text-[#00d4aa] text-sm">●</span>
-                    <span className="text-gray-300 text-xs font-mono">0x8a3f...c9b2</span>
-                    <span className="text-gray-500 text-xs ml-auto">Wallet surveillé</span>
+                    <span className="text-gray-300 text-xs font-mono">0x8a...c9b2</span>
+                    <span className="text-gray-500 text-xs ml-auto">WALLET SURVEILLÉ</span>
                   </div>
                 </div>
                 <div className="text-center text-gray-700 text-lg my-1">↓</div>
                 <div className="border border-red-500/50 rounded-xl p-3 bg-red-500/5 mb-3">
                   <div className="flex flex-col items-center justify-center gap-1">
-                    <span className="text-red-400 text-xs font-bold tracking-wide">⚡ MOUVEMENT DÉTECTÉ</span>
+                    <span className="text-red-400 text-xs font-bold tracking-wide">MOUVEMENT DÉTECTÉ</span>
                     <span className="text-red-400/50 text-[11px]">Transfert sortant</span>
                   </div>
                 </div>
                 <div className="text-center text-gray-700 text-lg my-1">↓</div>
                 <div className="border border-[#00d4aa]/30 rounded-xl p-3 bg-[#00d4aa]/5 mb-3">
                   <div className="flex flex-col items-center justify-center gap-1">
-                    <span className="text-[#00d4aa] text-xs font-bold tracking-wide">🔔 ALERTE DÉCLENCHÉE</span>
-                    <span className="text-[#00d4aa]/50 text-[11px]">Cercle de confiance notifié</span>
+                    <span className="text-[#00d4aa] text-xs font-bold tracking-wide">ALERTE DÉCLENCHÉE</span>
+                    <span className="text-[#00d4aa]/50 text-[11px]">Cercle de confiance informé</span>
                   </div>
                 </div>
                 <div className="flex gap-2 justify-center">
@@ -73,7 +73,7 @@ export default function Accueil() {
 {/* Contexte */}
       <div className="max-w-3xl mx-auto px-6 py-24 border-t border-gray-800/50">
         <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Contexte</p>
-        <h2 className="text-2xl md:text-3xl font-bold mb-6 leading-tight" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+        <h2 className="text-white text-xl md:text-2xl font-bold mb-6 leading-tight">
           Transfert de cryptos sous la contrainte physique.
         </h2>
         <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl">
@@ -84,7 +84,7 @@ export default function Accueil() {
  {/* Dispositif — 3 cartes */}
       <div className="max-w-5xl mx-auto px-6 py-24 border-t border-gray-800/50">
         <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Dispositif</p>
-        <h2 className="text-2xl md:text-3xl font-bold mb-12 leading-tight" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+        <h2 className="text-white text-xl md:text-2xl font-bold mb-12 leading-tight">
           {"Un protocole de secours en trois étapes."}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -114,8 +114,8 @@ export default function Accueil() {
 
 {/* Garantie */}
       <div className="max-w-3xl mx-auto px-6 py-24 border-t border-gray-800/50">
-        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">La garantie</p>
-        <h2 className="text-2xl md:text-3xl font-bold mb-6 leading-tight" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Garantie</p>
+        <h2 className="text-white text-xl md:text-2xl font-bold mb-6 leading-tight">
           {"L'assurance d'une prise en charge."}
         </h2>
         <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl">
@@ -125,7 +125,7 @@ export default function Accueil() {
 
      {/* CTA final */}
       <div className="max-w-3xl mx-auto px-6 py-24 border-t border-gray-800/50 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold mb-8" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+        <h2 className="text-white text-xl md:text-2xl font-bold mb-8">
           Anticipez les situations critiques.
         </h2>
         <a href="/" className="inline-block px-8 py-4 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-all hover:shadow-[0_8px_24px_rgba(0,212,170,0.2)]">
@@ -140,7 +140,6 @@ export default function Accueil() {
     </div>
   )
 }
-
 
 
       {/* Étapes
