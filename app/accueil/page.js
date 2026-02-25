@@ -2,13 +2,12 @@ export default function Accueil() {
   return (
     <div>
       {/* Hero */}
-    <div className="lg:min-h-[calc(100vh-65px)] flex items-center py-16 lg:py-8 px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto">
-      <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 w-full">
-        <div className="flex-1">
-          <h1 className="text-4xl md:text-5xl font-bold mb-8 tracking-tighter leading-none">
-            Walle<span className="text-[#00d4aa]">r</span>t
+      <div className="lg:min-h-[calc(100vh-65px)] flex items-center py-16 lg:py-8 px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 w-full">
+          <div className="flex-1">
+            <h1 className="text-4xl md:text-5xl font-bold mb-8 tracking-tighter leading-none">
+              Walle<span className="text-[#00d4aa]">r</span>t
             </h1>
-    
             <p className="text-white text-xl md:text-2xl font-bold mb-6 leading-tight max-w-xl">
               {"Votre wallet déclenche "}
               <span className="text-[#00d4aa] italic">{"l'alerte"}</span>
@@ -70,8 +69,8 @@ export default function Accueil() {
         </div>
       </div>
 
-{/* Contexte */}
-      <div className="max-w-3xl mx-auto px-6 py-24 border-t border-gray-800/50">
+      {/* Contexte */}
+      <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-24">
         <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Contexte</p>
         <h2 className="text-white text-xl md:text-2xl font-bold mb-6 leading-tight">
           Transfert de cryptos sous la contrainte physique.
@@ -81,8 +80,8 @@ export default function Accueil() {
         </p>
       </div>
 
- {/* Dispositif — 3 cartes */}
-      <div className="max-w-5xl mx-auto px-6 py-24 border-t border-gray-800/50">
+      {/* Dispositif — 3 cartes */}
+      <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-24">
         <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Dispositif</p>
         <h2 className="text-white text-xl md:text-2xl font-bold mb-12 leading-tight">
           {"Un protocole de secours en trois étapes."}
@@ -112,8 +111,8 @@ export default function Accueil() {
         </div>
       </div>
 
-{/* Garantie */}
-      <div className="max-w-3xl mx-auto px-6 py-24 border-t border-gray-800/50">
+      {/* Garantie */}
+      <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-24">
         <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Garantie</p>
         <h2 className="text-white text-xl md:text-2xl font-bold mb-6 leading-tight">
           {"L'assurance d'une prise en charge."}
@@ -123,8 +122,8 @@ export default function Accueil() {
         </p>
       </div>
 
-     {/* CTA final */}
-      <div className="max-w-3xl mx-auto px-6 py-24 border-t border-gray-800/50 text-center">
+      {/* CTA final */}
+      <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-24 text-center">
         <h2 className="text-white text-xl md:text-2xl font-bold mb-8">
           Anticipez les situations critiques.
         </h2>
@@ -134,7 +133,7 @@ export default function Accueil() {
       </div>
 
       {/* Footer */}
-      <div className="border-t border-gray-800/50 py-8 text-center">
+      <div className="py-8 text-center">
         <p className="text-gray-600 text-xs">© 2026 Wallert</p>
       </div>
     </div>
