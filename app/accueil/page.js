@@ -39,14 +39,14 @@ export default function Accueil() {
                 <div className="border border-red-500/50 rounded-xl p-3 bg-red-500/5 mb-3">
                   <div className="flex flex-col items-center justify-center gap-1">
                     <span className="text-red-400 text-xs font-bold tracking-wide">MOUVEMENT DÉTECTÉ</span>
-                    <span className="text-red-400/50 text-[11px]">Transfert sortant</span>
+                    <span className="text-red-400/50 text-[12px]">Transfert sortant</span>
                   </div>
                 </div>
                 <div className="text-center text-gray-700 text-lg my-1">↓</div>
                 <div className="border border-[#00d4aa]/30 rounded-xl p-3 bg-[#00d4aa]/5 mb-3">
                   <div className="flex flex-col items-center justify-center gap-1">
                     <span className="text-[#00d4aa] text-xs font-bold tracking-wide">ALERTE DÉCLENCHÉE</span>
-                    <span className="text-[#00d4aa]/50 text-[11px]">Cercle de confiance informé</span>
+                    <span className="text-[#00d4aa]/50 text-[12px]">Cercle de confiance informé</span>
                   </div>
                 </div>
                 <div className="flex gap-2 justify-center">
