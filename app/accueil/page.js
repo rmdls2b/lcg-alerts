@@ -69,15 +69,35 @@ export default function Accueil() {
         </div>
       </div>
 
-      {/* Contexte */}
+     {/* Contexte & Gains */}
       <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-16">
         <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Contexte</p>
         <h2 className="text-white text-xl md:text-2xl font-bold mb-6 leading-tight">
-          Transfert de cryptos sous la contrainte physique.
+          Face à la contrainte physique, chaque minute compte.
         </h2>
-        <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl">
-          {"Face à une agresssion et l'obligation de transférer vos fonds sous la force, vous ne pouvez ni fuir, ni appeler à l'aide. Wallert transforme ce transfert de vos fonds forcé en un signal de détresse invisible pour l'agresseur."}
+        <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl mb-12">
+          {"Face à une agression et l'obligation de transférer vos fonds sous la force, vous ne pouvez ni fuir, ni appeler à l'aide. Wallert transforme ce transfert forcé en un signal de détresse invisible pour l'agresseur — et chaque seconde gagnée rapproche l'intervention."}
         </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
+            <h3 className="text-base font-bold text-white mb-3">Temps gagné</h3>
+            <p className="text-gray-400 text-base leading-relaxed">
+              {"Pour l'agresseur, c'est un transfert. Pour votre cercle de confiance, c'est un signal d'alarme. Plus vite ils sont alertés, plus vite ils peuvent contacter les autorités et intervenir."}
+            </p>
+          </div>
+          <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
+            <h3 className="text-base font-bold text-white mb-3">Traçabilité & réponse</h3>
+            <p className="text-gray-400 text-base leading-relaxed">
+              {"Chaque transfert est horodaté sur la blockchain. Votre cercle de confiance dispose immédiatement des éléments pour solliciter des services spécialisés comme SEAL 911 et lancer le traçage des fonds."}
+            </p>
+          </div>
+          <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
+            <h3 className="text-base font-bold text-white mb-3">Dissuasion passive</h3>
+            <p className="text-gray-400 text-base leading-relaxed">
+              {"Si l'existence de ce type de dispositif se répand, chaque transfert sous contrainte devient un risque pour l'agresseur. Ça change le calcul."}
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Dispositif — 3 cartes */}
