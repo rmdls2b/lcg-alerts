@@ -217,10 +217,10 @@ export default function Accueil() {
       {/* CTA final */}
       <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-16 text-center">
         <h2 className="text-white text-xl md:text-2xl font-bold mb-8">
-          Réduisez le temps entre agression et intervention.
+          Ne laissez rien au hasard.
         </h2>
         <a href="/" className="inline-block px-8 py-4 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-all hover:shadow-[0_8px_24px_rgba(0,212,170,0.2)]">
-          Activer ma protection
+          Activer Wallert
         </a>
       </div>
 
