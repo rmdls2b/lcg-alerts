@@ -64,7 +64,7 @@ export async function POST(request) {
     // Envoi Telegram
     for (const channel of user.channels) {
       if (channel.type === "telegram" && channel.isActive && channel.value) {
-        const telegramText = `⚠️ <b>[TEST] ALERTE WALLERT</b>\n\nCeci est un test — pas une vraie alerte.\n\n💰 Montant : ${value} ${asset}\n📤 De : <code>${shortFrom}</code>\n📥 Vers : <code>${shortTo}</code>${ackUrl ? "\n\n✅ <a href=\"" + ackUrl + "\">Confirmer la prise en charge</a>" : ""}${user.instructions ? "\n\n⚠️ <b>INSTRUCTIONS D'URGENCE :</b>\n" + user.instructions : ""}`
+        const telegramText = `⚠️ <b>[TEST] ALERTE WALLERT</b>\n\nCeci est un test — pas une vraie alerte.\n\n Montant : ${value} ${asset}\n De : <code>${shortFrom}</code>\n Vers : <code>${shortTo}</code>${ackUrl ? "\n\n✅ <a href=\"" + ackUrl + "\">Confirmer la prise en charge</a>" : ""}${user.instructions ? "\n\n⚠️ <b>INSTRUCTIONS D'URGENCE :</b>\n" + user.instructions : ""}`
         await sendTelegramMessage(channel.value, telegramText)
       }
     }
