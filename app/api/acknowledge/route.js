@@ -113,8 +113,8 @@ export async function GET(request) {
 
 
 
-{/*
-import { PrismaClient } from "@prisma/client"
+
+{/*import { PrismaClient } from "@prisma/client"
 import { NextResponse } from "next/server"
 
 const prisma = new PrismaClient()
@@ -147,3 +147,4 @@ export async function GET(request) {
     return new Response("Erreur.", { status: 500, headers: { "Content-Type": "text/html; charset=utf-8" } })
   }
 }
+*/}
