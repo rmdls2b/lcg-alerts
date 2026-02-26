@@ -111,6 +111,52 @@ export default function Accueil() {
         </div>
       </div>
 
+{/* Interface */}
+      <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-16">
+        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Interface</p>
+        <h2 className="text-white text-xl md:text-2xl font-bold mb-12 leading-tight">
+          Simple, modulable, sous votre contrôle.
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
+            <h3 className="text-base font-bold text-white mb-3">Wallets illimités</h3>
+            <p className="text-gray-400 text-base leading-relaxed">
+              {"Ajoutez autant d'adresses à surveiller que nécessaire. Chaque wallet est monitoré en continu."}
+            </p>
+          </div>
+          <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
+            <h3 className="text-base font-bold text-white mb-3">Multi-canal</h3>
+            <p className="text-gray-400 text-base leading-relaxed">
+              {"Email, Telegram, WhatsApp — multipliez les canaux d'alerte pour chaque contact."}
+            </p>
+          </div>
+          <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
+            <h3 className="text-base font-bold text-white mb-3">Récurrence & escalade</h3>
+            <p className="text-gray-400 text-base leading-relaxed">
+              {"Programmez l'intervalle de relance et les canaux d'escalade en cas de non-réponse."}
+            </p>
+          </div>
+          <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
+            <h3 className="text-base font-bold text-white mb-3">Consignes sur mesure</h3>
+            <p className="text-gray-400 text-base leading-relaxed">
+              {"Rédigez un message personnalisé et des directives précises pour chaque alerte."}
+            </p>
+          </div>
+          <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
+            <h3 className="text-base font-bold text-white mb-3">Simulation</h3>
+            <p className="text-gray-400 text-base leading-relaxed">
+              Testez le déclenchement complet avant activation réelle.
+            </p>
+          </div>
+          <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
+            <h3 className="text-base font-bold text-white mb-3">Contrôle total</h3>
+            <p className="text-gray-400 text-base leading-relaxed">
+              Activez, désactivez ou supprimez chaque wallet, canal et contact en un clic.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Garantie */}
       <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-16">
         <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Garantie</p>
