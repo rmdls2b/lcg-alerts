@@ -65,7 +65,7 @@ export async function GET(request) {
       // Envoi Telegram
       for (const channel of user.channels) {
         if (channel.type === "telegram" && channel.isActive && channel.value) {
-          const telegramText = `🔁 <b>[RAPPEL] ALERTE WALLERT</b>\n\nAlerte non confirmée !\n\n💰 Montant : ${alert.amount} ${alert.asset}\n📤 De : <code>${shortFrom}</code>\n📥 Vers : <code>${shortTo}</code>\n\n✅ <a href="${ackUrl}">Confirmer la prise en charge</a>${user.instructions ? "\n\n⚠️ <b>INSTRUCTIONS D'URGENCE :</b>\n" + user.instructions : ""}`
+          const telegramText = `🔁 <b>[RAPPEL] ALERTE WALLERT</b>\n\nAlerte non confirmée !\n\n Montant : ${alert.amount} ${alert.asset}\n De : <code>${shortFrom}</code>\n Vers : <code>${shortTo}</code>\n\n✅ <a href="${ackUrl}">Confirmer la prise en charge</a>${user.instructions ? "\n\n⚠️ <b>INSTRUCTIONS D'URGENCE :</b>\n" + user.instructions : ""}`
           await sendTelegramMessage(channel.value, telegramText)
         }
       }
