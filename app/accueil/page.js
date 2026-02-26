@@ -168,10 +168,36 @@ export default function Accueil() {
         </p>
       </div>
 
+{/* Sécurité & Confidentialité */}
+      <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-16">
+        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Sécurité & Confidentialité</p>
+        <h2 className="text-white text-xl md:text-2xl font-bold mb-12 leading-tight">
+          {"Rien à cacher. Transparence totale sur ce qu'on utilise."}
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
+            <h3 className="text-base font-bold text-white mb-4">Infra & stack</h3>
+            <ul className="space-y-2">
+              <li className="text-gray-400 text-base leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-[#00d4aa] before:font-bold">Serveur dédié en France (Scaleway)</li>
+              <li className="text-gray-400 text-base leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-[#00d4aa] before:font-bold">Conteneur isolé via Podman, derrière un chiffrement HTTPS</li>
+              <li className="text-gray-400 text-base leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-[#00d4aa] before:font-bold">Surveillance blockchain via Alchemy</li>
+              <li className="text-gray-400 text-base leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-[#00d4aa] before:font-bold">Alertes email via Resend</li>
+              <li className="text-gray-400 text-base leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-[#00d4aa] before:font-bold">{"Alertes Telegram via l'API Bot officielle"}</li>
+            </ul>
+          </div>
+          <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
+            <h3 className="text-base font-bold text-white mb-4">Protection des données</h3>
+            <p className="text-gray-400 text-base leading-relaxed">
+              {"Pour une confidentialité maximale, nous recommandons une inscription avec un email non nominatif, un wallet surveillé isolé sans lien avec vos autres portefeuilles, et Telegram comme canal d'alerte avec groupe dédié et identifiants pseudonymes."}
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* CTA final */}
       <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-16 text-center">
         <h2 className="text-white text-xl md:text-2xl font-bold mb-8">
-          Anticipez les situations critiques.
+          Réduisez le temps entre agression et intervention.
         </h2>
         <a href="/" className="inline-block px-8 py-4 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-all hover:shadow-[0_8px_24px_rgba(0,212,170,0.2)]">
           Activer ma protection
