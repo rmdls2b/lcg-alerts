@@ -7,7 +7,7 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 const RESEND_INTERVAL_MS = 5 * 60 * 1000
 
 function alertEmailHtml({ shortFrom, shortTo, value, asset, explorerUrl, ackUrl, instructionsHtml, badge, testBanner }) {
-  return `<!DOCTYPE html><html><head><meta charset="utf-8"></head><body style="margin:0;padding:40px 20px;background:#f5f5f5;font-family:Arial,Helvetica,sans-serif;">
+  return `<div style="margin:0;padding:40px 20px;background:#f5f5f5;font-family:Arial,Helvetica,sans-serif;">
 <div style="max-width:520px;margin:0 auto;background:#ffffff;border:1px solid #e0e0e0;border-radius:12px;overflow:hidden;">
   <div style="background:#ff4444;padding:20px 32px;text-align:center;">
     <span style="color:#fff;font-size:11px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;">${badge}</span>
@@ -41,7 +41,7 @@ function alertEmailHtml({ shortFrom, shortTo, value, asset, explorerUrl, ackUrl,
     <p style="color:#ccc;font-size:10px;margin:0;">Wallert</p>
   </div>
 </div>
-</body></html>`
+</div>`
 }
 
 function instructionsBlock(instructions) {
@@ -80,13 +80,11 @@ export async function GET(request) {
       const subject = "[RAPPEL] Wallert — Signal d'urgence toujours en attente"
       const from = "Wallert <" + (process.env.ALERT_FROM_EMAIL || "onboarding@resend.dev") + ">"
 
-      // Envoi séparé par destinataire
       const emails = [user.email, ...user.channels.filter(c => c.type === "email" && c.isActive).map(c => c.value)]
       for (const email of emails) {
         await resend.emails.send({ from, to: email, subject, html: emailHtml })
       }
 
-      // Envoi Telegram
       for (const channel of user.channels) {
         if (channel.type === "telegram" && channel.isActive && channel.value) {
           const telegramText = `🔁 <b>[RAPPEL] ALERTE WALLERT</b>\n\nAlerte non confirmée !\n\n Montant : ${alert.amount} ${alert.asset}\n De : <code>${shortFrom}</code>\n Vers : <code>${shortTo}</code>\n\n✅ <a href="${ackUrl}">Confirmer la prise en charge</a>${user.instructions ? "\n\n⚠️ <b>INSTRUCTIONS D'URGENCE :</b>\n" + user.instructions : ""}`
