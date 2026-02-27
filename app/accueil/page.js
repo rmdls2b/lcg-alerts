@@ -71,10 +71,10 @@ export default function Accueil() {
       <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-16">
         <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Pourquoi c'est utile</p>
         <h2 className="text-white text-xl md:text-2xl font-bold mb-6 leading-tight">
-          Face à la contrainte physique, chaque minute compte.
+          Face à une agression, chaque seconde compte.
         </h2>
         <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl mb-12">
-          {"Face à une agression et l'obligation de transférer vos fonds sous la force, vous ne pouvez ni fuir, ni appeler à l'aide. Wallert transforme ce transfert forcé en un signal de détresse invisible pour l'agresseur — et chaque seconde gagnée rapproche l'intervention."}
+          {"Seul.e face à l'obligation de transférer vos fonds sous la menace, vous ne pouvez ni fuir, ni appeler à l'aide. Wallert transforme ce transfert forcé en un signal de détresse invisible pour l'agresseur, et chaque seconde gagnée rapproche l'intervention de vos proches et des forces de police."}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
