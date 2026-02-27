@@ -121,11 +121,6 @@ export default function About() {
           {"Merci d'avance. Et surtout, restez en sécurité."}
         </p>
       </section>
-
-      <div className="border-t border-gray-800 pt-8">
-        <p className="text-gray-500 text-sm">Rémi</p>
-      </div>
-
     </div>
   )
 }
