@@ -1,8 +1,6 @@
 "use client"
 import { useState, useEffect } from "react"
 
-const inputStyle = { flex: 1, padding: "6px 10px", backgroundColor: "#0a0a0a", border: "1px solid #333", borderRadius: "4px", color: "#e0e0e0", outline: "none", fontSize: "13px" }
-const btnStyle = { padding: "6px 14px", borderRadius: "4px", border: "none", cursor: "pointer", fontSize: "13px", fontWeight: "bold" }
 const BOT_USERNAME = "walleRt_guard_bot"
 
 export default function MonEspaceClient() {
@@ -127,179 +125,163 @@ export default function MonEspaceClient() {
     setTimeout(function() { setCopied(null) }, 3000)
   }
 
-  if (loading) return <p style={{ textAlign: "center", marginTop: "40px" }}>Chargement...</p>
+  if (loading) return <p className="text-center mt-10 text-gray-500">Chargement...</p>
   if (!user || !data) return null
 
   return (
-    <div style={{ maxWidth: "700px", margin: "0 auto" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "32px" }}>
-        <h1 style={{ fontSize: "18px", fontWeight: "bold", color: "#888" }}>Gestion des alertes</h1>
-        <button onClick={logout} style={{ ...btnStyle, backgroundColor: "#222", border: "1px solid #333", color: "#888" }}>Déconnexion</button>
+    <div className="max-w-[700px] mx-auto px-6 py-8">
+      <div className="flex justify-between items-center mb-10">
+        <h1 className="text-lg font-bold text-gray-400">Gestion des alertes</h1>
+        <button onClick={logout} className="px-4 py-2 text-xs text-gray-500 border border-gray-800 rounded-lg hover:border-gray-600 transition-colors">Deconnexion</button>
       </div>
 
       {/* Wallets surveilles */}
-      <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "20px", marginBottom: "16px" }}>
-        <h2 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>Wallets surveillés</h2>
-        {data.addresses.length === 0 && <p style={{ color: "#555", fontSize: "13px", marginBottom: "12px" }}>Aucun wallet surveillé.</p>}
+      <div className="bg-[#111] border border-gray-800 rounded-xl p-6 mb-4">
+        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Wallets surveilles</p>
+        {data.addresses.length === 0 && <p className="text-gray-600 text-sm mb-3">Aucun wallet surveille.</p>}
         {data.addresses.map(function(addr) {
           return (
-            <div key={addr.id} style={{ display: "flex", alignItems: "center", gap: "10px", padding: "10px 0", borderBottom: "1px solid #1a1a1a" }}>
-              <span style={{ color: addr.isActive ? "#00d4aa" : "#444", fontSize: "16px" }}>{addr.isActive ? "●" : "○"}</span>
-              <div style={{ flex: 1 }}>
-                <span style={{ fontFamily: "monospace", fontSize: "12px" }}>{addr.address.slice(0, 14)}...{addr.address.slice(-8)}</span>
-                {addr.label && <span style={{ color: "#666", fontSize: "12px", marginLeft: "8px" }}>({addr.label})</span>}
+            <div key={addr.id} className="flex items-center gap-3 py-3 border-b border-gray-800/50 last:border-0">
+              <span className={addr.isActive ? "text-[#00d4aa] text-sm" : "text-gray-600 text-sm"}>{addr.isActive ? "●" : "○"}</span>
+              <div className="flex-1 min-w-0">
+                <span className="font-mono text-xs text-gray-300">{addr.address.slice(0, 14)}...{addr.address.slice(-8)}</span>
+                {addr.label && <span className="text-gray-600 text-xs ml-2">({addr.label})</span>}
               </div>
-              <button onClick={function() { toggleAddress(addr.id) }} style={{ ...btnStyle, backgroundColor: addr.isActive ? "#1a1a00" : "#001a0a", border: "1px solid " + (addr.isActive ? "#444400" : "#004422"), color: addr.isActive ? "#aaaa00" : "#00aa44", fontSize: "11px" }}>
-                {addr.isActive ? "Desactiver" : "Activer"}
-              </button>
-              {confirmDeleteAddr === addr.id ? (
-                <div style={{ display: "flex", gap: "4px" }}>
-                  <button onClick={function() { deleteAddress(addr.id) }} style={{ ...btnStyle, backgroundColor: "#ff4444", color: "#fff", fontSize: "11px" }}>Confirmer</button>
-                  <button onClick={function() { setConfirmDeleteAddr(null) }} style={{ ...btnStyle, backgroundColor: "#333", color: "#ccc", fontSize: "11px" }}>Annuler</button>
-                </div>
-              ) : (
-                <button onClick={function() { setConfirmDeleteAddr(addr.id) }} style={{ ...btnStyle, backgroundColor: "#1a0000", border: "1px solid #440000", color: "#ff4444", fontSize: "11px" }}>Supprimer</button>
-              )}
+              <div className="flex gap-2 shrink-0">
+                <button onClick={function() { toggleAddress(addr.id) }} className={"px-3 py-1 text-xs rounded-lg border transition-colors " + (addr.isActive ? "border-yellow-500/30 text-yellow-500 hover:border-yellow-500/50" : "border-[#00d4aa]/30 text-[#00d4aa] hover:border-[#00d4aa]/50")}>
+                  {addr.isActive ? "Desactiver" : "Activer"}
+                </button>
+                {confirmDeleteAddr === addr.id ? (
+                  <div className="flex gap-1">
+                    <button onClick={function() { deleteAddress(addr.id) }} className="px-3 py-1 text-xs rounded-lg bg-red-500 text-white">Confirmer</button>
+                    <button onClick={function() { setConfirmDeleteAddr(null) }} className="px-3 py-1 text-xs rounded-lg border border-gray-800 text-gray-400">Annuler</button>
+                  </div>
+                ) : (
+                  <button onClick={function() { setConfirmDeleteAddr(addr.id) }} className="px-3 py-1 text-xs rounded-lg border border-red-500/30 text-red-400 hover:border-red-500/50 transition-colors">Supprimer</button>
+                )}
+              </div>
             </div>
           )
         })}
         {!showAddAddress ? (
-          <button onClick={function() { setShowAddAddress(true) }} style={{ ...btnStyle, backgroundColor: "transparent", border: "1px solid #00d4aa", color: "#00d4aa", marginTop: "12px" }}>
-            + Ajouter un wallet
-          </button>
+          <button onClick={function() { setShowAddAddress(true) }} className="mt-4 px-4 py-2 text-sm border border-[#00d4aa] text-[#00d4aa] rounded-lg hover:bg-[#00d4aa]/5 transition-colors">+ Ajouter un wallet</button>
         ) : (
-          <form onSubmit={addAddress} style={{ marginTop: "16px", paddingTop: "16px", borderTop: "1px solid #222" }}>
-            <div style={{ marginBottom: "10px" }}>
-              <input type="text" required value={newAddr.address} onChange={function(e) { setNewAddr({ ...newAddr, address: e.target.value }) }}
-                style={{ ...inputStyle, width: "100%", fontFamily: "monospace", boxSizing: "border-box" }} placeholder="0x..." />
-            </div>
-            <div style={{ marginBottom: "10px" }}>
-              <input type="text" value={newAddr.label} onChange={function(e) { setNewAddr({ ...newAddr, label: e.target.value }) }}
-                style={{ ...inputStyle, width: "100%", boxSizing: "border-box" }} placeholder="Nom du wallet (optionnel)" />
-            </div>
-            <div style={{ display: "flex", gap: "8px" }}>
-              <button type="submit" disabled={addingAddr} style={{ ...btnStyle, backgroundColor: "#00d4aa", color: "#000" }}>{addingAddr ? "Ajout..." : "Ajouter"}</button>
-              <button type="button" onClick={function() { setShowAddAddress(false) }} style={{ ...btnStyle, backgroundColor: "#333", color: "#ccc" }}>Annuler</button>
+          <form onSubmit={addAddress} className="mt-4 pt-4 border-t border-gray-800">
+            <input type="text" required value={newAddr.address} onChange={function(e) { setNewAddr({ ...newAddr, address: e.target.value }) }} placeholder="0x..." className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600 font-mono mb-2" />
+            <input type="text" value={newAddr.label} onChange={function(e) { setNewAddr({ ...newAddr, label: e.target.value }) }} placeholder="Nom du wallet (optionnel)" className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600 mb-3" />
+            <div className="flex gap-2">
+              <button type="submit" disabled={addingAddr} className="px-4 py-2 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors disabled:opacity-50">{addingAddr ? "Ajout..." : "Ajouter"}</button>
+              <button type="button" onClick={function() { setShowAddAddress(false) }} className="px-4 py-2 text-sm border border-gray-800 text-gray-400 rounded-lg hover:border-gray-600 transition-colors">Annuler</button>
             </div>
           </form>
         )}
       </div>
 
       {/* Canaux d alerte */}
-      <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "20px", marginBottom: "16px" }}>
-        <h2 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>{"Canaux d'alerte"}</h2>
-        <div style={{ padding: "8px 0", borderBottom: "1px solid #1a1a1a", display: "flex", alignItems: "center", gap: "8px" }}>
-          <span style={{ fontSize: "14px" }}>📧</span>
-          <span style={{ fontSize: "13px", color: "#ccc", flex: 1 }}>{user.email} (principal)</span>
-          <span style={{ fontSize: "11px", color: "#00d4aa" }}>● Toujours actif</span>
+      <div className="bg-[#111] border border-gray-800 rounded-xl p-6 mb-4">
+        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">{"Canaux d'alerte"}</p>
+        <div className="flex items-center gap-2 py-3 border-b border-gray-800/50">
+          <span className="text-sm">📧</span>
+          <span className="text-sm text-gray-300 flex-1">{user.email} (principal)</span>
+          <span className="text-xs text-[#00d4aa]">● Toujours actif</span>
         </div>
         {data.channels.map(function(ch) {
           const icon = ch.type === "email" ? "📧" : "💬"
           const displayValue = ch.type === "email" ? ch.value : (ch.value ? "Telegram" : "Telegram (en attente)")
           return (
-            <div key={ch.id} style={{ padding: "8px 0", borderBottom: "1px solid #1a1a1a", display: "flex", alignItems: "center", gap: "8px" }}>
-              <span style={{ fontSize: "14px" }}>{icon}</span>
-              <span style={{ fontSize: "13px", color: ch.isActive ? "#ccc" : "#666", flex: 1 }}>
+            <div key={ch.id} className="flex items-center gap-2 py-3 border-b border-gray-800/50 last:border-0">
+              <span className="text-sm">{icon}</span>
+              <span className={"text-sm flex-1 " + (ch.isActive ? "text-gray-300" : "text-gray-600")}>
                 {displayValue}
-                {ch.label && <span style={{ color: "#888", marginLeft: "6px" }}>— {ch.label}</span>}
+                {ch.label && <span className="text-gray-500 ml-1">— {ch.label}</span>}
               </span>
               {ch.type === "telegram" && !ch.value && (
-                <button onClick={function() { copyTelegramLink(ch.id) }} style={{ ...btnStyle, backgroundColor: "#0088cc22", border: "1px solid #0088cc44", color: "#0088cc", padding: "2px 8px", fontSize: "11px" }}>
-                  {copied === ch.id ? "Lien copié !" : "Copier le lien"}
+                <button onClick={function() { copyTelegramLink(ch.id) }} className="px-2 py-1 text-xs rounded-lg border border-blue-500/30 text-blue-400 hover:border-blue-500/50 transition-colors">
+                  {copied === ch.id ? "Lien copie !" : "Copier le lien"}
                 </button>
               )}
-              <button onClick={function() { toggleChannel(ch.id, !ch.isActive) }} style={{ ...btnStyle, backgroundColor: ch.isActive ? "#1a1a00" : "#001a0a", border: "1px solid " + (ch.isActive ? "#444400" : "#004422"), color: ch.isActive ? "#aaaa00" : "#00aa44", padding: "2px 8px", fontSize: "11px" }}>
-                {ch.isActive ? "Désactiver" : "Activer"}
+              <button onClick={function() { toggleChannel(ch.id, !ch.isActive) }} className={"px-3 py-1 text-xs rounded-lg border transition-colors " + (ch.isActive ? "border-yellow-500/30 text-yellow-500 hover:border-yellow-500/50" : "border-[#00d4aa]/30 text-[#00d4aa] hover:border-[#00d4aa]/50")}>
+                {ch.isActive ? "Desactiver" : "Activer"}
               </button>
               {confirmDeleteChannel === ch.id ? (
-                <div style={{ display: "flex", gap: "4px" }}>
-                  <button onClick={function() { removeChannel(ch.id) }} style={{ ...btnStyle, backgroundColor: "#ff4444", color: "#fff", fontSize: "11px" }}>Confirmer</button>
-                  <button onClick={function() { setConfirmDeleteChannel(null) }} style={{ ...btnStyle, backgroundColor: "#333", color: "#ccc", fontSize: "11px" }}>Annuler</button>
+                <div className="flex gap-1">
+                  <button onClick={function() { removeChannel(ch.id) }} className="px-3 py-1 text-xs rounded-lg bg-red-500 text-white">Confirmer</button>
+                  <button onClick={function() { setConfirmDeleteChannel(null) }} className="px-3 py-1 text-xs rounded-lg border border-gray-800 text-gray-400">Annuler</button>
                 </div>
               ) : (
-                <button onClick={function() { setConfirmDeleteChannel(ch.id) }} style={{ ...btnStyle, backgroundColor: "#1a0000", border: "1px solid #440000", color: "#ff4444", padding: "2px 8px", fontSize: "11px" }}>Supprimer</button>
+                <button onClick={function() { setConfirmDeleteChannel(ch.id) }} className="px-3 py-1 text-xs rounded-lg border border-red-500/30 text-red-400 hover:border-red-500/50 transition-colors">Supprimer</button>
               )}
             </div>
           )
         })}
 
         {/* Toggle rappels */}
-        <div style={{ marginTop: "12px", paddingTop: "12px", borderTop: "1px solid #222", display: "flex", alignItems: "center", gap: "10px" }}>
-          <button onClick={toggleRecurring} style={{ width: "40px", height: "22px", borderRadius: "11px", border: "none", cursor: "pointer", backgroundColor: recurringAlerts ? "#00d4aa" : "#333", position: "relative", transition: "background 0.2s" }}>
-            <span style={{ position: "absolute", top: "2px", left: recurringAlerts ? "20px" : "2px", width: "18px", height: "18px", borderRadius: "50%", backgroundColor: "#fff", transition: "left 0.2s" }}></span>
+        <div className="mt-4 pt-4 border-t border-gray-800 flex items-center gap-3">
+          <button onClick={toggleRecurring} className={"w-10 h-[22px] rounded-full border-none cursor-pointer relative transition-colors " + (recurringAlerts ? "bg-[#00d4aa]" : "bg-gray-700")}>
+            <span className={"absolute top-[2px] w-[18px] h-[18px] rounded-full bg-white transition-all " + (recurringAlerts ? "left-5" : "left-[2px]")}></span>
           </button>
           <div>
-            <span style={{ fontSize: "13px", color: "#ccc" }}>Rappels récurrents</span>
-            <p style={{ fontSize: "11px", color: "#666", margin: "2px 0 0 0" }}>{"Renvoie l'alerte toutes les 5 min jusqu'à confirmation d'un destinataire"}</p>
+            <span className="text-sm text-gray-300">Rappels recurrents</span>
+            <p className="text-xs text-gray-600 mt-0.5">{"Renvoie l'alerte toutes les 5 min jusqu'a confirmation d'un destinataire"}</p>
           </div>
         </div>
 
-        {/* Ajout email */}
+        {/* Ajout canaux */}
         {showAddEmail ? (
-          <div style={{ marginTop: "12px", paddingTop: "12px", borderTop: "1px solid #222" }}>
-            <div style={{ display: "flex", gap: "8px", marginBottom: "8px" }}>
-              <input type="email" required placeholder="Email..." value={newEmail} onChange={function(e) { setNewEmail(e.target.value) }} style={inputStyle} />
-              <input type="text" placeholder="Label (optionnel)" value={newEmailLabel} onChange={function(e) { setNewEmailLabel(e.target.value) }} style={{ ...inputStyle, maxWidth: "160px" }} />
+          <div className="mt-4 pt-4 border-t border-gray-800">
+            <div className="flex gap-2 mb-2">
+              <input type="email" required placeholder="Email..." value={newEmail} onChange={function(e) { setNewEmail(e.target.value) }} className="flex-1 px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600" />
+              <input type="text" placeholder="Label (optionnel)" value={newEmailLabel} onChange={function(e) { setNewEmailLabel(e.target.value) }} className="max-w-[160px] px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600" />
             </div>
-            <div style={{ display: "flex", gap: "8px" }}>
-              <button onClick={addEmailChannel} style={{ ...btnStyle, backgroundColor: "#00d4aa", color: "#000" }}>Ajouter</button>
-              <button onClick={function() { setShowAddEmail(false); setNewEmail(""); setNewEmailLabel("") }} style={{ ...btnStyle, backgroundColor: "#333", color: "#ccc" }}>Annuler</button>
+            <div className="flex gap-2">
+              <button onClick={addEmailChannel} className="px-4 py-2 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors">Ajouter</button>
+              <button onClick={function() { setShowAddEmail(false); setNewEmail(""); setNewEmailLabel("") }} className="px-4 py-2 text-sm border border-gray-800 text-gray-400 rounded-lg hover:border-gray-600 transition-colors">Annuler</button>
             </div>
           </div>
         ) : showAddTelegram ? (
-          <div style={{ marginTop: "12px", paddingTop: "12px", borderTop: "1px solid #222" }}>
-            <div style={{ marginBottom: "8px" }}>
-              <input type="text" placeholder="Label (ex: frère, avocat, groupe famille...)" value={newTelegramLabel} onChange={function(e) { setNewTelegramLabel(e.target.value) }} style={{ ...inputStyle, width: "100%", boxSizing: "border-box" }} />
-            </div>
-            <div style={{ display: "flex", gap: "8px" }}>
-              <button onClick={addTelegramChannel} style={{ ...btnStyle, backgroundColor: "#0088cc", color: "#fff" }}>Créer et copier le lien</button>
-              <button onClick={function() { setShowAddTelegram(false); setNewTelegramLabel("") }} style={{ ...btnStyle, backgroundColor: "#333", color: "#ccc" }}>Annuler</button>
+          <div className="mt-4 pt-4 border-t border-gray-800">
+            <input type="text" placeholder="Label (ex: frere, avocat, groupe famille...)" value={newTelegramLabel} onChange={function(e) { setNewTelegramLabel(e.target.value) }} className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600 mb-3" />
+            <div className="flex gap-2">
+              <button onClick={addTelegramChannel} className="px-4 py-2 bg-blue-500 text-white rounded-lg font-bold text-sm hover:bg-blue-600 transition-colors">Creer et copier le lien</button>
+              <button onClick={function() { setShowAddTelegram(false); setNewTelegramLabel("") }} className="px-4 py-2 text-sm border border-gray-800 text-gray-400 rounded-lg hover:border-gray-600 transition-colors">Annuler</button>
             </div>
           </div>
         ) : (
-          <div style={{ display: "flex", gap: "8px", marginTop: "12px" }}>
-            <button onClick={function() { setShowAddEmail(true) }} style={{ ...btnStyle, backgroundColor: "transparent", border: "1px solid #00d4aa", color: "#00d4aa" }}>
-              + Email
-            </button>
-            <button onClick={function() { setShowAddTelegram(true) }} style={{ ...btnStyle, backgroundColor: "transparent", border: "1px solid #0088cc", color: "#0088cc" }}>
-              + Telegram
-            </button>
+          <div className="flex gap-2 mt-4">
+            <button onClick={function() { setShowAddEmail(true) }} className="px-4 py-2 text-sm border border-[#00d4aa] text-[#00d4aa] rounded-lg hover:bg-[#00d4aa]/5 transition-colors">+ Email</button>
+            <button onClick={function() { setShowAddTelegram(true) }} className="px-4 py-2 text-sm border border-blue-500 text-blue-400 rounded-lg hover:bg-blue-500/5 transition-colors">+ Telegram</button>
           </div>
         )}
       </div>
 
       {/* Instructions d urgence */}
-      <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "20px", marginBottom: "16px" }}>
-        <h2 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>{"Instructions d'urgence"}</h2>
-        <textarea rows={4} value={instructions} onChange={function(e) { setInstructions(e.target.value) }}
-          style={{ width: "100%", padding: "8px", backgroundColor: "#0a0a0a", border: "1px solid #333", borderRadius: "4px", color: "#e0e0e0", outline: "none", fontSize: "13px", resize: "vertical", boxSizing: "border-box" }}
-          placeholder="Ex: Appeler le 06... Contacter la police..."/>
-        <button onClick={saveInstructions} style={{ ...btnStyle, backgroundColor: "#00d4aa", color: "#000", marginTop: "8px" }}>
+      <div className="bg-[#111] border border-gray-800 rounded-xl p-6 mb-4">
+        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">{"Instructions d'urgence"}</p>
+        <textarea rows={4} value={instructions} onChange={function(e) { setInstructions(e.target.value) }} placeholder="Ex: Appeler le 06... Contacter la police..." className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600 resize-y" />
+        <button onClick={saveInstructions} className="mt-3 px-4 py-2 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors">
           {instructionsSaved ? "Sauvegarde !" : "Sauvegarder"}
         </button>
       </div>
 
       {/* Tester l alerte */}
-      <div style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "20px", marginBottom: "16px" }}>
-        <h2 style={{ fontSize: "15px", color: "#00d4aa", marginBottom: "12px" }}>Tester mon alerte</h2>
-        <p style={{ color: "#888", fontSize: "13px", marginBottom: "12px" }}>{"Envoyez une fausse alerte pour vérifier que vos contacts reçoivent bien les notifications."}</p>
-        <button onClick={async function() { await fetch("/api/test-alert", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userId: user.userId }) }); alert("Alerte test envoyée !") }} style={{ ...btnStyle, backgroundColor: "#332200", border: "1px solid #665500", color: "#ffaa00" }}>
+      <div className="bg-[#111] border border-gray-800 rounded-xl p-6 mb-4">
+        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Tester mon alerte</p>
+        <p className="text-gray-500 text-sm mb-4">{"Envoyez une fausse alerte pour verifier que vos contacts recoivent bien les notifications."}</p>
+        <button onClick={async function() { await fetch("/api/test-alert", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userId: user.userId }) }); alert("Alerte test envoyee !") }} className="px-4 py-2 text-sm border border-yellow-500/30 text-yellow-500 rounded-lg hover:border-yellow-500/50 hover:bg-yellow-500/5 transition-colors">
           Envoyer une alerte test
         </button>
       </div>
 
       {/* Supprimer le compte */}
-      <div style={{ marginTop: "24px", paddingTop: "24px", borderTop: "1px solid #1a1a1a" }}>
+      <div className="mt-8 pt-8 border-t border-gray-800">
         {!confirmDelete ? (
-          <button onClick={function() { setConfirmDelete(true) }} style={{ ...btnStyle, backgroundColor: "#1a0000", border: "1px solid #661111", color: "#ff6666", padding: "10px 20px" }}>
-            Supprimer mon compte
-          </button>
+          <button onClick={function() { setConfirmDelete(true) }} className="px-5 py-2.5 text-sm border border-red-500/30 text-red-400 rounded-lg hover:border-red-500/50 hover:bg-red-500/5 transition-colors">Supprimer mon compte</button>
         ) : (
-          <div style={{ background: "#1a0000", border: "1px solid #661111", borderRadius: "8px", padding: "16px" }}>
-            <p style={{ color: "#ff8888", marginBottom: "12px" }}>{"Etes-vous sur ? Cette action est irreversible."}</p>
-            <div style={{ display: "flex", gap: "8px" }}>
-              <button onClick={deleteAccount} style={{ ...btnStyle, backgroundColor: "#ff4444", color: "#fff" }}>Oui, supprimer</button>
-              <button onClick={function() { setConfirmDelete(false) }} style={{ ...btnStyle, backgroundColor: "#333", color: "#ccc" }}>Annuler</button>
+          <div className="bg-red-500/5 border border-red-500/20 rounded-xl p-5">
+            <p className="text-red-300 text-sm mb-4">{"Etes-vous sur ? Cette action est irreversible."}</p>
+            <div className="flex gap-2">
+              <button onClick={deleteAccount} className="px-4 py-2 bg-red-500 text-white rounded-lg font-bold text-sm">Oui, supprimer</button>
+              <button onClick={function() { setConfirmDelete(false) }} className="px-4 py-2 text-sm border border-gray-800 text-gray-400 rounded-lg hover:border-gray-600 transition-colors">Annuler</button>
             </div>
           </div>
         )}
