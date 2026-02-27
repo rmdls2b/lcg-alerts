@@ -74,15 +74,17 @@ export async function POST(request) {
     }
 
     const instructionsHtml = instructionsBlock(user.instructions)
+    const emailHtml = alertEmailHtml({ shortFrom, shortTo, value, asset, explorerUrl: "", ackUrl, instructionsHtml, badge: "⚠ Signal d'urgence active", testBanner: true })
+    const subject = "[TEST] Wallert — Signal d'urgence activé : action immediate requise"
+    const from = "Wallert <" + (process.env.ALERT_FROM_EMAIL || "onboarding@resend.dev") + ">"
+
+    // Envoi séparé par destinataire
     const emails = [user.email, ...user.channels.filter(c => c.type === "email" && c.isActive).map(c => c.value)]
+    for (const email of emails) {
+      await resend.emails.send({ from, to: email, subject, html: emailHtml })
+    }
 
-    await resend.emails.send({
-      from: "Wallert <" + (process.env.ALERT_FROM_EMAIL || "onboarding@resend.dev") + ">",
-      to: emails,
-      subject: "[TEST] Wallert — Signal d'urgence activé : action immediate requise",
-      html: alertEmailHtml({ shortFrom, shortTo, value, asset, explorerUrl: "", ackUrl, instructionsHtml, badge: "⚠ Signal d'urgence active", testBanner: true }),
-    })
-
+    // Envoi Telegram
     for (const channel of user.channels) {
       if (channel.type === "telegram" && channel.isActive && channel.value) {
         const telegramText = `⚠️ <b>[TEST] ALERTE WALLERT</b>\n\nCeci est un TEST — pas une vraie alerte.\n\n Montant : ${value} ${asset}\n De : <code>${shortFrom}</code>\n Vers : <code>${shortTo}</code>${ackUrl ? "\n\n✅ <a href=\"" + ackUrl + "\">Confirmer la prise en charge</a>" : ""}${user.instructions ? "\n\n⚠️ <b>INSTRUCTIONS D'URGENCE :</b>\n" + user.instructions : ""}`
