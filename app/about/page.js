@@ -6,118 +6,118 @@ export default function About() {
 
       <section className="mb-12">
         <h2 className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Le probleme</h2>
-        <p className="text-gray-400 text-sm leading-relaxed mb-4">
+        <p className="text-gray-400 text-base leading-relaxed mb-4">
           {"J'ai passé 6 ans chez Ledger en tant que Head of Product. Depuis 2024 j'accompagne des utilisateurs dans la sécurisation de leurs actifs. J'ai vu ce que la crypto apporte, mais aussi les risques qu'elle fait peser sur ceux qui en détiennent."}
         </p>
-        <p className="text-gray-400 text-sm leading-relaxed mb-4">
+        <p className="text-gray-400 text-base leading-relaxed mb-4">
           {"Ces derniers temps, les agressions physiques se multiplient. Home-jackings, enlèvements, extorsions. Face à la violence, aucun hardware wallet ne vous protège. Vous êtes seul, et personne ne sait que vous êtes en danger."}
         </p>
-        <p className="text-gray-400 text-sm leading-relaxed mb-4">
+        <p className="text-gray-400 text-base leading-relaxed mb-4">
           {"Face à une agression de ce type, aucun hardware wallet, aucun mot de passe, aucune seed phrase ne vous protège. Vous êtes SEUL, et personne ne sait que vous êtes en danger."}
         </p>
-        <p className="text-gray-400 text-sm leading-relaxed">
+        <p className="text-gray-400 text-base leading-relaxed">
           {"IMPORTANT : aujourd'hui la meilleure solution reste souvent sortir de l'équation, de ne pas avoir accès à ses fonds facilement. Mais tout le monde ne fait pas ce choix."}
         </p>
       </section>
 
       <section className="mb-12">
         <h2 className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">{"L'idée"}</h2>
-        <p className="text-gray-400 text-sm leading-relaxed mb-4">
+        <p className="text-gray-400 text-base leading-relaxed mb-4">
           {"J'ai construit Wallert comme une couche de protection supplémentaire."}
         </p>
-        <p className="text-gray-400 text-sm leading-relaxed mb-4">
+        <p className="text-gray-400 text-base leading-relaxed mb-4">
           {"Le principe : un wallet dédié, placé sous surveillance. Si un transfert est effectué sous la contrainte, ce mouvement déclenche une alerte silencieuse. L'agresseur voit un butin. En réalité, c'est un signal d'alarme."}
         </p>
-        <p className="text-gray-400 text-sm leading-relaxed">
+        <p className="text-gray-400 text-base leading-relaxed">
           {"En quelques secondes, un cercle de confiance reçoit une alerte avec vos instructions pour agir, appeler la police, etc."}
-            </p>
+        </p>
       </section>
 
       <section className="mb-12">
         <h2 className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Conçu pour laisser le moins de trace possible</h2>
-        <p className="text-gray-400 text-sm leading-relaxed mb-4">
+        <p className="text-gray-400 text-base leading-relaxed mb-4">
           {"Un outil de sécurité ne doit pas devenir un vecteur de risque. Wallert repose sur 3 piliers pour minimiser l'impact en cas de fuite de données."}
         </p>
         <div className="space-y-3 mb-4">
           <div className="bg-[#111] border border-gray-800 rounded-lg px-4 py-3">
-            <p className="text-white text-sm font-medium mb-1">{"Anonymat"}</p>
-            <p className="text-gray-500 text-xs">{"Inscription via une adresse mail unique non nominative."}</p>
+            <p className="text-white text-base font-medium mb-1">{"Anonymat"}</p>
+            <p className="text-gray-500 text-sm">{"Inscription via une adresse mail unique non nominative."}</p>
           </div>
           <div className="bg-[#111] border border-gray-800 rounded-lg px-4 py-3">
-            <p className="text-white text-sm font-medium mb-1">{"Wallet isolé et dédié"}</p>
-            <p className="text-gray-500 text-xs">{"Wallet déidé séparé de vos fonds principaux. Il ne sert qu'à déclencher l'alerte."}</p>
+            <p className="text-white text-base font-medium mb-1">{"Wallet isolé et dédié"}</p>
+            <p className="text-gray-500 text-sm">{"Wallet dédié séparé de vos fonds principaux. Il ne sert qu'à déclencher l'alerte."}</p>
           </div>
           <div className="bg-[#111] border border-gray-800 rounded-lg px-4 py-3">
-            <p className="text-white text-sm font-medium mb-1">{"Groupe Telegram anonyme"}</p>
-            <p className="text-gray-500 text-xs">{"Alertes diffusées sur un groupe Telegram anonyme."}</p>
+            <p className="text-white text-base font-medium mb-1">{"Groupe Telegram anonyme"}</p>
+            <p className="text-gray-500 text-sm">{"Alertes diffusées sur un groupe Telegram anonyme."}</p>
           </div>
         </div>
-        <p className="text-gray-400 text-sm leading-relaxed">
+        <p className="text-gray-400 text-base leading-relaxed">
           {"Résultat : même en cas de compromission, aucun lien direct entre Wallert, votre identité, et vos fonds."}
         </p>
       </section>
 
       <section className="mb-12">
         <h2 className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">{"D'abord un outil perso"}</h2>
-        <p className="text-gray-400 text-sm leading-relaxed mb-4">
+        <p className="text-gray-400 text-base leading-relaxed mb-4">
           {"J'ai d'abord construit Wallert pour mon propre usage. Quand j'ai présenté le concept autour de moi, la réaction a été unanime : \"je veux la même chose.\""}
         </p>
-        <p className="text-gray-400 text-sm leading-relaxed mb-4">
+        <p className="text-gray-400 text-base leading-relaxed mb-4">
           {"J'ai donc transformé cet outil en quelque chose de configurable à la portée de tout le monde."}
         </p>
-        <p className="text-gray-400 text-sm leading-relaxed">
+        <p className="text-gray-400 text-base leading-relaxed">
           {"Aujourd'hui je mets Wallert à la disposition de tous."}
         </p>
       </section>
 
       <section className="mb-12">
         <h2 className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Soyons clairs</h2>
-        <p className="text-gray-400 text-sm leading-relaxed mb-4">
+        <p className="text-gray-400 text-base leading-relaxed mb-4">
           {"Wallert n'empêche pas les agressions, ni le vol. Ce n'est pas son rôle."}
         </p>
-        <p className="text-gray-400 text-sm leading-relaxed mb-4">
+        <p className="text-gray-400 text-base leading-relaxed mb-4">
           {"Son rôle, c'est de briser le silence rapidement. Est-ce que la police arrivera à temps ? Peut-être pas. Mais sans Wallert, personne n'est au courant, et c'est le pire scénario."}
         </p>
-        <p className="text-gray-400 text-sm leading-relaxed">
+        <p className="text-gray-400 text-base leading-relaxed">
           {"C'est un filet de sécurité, une tranquillité d'esprit au quotidien. Pas une garantie."}
         </p>
       </section>
 
       <section className="mb-12">
         <h2 className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Une beta, construite avec Claude</h2>
-        <p className="text-gray-400 text-sm leading-relaxed mb-4">
+        <p className="text-gray-400 text-base leading-relaxed mb-4">
           {"Je vais être honnête : je ne suis pas développeur. J'ai construit Wallert brique par brique avec l'aide de Claude."}
         </p>
-        <p className="text-gray-400 text-sm leading-relaxed">
-          {"Le résultat n'est certainement pas parfait. L'interface et les usages peuvents être améliorés. Mais le cœur du système : détection, alerte, récurrence jusqu'à prise en charge. Ça fonctionne."}
+        <p className="text-gray-400 text-base leading-relaxed">
+          {"Le résultat n'est certainement pas parfait. L'interface et les usages peuvent être améliorés. Mais le cœur du système : détection, alerte, récurrence jusqu'à prise en charge. Ça fonctionne."}
         </p>
       </section>
 
       <section className="mb-12">
         <h2 className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">{"Aidez-moi à l'améliorer"}</h2>
-        <p className="text-gray-400 text-sm leading-relaxed mb-4">
+        <p className="text-gray-400 text-base leading-relaxed mb-4">
           {"Ce projet évoluera peut-être."}
         </p>
-        <p className="text-gray-400 text-sm leading-relaxed mb-4">
+        <p className="text-gray-400 text-base leading-relaxed mb-4">
           {"Si vous utilisez Wallert, dites-moi ce qui manque, ce qui vous gêne. Si vous êtes développeur et que vous voyez des choses à améliorer, vos retours sont précieux."}
         </p>
-        <p className="text-gray-400 text-sm leading-relaxed">
+        <p className="text-gray-400 text-base leading-relaxed">
           {"Chaque retour compte. Envoyez-moi un message à "}
           <a href="mailto:contact@wallert.app" className="text-[#00d4aa] hover:underline">contact@wallert.app</a>
           {", je lis tout et je réponds."}
         </p>
       </section>
 
- <section className="mb-12">
+      <section className="mb-12">
         <h2 className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Soutenir le projet</h2>
-        <p className="text-gray-400 text-sm leading-relaxed mb-4">
+        <p className="text-gray-400 text-base leading-relaxed mb-4">
           {"Wallert est gratuit, j'espère le garder accessible. Si vous trouvez le projet utile et que vous voulez contribuer à son maintien (serveurs, développement, temps), vous pouvez envoyer du code :) ou un tip :) :"}
         </p>
         <div className="bg-[#111] border border-gray-800 rounded-lg px-4 py-3 mb-6">
           <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">ETH</p>
           <p className="text-gray-300 font-mono text-sm">{"0x..."} <span className="text-gray-600 text-xs ml-2">(bientôt)</span></p>
         </div>
-        <p className="text-gray-400 text-sm leading-relaxed">
+        <p className="text-gray-400 text-base leading-relaxed">
           {"Merci d'avance. Et surtout, restez en sécurité."}
         </p>
       </section>
