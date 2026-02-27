@@ -11,7 +11,7 @@ export default function Accueil() {
             <p className="text-white text-xl md:text-2xl font-bold mb-6 leading-tight max-w-xl">
               {"Votre wallet déclenche "}
               <span className="text-[#00d4aa] italic">{"l'alerte"}</span>
-              {" en cas de transfert de crypto sous contrainte."}
+              {" en cas de transfert forcé de crypto."}
             </p>
             <p className="text-gray-300 text-lg md:text-xl mb-10 max-w-lg leading-relaxed italic" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
               {"Une protection active 24h/24. Simple, silencieuse, invisible pour l'agresseur et immédiate."}
@@ -109,7 +109,7 @@ export default function Accueil() {
             <div className="text-2xl font-bold text-[#00d4aa] mb-4" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>01</div>
             <h3 className="text-base font-bold text-white mb-3">Portefeuille de protection</h3>
             <p className="text-gray-400 text-base leading-relaxed">
-              {"Isolez une somme crédible sur un portefeuille dédié et isolé. Ce "wallet de sécurité" devient votre bouton d'urgence."}
+              {"Isolez une somme crédible sur un portefeuille dédié et isolé. Ce « wallet de sécurité » devient votre bouton d'urgence."}
             </p>
           </div>
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
