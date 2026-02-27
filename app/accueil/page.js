@@ -61,6 +61,7 @@ export default function Accueil() {
                   </div>
                 </div>
               </div>
+              </div> 
             </div>
           </div>
         </div>
