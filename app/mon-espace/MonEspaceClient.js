@@ -249,7 +249,7 @@ export default function MonEspaceClient() {
           </div>
         ) : showAddTelegram ? (
           <div className="mt-4 pt-4 border-t border-gray-800">
-            <input type="text" placeholder="Label (ex: frere, avocat, groupe famille...)" value={newTelegramLabel} onChange={function(e) { setNewTelegramLabel(e.target.value) }} className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600 mb-3" />
+            <input type="text" placeholder="Label (ex: groupe famille, garde du corps, contact de confiance...)" value={newTelegramLabel} onChange={function(e) { setNewTelegramLabel(e.target.value) }} className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600 mb-3" />
             <div className="flex gap-2">
               <button onClick={addTelegramChannel} className="px-4 py-2 bg-blue-500 text-white rounded-lg font-bold text-sm hover:bg-blue-600 transition-colors">Creer et copier le lien</button>
               <button onClick={function() { setShowAddTelegram(false); setNewTelegramLabel("") }} className="px-4 py-2 text-sm border border-gray-800 text-gray-400 rounded-lg hover:border-gray-600 transition-colors">Annuler</button>
@@ -276,7 +276,7 @@ export default function MonEspaceClient() {
       {/* Instructions d urgence */}
       <div className="bg-[#111] border border-gray-800 rounded-xl p-6 mb-4">
         <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">{"Instructions d'urgence"}</p>
-        <textarea rows={4} value={instructions} onChange={function(e) { setInstructions(e.target.value) }} placeholder="Exemple (orientationsà: Appelez moi. Appelez X. Contacter la police. Ouvrez un ticket sur SEAL911" className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600 resize-y" />
+        <textarea rows={4} value={instructions} onChange={function(e) { setInstructions(e.target.value) }} placeholder="Exemple (orientations) : Appelez moi. Appelez X. Contacter la police. Ouvrir un ticket sur SEAL911. Etc." className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600 resize-y" />
         <button onClick={saveInstructions} className="mt-3 px-4 py-2 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors">
           {instructionsSaved ? "Sauvegarde !" : "Sauvegarder"}
         </button>
