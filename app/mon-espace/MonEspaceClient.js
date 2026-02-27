@@ -140,7 +140,7 @@ export default function MonEspaceClient() {
   return (
     <div className="max-w-[700px] mx-auto px-6 py-8">
       <div className="flex justify-between items-center mb-10">
-        <h1 className="text-lg font-bold text-gray-400">Gestion des alertes</h1>
+        <h1 className="text-lg font-bold text-white">Gestion des alertes</h1>
         <button onClick={logout} className="px-4 py-2 text-xs text-gray-500 border border-gray-800 rounded-lg hover:border-gray-600 transition-colors">Deconnexion</button>
       </div>
 
