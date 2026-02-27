@@ -206,7 +206,7 @@ export default function Accueil() {
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
             <h3 className="text-base font-bold text-white mb-4">Protection des données</h3>
             <p className="text-gray-400 text-base leading-relaxed">
-              {"Pour une confidentialité maximale, nous recommandons une inscription avec un email non nominatif, un wallet surveillé isolé sans lien avec vos autres portefeuilles, et Telegram comme canal d'alerte avec groupe dédié et identifiants pseudonymes."}
+              {"Pour une confidentialité maximale, nous recommandons une inscription avec un email non nominatif, un wallet surveillé isolé sans lien avec vos autres portefeuilles, et groupe Telegram anonyme comme canal d'alerte."}
             </p>
           </div>
         </div>
