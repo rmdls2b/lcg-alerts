@@ -10,6 +10,8 @@ export default function MonEspaceClient() {
   const [instructions, setInstructions] = useState("")
   const [instructionsSaved, setInstructionsSaved] = useState(false)
   const [recurringAlerts, setRecurringAlerts] = useState(false)
+  const [pseudonym, setPseudonym] = useState("")
+  const [pseudonymSaved, setPseudonymSaved] = useState(false)
   const [confirmDelete, setConfirmDelete] = useState(false)
   const [confirmDeleteAddr, setConfirmDeleteAddr] = useState(null)
   const [confirmDeleteChannel, setConfirmDeleteChannel] = useState(null)
@@ -38,6 +40,7 @@ export default function MonEspaceClient() {
       setData(json)
       setInstructions(json.user ? json.user.instructions : "")
       setRecurringAlerts(json.user ? json.user.recurringAlerts : false)
+      setPseudonym(json.user ? json.user.pseudonym || "" : "")
     }
     setLoading(false)
   }
@@ -46,6 +49,12 @@ export default function MonEspaceClient() {
     await fetch("/api/user/update", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userId: user.userId, instructions }) })
     setInstructionsSaved(true)
     setTimeout(function() { setInstructionsSaved(false) }, 2000)
+  }
+
+  async function savePseudonym() {
+    await fetch("/api/user/update", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userId: user.userId, pseudonym }) })
+    setPseudonymSaved(true)
+    setTimeout(function() { setPseudonymSaved(false) }, 2000)
   }
 
   async function addEmailChannel() {
@@ -252,6 +261,16 @@ export default function MonEspaceClient() {
             <button onClick={function() { setShowAddTelegram(true) }} className="px-4 py-2 text-sm border border-blue-500 text-blue-400 rounded-lg hover:bg-blue-500/5 transition-colors">+ Telegram</button>
           </div>
         )}
+      </div>
+
+      {/* Nom d identification */}
+      <div className="bg-[#111] border border-gray-800 rounded-xl p-6 mb-4">
+        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">{"Nom d'identification"}</p>
+        <p className="text-gray-500 text-sm mb-3">{"Ce nom apparaitra dans les alertes envoyees a vos contacts pour qu'ils sachent de qui il s'agit."}</p>
+        <input type="text" value={pseudonym} onChange={function(e) { setPseudonym(e.target.value) }} placeholder="Ex: Rem, Papa, etc." className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600 mb-3" />
+        <button onClick={savePseudonym} className="px-4 py-2 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors">
+          {pseudonymSaved ? "Sauvegarde !" : "Sauvegarder"}
+        </button>
       </div>
 
       {/* Instructions d urgence */}
