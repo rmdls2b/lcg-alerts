@@ -11,7 +11,9 @@ export default function Accueil() {
             <p className="text-white text-xl md:text-2xl font-bold mb-6 leading-tight max-w-xl">
               {"Votre wallet déclenche "}
               <span className="text-[#00d4aa] italic">{"l'alerte"}</span>
-              {" en cas de transfert forcé de crypto."}
+              {" en cas de "}
+              <span className="text-red-400 italic">{"transfert forcé"}</span>
+              {" de crypto."}
             </p>
             <p className="text-gray-300 text-lg md:text-xl mb-10 max-w-lg leading-relaxed italic" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
               {"Une protection active 24h/24. Simple, silencieuse, invisible pour l'agresseur et immédiate."}
@@ -74,25 +76,25 @@ export default function Accueil() {
           Face à une agression, chaque seconde compte.
         </h2>
         <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl mb-12">
-          {"Seul.e face à l'obligation de transférer vos fonds sous la menace, vous ne pouvez ni fuir, ni appeler à l'aide. Wallert transforme ce transfert forcé en un signal de détresse invisible pour l'agresseur, et chaque seconde gagnée rapproche l'intervention de vos proches et des forces de police."}
+          {"Face à une menace importante, vous ne pouvez ni fuir, ni appeler à l'aide. Avec un signal de détresse invisible pour l'agresseur, chaque seconde gagnée rapproche l'intervention de vos proches et des forces de police."}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
             <h3 className="text-base font-bold text-white mb-3">Temps gagné</h3>
             <p className="text-gray-400 text-base leading-relaxed">
-              {"Pour l'agresseur, c'est un transfert. Pour votre cercle de confiance, c'est un signal d'alarme. Plus vite ils sont alertés, plus vite ils peuvent contacter les autorités et intervenir."}
+              {"Pour l'agresseur, c'est un transfert. Pour vos proche, c'est un signal d'alarme. Plus l'alerte est rapide, plus l'intervention de la police est efficace."}
             </p>
           </div>
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
             <h3 className="text-base font-bold text-white mb-3">Traçabilité & réponse</h3>
             <p className="text-gray-400 text-base leading-relaxed">
-              {"Chaque transfert est horodaté sur la blockchain. Votre cercle de confiance dispose immédiatement des éléments pour solliciter des services spécialisés comme SEAL 911 et lancer le traçage des fonds."}
+              {"Votre cercle de confiance reçoit immédiatement les détails de la transaction et peuvent solliciter SEAL 911 et tracer les fonds."}
             </p>
           </div>
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
             <h3 className="text-base font-bold text-white mb-3">Dissuasion passive</h3>
             <p className="text-gray-400 text-base leading-relaxed">
-              {"Si l'existence de ce type de dispositif se répand, chaque transfert sous contrainte devient un risque pour l'agresseur. Ça change le calcul."}
+              {"Chaque transfert sous contrainte devient un risque pour l'agresseur. La généralisation du dispositif devient votre meilleure défense"}
             </p>
           </div>
         </div>
