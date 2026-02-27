@@ -16,21 +16,24 @@ async function removeAddressFromAlchemy(address) {
 export async function POST(request) {
   try {
     const { userId } = await request.json()
-    const user = await prisma.user.findUnique({ where: { id: userId }, include: { addresses: true } })
+    const user = await prisma.user.findUnique({ where: { id: userId }, include: { addresses: true, channels: true } })
     if (!user) return NextResponse.json({ error: "Utilisateur non trouvé" }, { status: 404 })
+
     for (const addr of user.addresses) {
       await prisma.alert.deleteMany({ where: { addressId: addr.id } })
       await removeAddressFromAlchemy(addr.address)
     }
     await prisma.watchedAddress.deleteMany({ where: { userId } })
-    await prisma.alertRecipient.deleteMany({ where: { userId } })
+    await prisma.alertChannel.deleteMany({ where: { userId } })
     await prisma.user.delete({ where: { id: userId } })
+
     await resend.emails.send({
-      from: "Crypto Guard <" + process.env.ALERT_FROM_EMAIL + ">",
+      from: "Wallert <" + (process.env.ALERT_FROM_EMAIL || "onboarding@resend.dev") + ">",
       to: user.email,
       subject: "Votre compte Wallert a été supprimé",
-      html: `<div style="font-family:sans-serif;max-width:500px;margin:0 auto;background:#0a0a0a;color:#e0e0e0;padding:32px;border-radius:8px"><h1 style="color:#e0e0e0;font-size:22px;margin-bottom:16px">Compte supprime</h1><p style="color:#ccc;line-height:1.6">Bonjour ${user.pseudonym}, votre compte et toutes vos adresses ont ete supprimes.</p><div style="margin-top:32px;padding-top:16px;border-top:1px solid #222;font-size:12px;color:#555">Legacy Crypto Guard</div></div>`,
+      html: `<div style="font-family:Arial,Helvetica,sans-serif;max-width:520px;margin:0 auto;background:#ffffff;border:1px solid #e0e0e0;border-radius:12px;overflow:hidden;"><div style="background:#666;padding:20px 32px;text-align:center;"><span style="color:#fff;font-size:11px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;">Compte supprim&eacute;</span></div><div style="padding:32px;"><p style="color:#333;font-size:14px;line-height:1.6;margin:0 0 20px 0;">Votre compte Wallert et toutes vos adresses surveill&eacute;es ont &eacute;t&eacute; supprim&eacute;s.</p><p style="color:#333;font-size:14px;line-height:1.6;margin:0 0 20px 0;">Si vous n'&ecirc;tes pas &agrave; l'origine de cette action, contactez-nous imm&eacute;diatement.</p></div><div style="border-top:1px solid #eee;padding:16px 32px;text-align:center;"><p style="color:#ccc;font-size:10px;margin:0;">Wallert &mdash; Surveillance blockchain</p></div></div>`,
     })
+
     return NextResponse.json({ ok: true })
   } catch (error) {
     return NextResponse.json({ error: "Erreur: " + error.message }, { status: 500 })
