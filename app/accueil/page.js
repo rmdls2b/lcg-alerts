@@ -177,7 +177,7 @@ export default function Accueil() {
         </div>
       </div>
 
-      {/* Fiabilité */}
+      {/* Fiabilité 
       <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-16">
         <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Garantie</p>
         <h2 className="text-white text-xl md:text-2xl font-bold mb-6 leading-tight">
@@ -186,7 +186,7 @@ export default function Accueil() {
         <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl">
           {"Une simple notification peut passer inaperçue. Wallert fonctionne comme une alarme : l'alerte est relancée automatiquement à intervalle programmable jusqu'à ce qu'un membre de votre réseau confirme sa prise en charge. En cas de non-réponse, le système escalade vers d'autres canaux d'alerte."}
         </p>
-      </div>
+      </div>*/}
 
       {/* Sécurité & Confidentialité */}
       <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-16">
