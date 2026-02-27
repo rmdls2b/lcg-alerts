@@ -27,9 +27,9 @@ export default function Accueil() {
               </a>
             </div>
           </div>
-          <div className="hidden lg:flex flex-1 justify-center w-full max-w-sm lg:max-w-none mx-auto">
-            <div className="w-full max-w-[320px]">
-              <div className="border border-gray-800 rounded-2xl p-6 bg-[#0a0a0a]">
+          <div className="flex flex-1 justify-center w-full max-w-[240px] lg:max-w-none mx-auto">
+            <div className="w-full max-w-[240px] lg:max-w-[320px]">
+              <div className="border border-gray-800 rounded-2xl p-4 lg:p-6 bg-[#0a0a0a]">  
                 <div className="border border-gray-800 rounded-xl p-4 mb-3">
                   <div className="flex flex-col items-center gap-1">
                     <span className="text-gray-300 text-xs font-bold">WALLET SURVEILLÉ</span>
