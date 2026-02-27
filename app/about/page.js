@@ -7,10 +7,10 @@ export default function About() {
       <section className="mb-12">
         <h2 className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Le probleme</h2>
         <p className="text-gray-400 text-sm leading-relaxed mb-4">
-          {"J'ai passé 6 ans chez Ledger en tant que Head of Product. Depuis 2024 j'accompagne des utilisateurs dans la sécurisation de leurs actifs. J'ai vu ce que la crypto apporte, mais aussi les risques qu'elle fait peser sur ceux qui en détiennent.
+          {"J'ai passé 6 ans chez Ledger en tant que Head of Product. Depuis 2024 j'accompagne des utilisateurs dans la sécurisation de leurs actifs. J'ai vu ce que la crypto apporte, mais aussi les risques qu'elle fait peser sur ceux qui en détiennent."}
         </p>
         <p className="text-gray-400 text-sm leading-relaxed mb-4">
-          {"Ces derniers temps, les agressions physiques se multiplient. Home-jackings, enlèvements, extorsions. Face à la violence, aucun hardware wallet ne vous protège. Vous êtes seul, et personne ne sait que vous êtes en danger.
+          {"Ces derniers temps, les agressions physiques se multiplient. Home-jackings, enlèvements, extorsions. Face à la violence, aucun hardware wallet ne vous protège. Vous êtes seul, et personne ne sait que vous êtes en danger."}
         </p>
         <p className="text-gray-400 text-sm leading-relaxed mb-4">
           {"Face à une agression de ce type, aucun hardware wallet, aucun mot de passe, aucune seed phrase ne vous protège. Vous êtes SEUL, et personne ne sait que vous êtes en danger."}
