@@ -6,14 +6,15 @@ const prisma = new PrismaClient()
 const resend = new Resend(process.env.RESEND_API_KEY)
 const RESEND_INTERVAL_MS = 5 * 60 * 1000
 
-function alertEmailHtml({ shortFrom, shortTo, value, asset, explorerUrl, ackUrl, instructionsHtml, badge }) {
+function alertEmailHtml({ shortFrom, shortTo, value, asset, explorerUrl, ackUrl, instructionsHtml, badge, testBanner }) {
   return `<!DOCTYPE html><html><head><meta charset="utf-8"></head><body style="margin:0;padding:40px 20px;background:#f5f5f5;font-family:Arial,Helvetica,sans-serif;">
 <div style="max-width:520px;margin:0 auto;background:#ffffff;border:1px solid #e0e0e0;border-radius:12px;overflow:hidden;">
   <div style="background:#ff4444;padding:20px 32px;text-align:center;">
     <span style="color:#fff;font-size:11px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;">${badge}</span>
   </div>
   <div style="padding:32px;">
-    <p style="color:#cc0000;font-size:14px;text-align:center;font-weight:bold;margin:0 0 28px 0;">Vous recevez cet email car vous êtes designé comme contact d'urgence.</p>
+    ${testBanner ? '<div style="background:#fff8e6;border:1px solid #ffe0a0;border-radius:6px;padding:10px;margin-bottom:24px;text-align:center;"><span style="color:#b8860b;font-size:12px;font-weight:bold;">CECI EST UN TEST — PAS UNE VRAIE ALERTE</span></div>' : ''}
+    <p style="color:#cc0000;font-size:14px;text-align:center;font-weight:bold;margin:0 0 28px 0;">Vous recevez cet email car vous êtes désigné comme contact d'urgence.</p>
     <div style="background:#fafafa;border:1px solid #eee;border-radius:8px;padding:20px;margin-bottom:24px;">
       <table style="width:100%;border-collapse:collapse;">
         <tr>
@@ -31,14 +32,9 @@ function alertEmailHtml({ shortFrom, shortTo, value, asset, explorerUrl, ackUrl,
           <td style="padding:8px 0;text-align:right;color:#333;font-family:monospace;font-size:12px;">${shortTo}</td>
         </tr>
       </table>
-      <div style="text-align:center;margin-top:16px;padding-top:12px;border-top:1px solid #eee;">
-        <a href="${explorerUrl}" style="color:#999;font-size:11px;text-decoration:underline;">Voir sur Etherscan</a>
-      </div>
+      ${explorerUrl ? '<div style="text-align:center;margin-top:16px;padding-top:12px;border-top:1px solid #eee;"><a href="' + explorerUrl + '" style="color:#999;font-size:11px;text-decoration:underline;">Voir sur Etherscan</a></div>' : ''}
     </div>
-    <div style="text-align:center;margin-bottom:8px;">
-      <a href="${ackUrl}" style="display:inline-block;background:#00b892;color:#fff;padding:14px 40px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:14px;">Confirmer la prise en charge</a>
-    </div>
-    <p style="color:#aaa;font-size:11px;text-align:center;margin:0 0 28px 0;">Rappels envoyés toutes les 5 min a tous les contacts d'urgence tant que non confirmé</p>
+    ${ackUrl ? '<div style="text-align:center;margin-bottom:8px;"><a href="' + ackUrl + '" style="display:inline-block;background:#00b892;color:#fff;padding:14px 40px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:14px;">Confirmer la prise en charge</a></div><p style="color:#aaa;font-size:11px;text-align:center;margin:0 0 28px 0;">Rappels envoyes toutes les 5 min a tous les contacts d\'urgence tant que non confirme</p>' : ''}
     ${instructionsHtml}
   </div>
   <div style="border-top:1px solid #eee;padding:16px 32px;text-align:center;">
@@ -80,15 +76,17 @@ export async function GET(request) {
       const explorerUrl = "https://etherscan.io/tx/" + alert.txHash
       const ackUrl = "https://wallert.app/api/acknowledge?id=" + alert.id
       const instructionsHtml = instructionsBlock(user.instructions)
+      const emailHtml = alertEmailHtml({ shortFrom, shortTo, value: alert.amount, asset: alert.asset, explorerUrl, ackUrl, instructionsHtml, badge: "Rappel — Alerte non confirmée", testBanner: false })
+      const subject = "[RAPPEL] Wallert — Signal d'urgence toujours en attente"
+      const from = "Wallert <" + (process.env.ALERT_FROM_EMAIL || "onboarding@resend.dev") + ">"
 
+      // Envoi séparé par destinataire
       const emails = [user.email, ...user.channels.filter(c => c.type === "email" && c.isActive).map(c => c.value)]
-      await resend.emails.send({
-        from: "Wallert <" + (process.env.ALERT_FROM_EMAIL || "onboarding@resend.dev") + ">",
-        to: emails,
-        subject: "[RAPPEL] Wallert — Signal d'urgence toujours en attente",
-        html: alertEmailHtml({ shortFrom, shortTo, value: alert.amount, asset: alert.asset, explorerUrl, ackUrl, instructionsHtml, badge: "🔁 Rappel — Alerte non confirmee" }),
-      })
+      for (const email of emails) {
+        await resend.emails.send({ from, to: email, subject, html: emailHtml })
+      }
 
+      // Envoi Telegram
       for (const channel of user.channels) {
         if (channel.type === "telegram" && channel.isActive && channel.value) {
           const telegramText = `🔁 <b>[RAPPEL] ALERTE WALLERT</b>\n\nAlerte non confirmée !\n\n Montant : ${alert.amount} ${alert.asset}\n De : <code>${shortFrom}</code>\n Vers : <code>${shortTo}</code>\n\n✅ <a href="${ackUrl}">Confirmer la prise en charge</a>${user.instructions ? "\n\n⚠️ <b>INSTRUCTIONS D'URGENCE :</b>\n" + user.instructions : ""}`
