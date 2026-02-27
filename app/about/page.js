@@ -34,7 +34,7 @@ export default function About() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Conçu pour ne laisser aucune trace</h2>
+        <h2 className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Conçu pour laisser le moins de trace possible</h2>
         <p className="text-gray-400 text-sm leading-relaxed mb-4">
           {"Un outil de sécurité ne doit pas devenir un vecteur de risque. Wallert est pensé pour minimiser l'impact en cas de fuite de données."}
         </p>
@@ -109,11 +109,11 @@ export default function About() {
         <p className="text-gray-400 text-sm leading-relaxed">
           {"Chaque retour compte. Envoyez-moi un message à "}
           <a href="mailto:contact@wallert.app" className="text-[#00d4aa] hover:underline">contact@wallert.app</a>
-          {" — je lis tout et je réponds."}
+          {", je lis tout et je réponds."}
         </p>
       </section>
 
-      <section className="mb-12">
+ <section className="mb-12">
         <h2 className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Soutenir le projet</h2>
         <p className="text-gray-400 text-sm leading-relaxed mb-4">
           {"Wallert est gratuit, j'espère le garder accessible. Si vous trouvez le projet utile et que vous voulez contribuer à son maintien (serveurs, développement, temps), vous pouvez envoyer du code :) ou un tip :) :"}
@@ -128,7 +128,7 @@ export default function About() {
       </section>
 
       <div className="border-t border-gray-800 pt-8">
-        <p className="text-gray-500 text-sm">— Rem</p>
+        <p className="text-gray-500 text-sm">Rémi</p>
       </div>
 
     </div>
