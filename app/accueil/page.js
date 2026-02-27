@@ -14,7 +14,7 @@ export default function Accueil() {
               {" en cas de transfert de crypto sous contrainte."}
             </p>
             <p className="text-gray-300 text-lg md:text-xl mb-10 max-w-lg leading-relaxed italic" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
-              {"Une protection active 24h/24 qui donne l’alerte en cas de transfert forcé. Simple, silencieux, invisible pour l'agresseur et immédiat."}
+              {"Une protection active 24h/24. Simple, silencieuse, invisible pour l'agresseur et immédiate."}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
               <a href="/" className="inline-block w-fit px-6 py-3 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors">
