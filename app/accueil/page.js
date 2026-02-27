@@ -39,8 +39,6 @@ export default function Accueil() {
                 </div>
                 <div className="text-center text-gray-700 text-lg my-1">↓</div>
                 <div className="border border-red-500/50 rounded-xl p-3 bg-red-500/5 mb-3">
-                <div className="text-center text-gray-700 text-lg my-1">↓</div>
-                <div className="border border-red-500/50 rounded-xl p-3 bg-red-500/5 mb-3">
                   <div className="flex flex-col items-center justify-center gap-1">
                     <span className="text-red-400 text-xs font-bold tracking-wide">MOUVEMENT DÉTECTÉ</span>
                     <span className="text-red-400/50 text-[13px]">Transfert sortant</span>
@@ -69,7 +67,7 @@ export default function Accueil() {
         </div>
       </div>
 
-     {/* Contexte & Gains */}
+      {/* Contexte & Gains */}
       <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-16">
         <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Contexte</p>
         <h2 className="text-white text-xl md:text-2xl font-bold mb-6 leading-tight">
@@ -131,7 +129,7 @@ export default function Accueil() {
         </div>
       </div>
 
-{/* Interface */}
+      {/* Interface */}
       <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-16">
         <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Interface</p>
         <h2 className="text-white text-xl md:text-2xl font-bold mb-12 leading-tight">
@@ -188,7 +186,7 @@ export default function Accueil() {
         </p>
       </div>
 
-{/* Sécurité & Confidentialité */}
+      {/* Sécurité & Confidentialité */}
       <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-16">
         <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Sécurité & Confidentialité</p>
         <h2 className="text-white text-xl md:text-2xl font-bold mb-12 leading-tight">
