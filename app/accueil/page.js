@@ -100,30 +100,30 @@ export default function Accueil() {
 
       {/* Dispositif — 3 cartes */}
       <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-16">
-        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Dispositif</p>
+        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Fonctionnement</p>
         <h2 className="text-white text-xl md:text-2xl font-bold mb-12 leading-tight">
-          {"Un protocole de secours en trois étapes."}
+          {"Un protocole en 3 étapes."}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
             <div className="text-2xl font-bold text-[#00d4aa] mb-4" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>01</div>
-            <h3 className="text-base font-bold text-white mb-3">Placer un portefeuille sous surveillance</h3>
+            <h3 className="text-base font-bold text-white mb-3">Portefeuille de protection</h3>
             <p className="text-gray-400 text-base leading-relaxed">
-              {"Isolez une somme suffisamment crédible pour satisfaire un agresseur sur un portefeuille dédié à votre sécurité, qui devient votre bouton d'urgence. Wallert surveillera les mouvements sortants de cette adresse en continu."}
+              {"Isolez une somme crédible sur un portefeuille dédié et isolé. Ce "wallet de sécurité" devient votre bouton d'urgence."}
             </p>
           </div>
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
             <div className="text-2xl font-bold text-[#00d4aa] mb-4" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>02</div>
-            <h3 className="text-base font-bold text-white mb-3">{"Réseau de confiance et canaux d'alerte"}</h3>
+            <h3 className="text-base font-bold text-white mb-3">{"Réseau de confiance et vos canaux d'alerte"}</h3>
             <p className="text-gray-400 text-base leading-relaxed">
-              {"Configurez vos contacts d'urgence et les directives à suivre. Le système est conçu pour diffuser l'alerte simultanément sur plusieurs canaux : Email, Telegram, WhatsApp."}
+              {"Choisissez qui doit recevoir l'alerte (proches, experts...), par quel moyen (mail, Telegram), et les instructions urgentes à suivre."}
             </p>
           </div>
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
             <div className="text-2xl font-bold text-[#00d4aa] mb-4" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>03</div>
-            <h3 className="text-base font-bold text-white mb-3">{"Le transfert déclenche l'alerte"}</h3>
+            <h3 className="text-base font-bold text-white mb-3">{"Signal d'alerte siliencieux"}</h3>
             <p className="text-gray-400 text-base leading-relaxed">
-              {"Sous la menace, commencez par le transfert des fonds de ce portefeuille de sécurité. Le mouvement est détecté instantanément, et déclenche l'alerte à votre cercle de confiance."}
+              {"Sous la menace, effectuez simplement le transfert depuis ce portefeuille. Le signal est envoyé instantanément et discrètement. Votre réseau peut intervenir."}
             </p>
           </div>
         </div>
@@ -139,25 +139,25 @@ export default function Accueil() {
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
             <h3 className="text-base font-bold text-white mb-3">Wallets illimités</h3>
             <p className="text-gray-400 text-base leading-relaxed">
-              {"Ajoutez autant d'adresses à surveiller que nécessaire. Chaque wallet est monitoré en continu."}
+              {"Ajoutez autant d'adresses que nécessaire. Chaque wallet est monitoré en continu."}
             </p>
           </div>
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
             <h3 className="text-base font-bold text-white mb-3">Multi-canal</h3>
             <p className="text-gray-400 text-base leading-relaxed">
-              {"Email, Telegram, WhatsApp — multipliez les canaux d'alerte pour chaque contact."}
+              {"Email, Telegram — multipliez les canaux d'alerte pour vos contacts."}
             </p>
           </div>
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
-            <h3 className="text-base font-bold text-white mb-3">Récurrence & escalade</h3>
+            <h3 className="text-base font-bold text-white mb-3">Alertes persistantes</h3>
             <p className="text-gray-400 text-base leading-relaxed">
-              {"Programmez l'intervalle de relance et les canaux d'escalade en cas de non-réponse."}
+              {"Le système relance vos contacts tant que personne n'a confirmé la prise en charge."}
             </p>
           </div>
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
-            <h3 className="text-base font-bold text-white mb-3">Consignes sur mesure</h3>
+            <h3 className="text-base font-bold text-white mb-3">Instructions d'urgence</h3>
             <p className="text-gray-400 text-base leading-relaxed">
-              {"Rédigez un message personnalisé et des directives précises pour chaque alerte."}
+              {"Définissez un protocole d'urgence et rédigez des directives précises."}
             </p>
           </div>
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
@@ -167,9 +167,9 @@ export default function Accueil() {
             </p>
           </div>
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
-            <h3 className="text-base font-bold text-white mb-3">Contrôle total</h3>
+            <h3 className="text-base font-bold text-white mb-3">Contrôle absolu</h3>
             <p className="text-gray-400 text-base leading-relaxed">
-              Activez, désactivez ou supprimez chaque wallet, canal et contact en un clic.
+              Activez ou couper votre protection en un clic.
             </p>
           </div>
         </div>
@@ -190,7 +190,7 @@ export default function Accueil() {
       <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-16">
         <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Sécurité & Confidentialité</p>
         <h2 className="text-white text-xl md:text-2xl font-bold mb-12 leading-tight">
-          {"Rien à cacher. Transparence totale sur ce qu'on utilise."}
+          {"Transparence totale. Rien à cacher. Tout à protéger."}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
