@@ -14,7 +14,7 @@ export default function Accueil() {
               {" en cas de transfert de crypto sous contrainte."}
             </p>
             <p className="text-gray-300 text-lg md:text-xl mb-10 max-w-lg leading-relaxed italic" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
-              {"Wallert transforme votre portefeuille en alarme silencieuse, instantanée et active 24h/24."}
+              {"Une protection active 24h/24 qui donne l’alerte en cas de transfert forcé. Simple, silencieux, invisible pour l'agresseur et immédiat."}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
               <a href="/" className="inline-block w-fit px-6 py-3 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors">
@@ -121,7 +121,7 @@ export default function Accueil() {
           </div>
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
             <div className="text-2xl font-bold text-[#00d4aa] mb-4" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>03</div>
-            <h3 className="text-base font-bold text-white mb-3">{"Déclenchement du signal et intervention"}</h3>
+            <h3 className="text-base font-bold text-white mb-3">{"Le transfert déclenche l'alerte"}</h3>
             <p className="text-gray-400 text-base leading-relaxed">
               {"Sous la menace, commencez par le transfert des fonds de ce portefeuille de sécurité. Le mouvement est détecté instantanément, et déclenche l'alerte à votre cercle de confiance."}
             </p>
