@@ -230,7 +230,9 @@ export default function Accueil() {
 }
 
 
-      {/* Étapes
+      /*
+      
+      Étapes
       <div className="max-w-3xl mx-auto px-6 py-20">
         <div className="flex flex-col gap-6">
           <div className="bg-[#111] border border-gray-800 rounded-xl p-7 flex gap-5">
@@ -274,4 +276,4 @@ export default function Accueil() {
     </div>
   )
 }
-*/}
+*/
