@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <div className="max-w-[640px] mx-auto px-6 py-16">
+    <div className="max-w-[720px] mx-auto px-6 py-16">
 
       <h1 className="text-2xl font-bold text-white mb-12">Pourquoi Wallert existe.</h1>
 
