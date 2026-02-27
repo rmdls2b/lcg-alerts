@@ -1,7 +1,7 @@
 import "./globals.css"
 export const metadata = {
   title: "Wallert — Surveillance Blockchain",
-  description: "Surveillance blockchain — alertes en temps reel",
+  description: "Alertes en temps reel",
 }
 export default function RootLayout({ children }) {
   return (
@@ -13,6 +13,7 @@ export default function RootLayout({ children }) {
               Walle<span style={{color: "#00d4aa"}}>r</span>t
             </a>
             <div style={{display: "flex", gap: "20px", fontSize: "14px", alignItems: "center"}}>
+              <a href="/about" style={{color: "#ccc", textDecoration: "none"}}>À propos</a>
               <a href="/mon-espace" style={{color: "#ccc", textDecoration: "none"}}>Mon espace</a>
               <a href="/dashboard" style={{color: "#555", textDecoration: "none"}}>Admin</a>
             </div>
