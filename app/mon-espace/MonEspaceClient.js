@@ -146,7 +146,7 @@ export default function MonEspaceClient() {
 
       {/* Wallets surveilles */}
       <div className="bg-[#111] border border-gray-800 rounded-xl p-6 mb-4">
-        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Wallets surveilles</p>
+        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Wallets surveillés</p>
         {data.addresses.length === 0 && <p className="text-gray-600 text-sm mb-3">Aucun wallet surveille.</p>}
         {data.addresses.map(function(addr) {
           return (
@@ -230,7 +230,7 @@ export default function MonEspaceClient() {
             <span className={"absolute top-[2px] w-[18px] h-[18px] rounded-full bg-white transition-all " + (recurringAlerts ? "left-5" : "left-[2px]")}></span>
           </button>
           <div>
-            <span className="text-sm text-gray-300">Rappels recurrents</span>
+            <span className="text-sm text-gray-300">Rappels récurrents</span>
             <p className="text-xs text-gray-600 mt-0.5">{"Renvoie l'alerte toutes les 5 min jusqu'a confirmation d'un destinataire"}</p>
           </div>
         </div>
@@ -266,7 +266,7 @@ export default function MonEspaceClient() {
       {/* Nom d identification */}
       <div className="bg-[#111] border border-gray-800 rounded-xl p-6 mb-4">
         <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">{"Nom d'identification"}</p>
-        <p className="text-gray-500 text-sm mb-3">{"Ce nom apparaitra dans les alertes envoyees a vos contacts pour qu'ils sachent de qui il s'agit."}</p>
+        <p className="text-gray-500 text-sm mb-3">{"Ce nom apparaitra dans les alertes envoyées à vos contacts pour qu'ils sachent de qui il s'agit."}</p>
         <input type="text" value={pseudonym} onChange={function(e) { setPseudonym(e.target.value) }} placeholder="Ex: Rem, Papa, etc." className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600 mb-3" />
         <button onClick={savePseudonym} className="px-4 py-2 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors">
           {pseudonymSaved ? "Sauvegarde !" : "Sauvegarder"}
@@ -276,7 +276,7 @@ export default function MonEspaceClient() {
       {/* Instructions d urgence */}
       <div className="bg-[#111] border border-gray-800 rounded-xl p-6 mb-4">
         <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">{"Instructions d'urgence"}</p>
-        <textarea rows={4} value={instructions} onChange={function(e) { setInstructions(e.target.value) }} placeholder="Ex: Appeler le 06... Contacter la police..." className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600 resize-y" />
+        <textarea rows={4} value={instructions} onChange={function(e) { setInstructions(e.target.value) }} placeholder="Exemple (orientationsà: Appelez moi. Appelez X. Contacter la police. Ouvrez un ticket sur SEAL911" className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600 resize-y" />
         <button onClick={saveInstructions} className="mt-3 px-4 py-2 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors">
           {instructionsSaved ? "Sauvegarde !" : "Sauvegarder"}
         </button>
@@ -285,7 +285,7 @@ export default function MonEspaceClient() {
       {/* Tester l alerte */}
       <div className="bg-[#111] border border-gray-800 rounded-xl p-6 mb-4">
         <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Tester mon alerte</p>
-        <p className="text-gray-500 text-sm mb-4">{"Envoyez une fausse alerte pour verifier que vos contacts recoivent bien les notifications."}</p>
+        <p className="text-gray-500 text-sm mb-4">{"Envoyez une fausse alerte pour vérifier que vos contacts recoivent bien les notifications."}</p>
         <button onClick={async function() { await fetch("/api/test-alert", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userId: user.userId }) }); alert("Alerte test envoyee !") }} className="px-4 py-2 text-sm border border-yellow-500/30 text-yellow-500 rounded-lg hover:border-yellow-500/50 hover:bg-yellow-500/5 transition-colors">
           Envoyer une alerte test
         </button>
