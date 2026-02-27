@@ -32,7 +32,7 @@ export default function Accueil() {
                   <div className="flex items-center gap-3">
                     <span className="text-[#00d4aa] text-sm">●</span>
                     <span className="text-gray-300 text-xs font-mono">0x8a...c9b2</span>
-                    <span className="text-gray-500 text-xs ml-auto">WALLET SURVEILLÉ</span>
+                    <span className="text-gray-300 text-xs font-bold ml-auto">WALLET SURVEILLÉ</span>
                   </div>
                 </div>
                 <div className="text-center text-gray-700 text-lg my-1">↓</div>
@@ -52,15 +52,11 @@ export default function Accueil() {
                 <div className="flex gap-2 justify-center">
                   <div className="border border-gray-800 rounded-lg p-2 text-center flex-1">
                     <span className="text-base block">📧</span>
-                    <p className="text-gray-600 text-[12px]">Email</p>
+                    <p className="text-white text-[12px]">Email</p>
                   </div>
                   <div className="border border-gray-800 rounded-lg p-2 text-center flex-1">
                     <span className="text-base block">💬</span>
-                    <p className="text-gray-600 text-[12px]">Telegram</p>
-                  </div>
-                  <div className="border border-gray-800 rounded-lg p-2 text-center flex-1">
-                    <span className="text-base block">📱</span>
-                    <p className="text-gray-600 text-[12px]">WhatsApp</p>
+                    <p className="text-white text-[12px]">Telegram</p>
                   </div>
                 </div>
               </div>
