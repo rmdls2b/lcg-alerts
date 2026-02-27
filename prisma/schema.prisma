@@ -10,7 +10,7 @@ datasource db {
 model User {
   id             String          @id @default(cuid())
   email          String          @unique
-  pseudonym      String
+  pseudonym      String          @default("")
   password       String          @default("")
   instructions   String          @default("")
   recurringAlerts Boolean  @default(false)
