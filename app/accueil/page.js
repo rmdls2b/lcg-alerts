@@ -29,13 +29,16 @@ export default function Accueil() {
             <div className="w-full max-w-[320px]">
               <div className="border border-gray-800 rounded-2xl p-6 bg-[#0a0a0a]">
                 <div className="border border-gray-800 rounded-xl p-4 mb-3">
-                <div className="flex flex-col items-center gap-1">
-                  <span className="text-gray-300 text-xs font-bold">WALLET SURVEILLÉ</span>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[#00d4aa] text-sm">●</span>
-                    <span className="text-gray-300 text-xs font-mono">0x8a...c9b2</span>
+                  <div className="flex flex-col items-center gap-1">
+                    <span className="text-gray-300 text-xs font-bold">WALLET SURVEILLÉ</span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[#00d4aa] text-sm">●</span>
+                      <span className="text-gray-300 text-xs font-mono">0x8a...c9b2</span>
+                    </div>
                   </div>
                 </div>
+                <div className="text-center text-gray-700 text-lg my-1">↓</div>
+                <div className="border border-red-500/50 rounded-xl p-3 bg-red-500/5 mb-3">
                 <div className="text-center text-gray-700 text-lg my-1">↓</div>
                 <div className="border border-red-500/50 rounded-xl p-3 bg-red-500/5 mb-3">
                   <div className="flex flex-col items-center justify-center gap-1">
