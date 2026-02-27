@@ -6,41 +6,7 @@ const prisma = new PrismaClient()
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 function alertEmailHtml({ shortFrom, shortTo, value, asset, explorerUrl, ackUrl, instructionsHtml, badge, testBanner }) {
-  return `<div style="margin:0;padding:40px 20px;background:#f5f5f5;font-family:Arial,Helvetica,sans-serif;">
-<div style="max-width:520px;margin:0 auto;background:#ffffff;border:1px solid #e0e0e0;border-radius:12px;overflow:hidden;">
-  <div style="background:#ff4444;padding:20px 32px;text-align:center;">
-    <span style="color:#fff;font-size:11px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;">${badge}</span>
-  </div>
-  <div style="padding:32px;">
-    ${testBanner ? '<div style="background:#fff8e6;border:1px solid #ffe0a0;border-radius:6px;padding:10px;margin-bottom:24px;text-align:center;"><span style="color:#b8860b;font-size:12px;font-weight:bold;">CECI EST UN TEST — PAS UNE VRAIE ALERTE</span></div>' : ''}
-    <p style="color:#cc0000;font-size:14px;text-align:center;font-weight:bold;margin:0 0 28px 0;">Vous recevez cet email car vous êtes désigné comme contact d'urgence.</p>
-    <div style="background:#fafafa;border:1px solid #eee;border-radius:8px;padding:20px;margin-bottom:24px;">
-      <table style="width:100%;border-collapse:collapse;">
-        <tr>
-          <td style="padding:8px 0;color:#999;font-size:12px;text-transform:uppercase;letter-spacing:1px;">Montant</td>
-          <td style="padding:8px 0;text-align:right;color:#cc0000;font-size:15px;font-weight:bold;">${value} ${asset}</td>
-        </tr>
-        <tr><td colspan="2" style="border-bottom:1px solid #eee;"></td></tr>
-        <tr>
-          <td style="padding:8px 0;color:#999;font-size:12px;text-transform:uppercase;letter-spacing:1px;">De</td>
-          <td style="padding:8px 0;text-align:right;color:#333;font-family:monospace;font-size:12px;">${shortFrom}</td>
-        </tr>
-        <tr><td colspan="2" style="border-bottom:1px solid #eee;"></td></tr>
-        <tr>
-          <td style="padding:8px 0;color:#999;font-size:12px;text-transform:uppercase;letter-spacing:1px;">Vers</td>
-          <td style="padding:8px 0;text-align:right;color:#333;font-family:monospace;font-size:12px;">${shortTo}</td>
-        </tr>
-      </table>
-      ${explorerUrl ? '<div style="text-align:center;margin-top:16px;padding-top:12px;border-top:1px solid #eee;"><a href="' + explorerUrl + '" style="color:#999;font-size:11px;text-decoration:underline;">Voir sur Etherscan</a></div>' : ''}
-    </div>
-    ${ackUrl ? '<div style="text-align:center;margin-bottom:8px;"><a href="' + ackUrl + '" style="display:inline-block;background:#00b892;color:#fff;padding:14px 40px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:14px;">Confirmer la prise en charge</a></div><p style="color:#aaa;font-size:11px;text-align:center;margin:0 0 28px 0;">Rappels envoyes toutes les 5 min a tous les contacts d\'urgence tant que non confirme</p>' : ''}
-    ${instructionsHtml}
-  </div>
-  <div style="border-top:1px solid #eee;padding:16px 32px;text-align:center;">
-    <p style="color:#ccc;font-size:10px;margin:0;">Wallert</p>
-  </div>
-</div>
-</div>`
+  return `<div style="font-family:Arial,Helvetica,sans-serif;max-width:520px;margin:0 auto;background:#ffffff;border:1px solid #e0e0e0;border-radius:12px;overflow:hidden;"><div style="background:#ff4444;padding:20px 32px;text-align:center;"><span style="color:#fff;font-size:11px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;">${badge}</span></div><div style="padding:32px;">${testBanner ? '<div style="background:#fff8e6;border:1px solid #ffe0a0;border-radius:6px;padding:10px;margin-bottom:24px;text-align:center;"><span style="color:#b8860b;font-size:12px;font-weight:bold;">CECI EST UN TEST — PAS UNE VRAIE ALERTE</span></div>' : ''}<p style="color:#cc0000;font-size:14px;text-align:center;font-weight:bold;margin:0 0 28px 0;">Vous recevez cet email car vous &ecirc;tes d&eacute;sign&eacute; comme contact d'urgence.</p><div style="background:#fafafa;border:1px solid #eee;border-radius:8px;padding:20px;margin-bottom:24px;"><table style="width:100%;border-collapse:collapse;"><tr><td style="padding:8px 0;color:#999;font-size:12px;text-transform:uppercase;letter-spacing:1px;">Montant</td><td style="padding:8px 0;text-align:right;color:#cc0000;font-size:15px;font-weight:bold;">${value} ${asset}</td></tr><tr><td colspan="2" style="border-bottom:1px solid #eee;"></td></tr><tr><td style="padding:8px 0;color:#999;font-size:12px;text-transform:uppercase;letter-spacing:1px;">De</td><td style="padding:8px 0;text-align:right;color:#333;font-family:monospace;font-size:12px;">${shortFrom}</td></tr><tr><td colspan="2" style="border-bottom:1px solid #eee;"></td></tr><tr><td style="padding:8px 0;color:#999;font-size:12px;text-transform:uppercase;letter-spacing:1px;">Vers</td><td style="padding:8px 0;text-align:right;color:#333;font-family:monospace;font-size:12px;">${shortTo}</td></tr></table>${explorerUrl ? '<div style="text-align:center;margin-top:16px;padding-top:12px;border-top:1px solid #eee;"><a href="' + explorerUrl + '" style="color:#999;font-size:11px;text-decoration:underline;">Voir sur Etherscan</a></div>' : ''}</div>${ackUrl ? '<div style="text-align:center;margin-bottom:8px;"><a href="' + ackUrl + '" style="display:inline-block;background:#00b892;color:#fff;padding:14px 40px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:14px;">Confirmer la prise en charge</a></div><p style="color:#aaa;font-size:11px;text-align:center;margin:0 0 28px 0;">Rappels envoy&eacute;s toutes les 5 min &agrave; tous les contacts d\'urgence tant que non confirm&eacute;</p>' : ''}${instructionsHtml}</div><div style="border-top:1px solid #eee;padding:16px 32px;text-align:center;"><p style="color:#ccc;font-size:10px;margin:0;">Wallert</p></div></div>`
 }
 
 function instructionsBlock(instructions) {
@@ -74,7 +40,7 @@ export async function POST(request) {
     }
 
     const instructionsHtml = instructionsBlock(user.instructions)
-    const emailHtml = alertEmailHtml({ shortFrom, shortTo, value, asset, explorerUrl: "", ackUrl, instructionsHtml, badge: "⚠ Signal d'urgence active", testBanner: true })
+    const emailHtml = alertEmailHtml({ shortFrom, shortTo, value, asset, explorerUrl: "", ackUrl, instructionsHtml, badge: "&#9888; Signal d'urgence active", testBanner: true })
     const subject = "[TEST] Wallert — Signal d'urgence activé : action immediate requise"
     const from = "Wallert <" + (process.env.ALERT_FROM_EMAIL || "onboarding@resend.dev") + ">"
 
