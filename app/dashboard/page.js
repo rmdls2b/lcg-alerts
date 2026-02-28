@@ -74,11 +74,12 @@ export default function Dashboard() {
     <div className="max-w-[800px] mx-auto px-6 py-8">
       <h1 className="text-xl font-bold text-white mb-8">Dashboard Admin</h1>
 
-      <div className="grid grid-cols-3 gap-4 mb-10">
+      <div className="grid grid-cols-4 gap-4 mb-10">
         {[
           { label: "Clients", value: data.totalUsers },
           { label: "Adresses surveillées", value: data.totalAddresses },
-          { label: "Alertes envoyées", value: data.totalAlerts },
+          { label: "Alertes réelles", value: data.totalAlerts },
+          { label: "Alertes test", value: data.totalTestAlerts },
         ].map(function(stat) {
           return (
             <div key={stat.label} className="bg-[#111] border border-gray-800 rounded-xl p-5">
