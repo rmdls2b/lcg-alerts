@@ -8,9 +8,11 @@ export default function Dashboard() {
   const [confirmDelete, setConfirmDelete] = useState(null)
 
   useEffect(function() {
-    if (sessionStorage.getItem("lcg_admin") === "1") {
+    const stored = sessionStorage.getItem("lcg_admin_pwd")
+    if (stored) {
+      setPwd(stored)
       setAuth(true)
-      loadData()
+      loadData(stored)
     }
   }, [])
 
@@ -22,23 +24,26 @@ export default function Dashboard() {
       body: JSON.stringify({ password: pwd }),
     })
     if (res.ok) {
-      sessionStorage.setItem("lcg_admin", "1")
+      sessionStorage.setItem("lcg_admin_pwd", pwd)
       setAuth(true)
-      loadData()
+      loadData(pwd)
     } else {
       alert("Mot de passe incorrect")
     }
   }
 
-  async function loadData() {
-    const res = await fetch("/api/dashboard-data", { cache: "no-store" })
+  async function loadData(password) {
+    const res = await fetch("/api/dashboard-data", {
+      cache: "no-store",
+      headers: { "Authorization": password || pwd },
+    })
     if (res.ok) setData(await res.json())
   }
 
   async function deleteUser(userId) {
     const res = await fetch("/api/delete-account", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", "Authorization": pwd },
       body: JSON.stringify({ userId: userId }),
     })
     if (res.ok) {
@@ -51,61 +56,61 @@ export default function Dashboard() {
   }
 
   if (!auth) return (
-    <div style={{ maxWidth: "360px", margin: "120px auto", textAlign: "center" }}>
-      <h1 style={{ fontSize: "22px", marginBottom: "24px" }}>Dashboard Admin</h1>
+    <div className="max-w-[360px] mx-auto mt-32 text-center">
+      <h1 className="text-xl font-bold text-white mb-6">Dashboard Admin</h1>
       <form onSubmit={handleAuth}>
         <input type="password" value={pwd} onChange={function(e) { setPwd(e.target.value) }} placeholder="Mot de passe admin"
-          style={{ width: "100%", padding: "12px", backgroundColor: "#111", border: "1px solid #333", borderRadius: "6px", color: "#e0e0e0", outline: "none", marginBottom: "12px", boxSizing: "border-box" }} />
-        <button type="submit" style={{ width: "100%", padding: "12px", backgroundColor: "#00d4aa", color: "#000", border: "none", borderRadius: "6px", fontWeight: "bold", cursor: "pointer" }}>
-          Acceder
+          className="w-full px-4 py-3 bg-[#111] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600 mb-3" />
+        <button type="submit" className="w-full py-3 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors">
+          Accéder
         </button>
       </form>
     </div>
   )
 
-  if (!data) return <p style={{ textAlign: "center", marginTop: "40px" }}>Chargement...</p>
+  if (!data) return <p className="text-center mt-10 text-gray-500">Chargement...</p>
 
   return (
-    <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-      <h1 style={{ fontSize: "24px", fontWeight: "bold", marginBottom: "32px" }}>Dashboard Admin</h1>
+    <div className="max-w-[800px] mx-auto px-6 py-8">
+      <h1 className="text-xl font-bold text-white mb-8">Dashboard Admin</h1>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "16px", marginBottom: "40px" }}>
+      <div className="grid grid-cols-3 gap-4 mb-10">
         {[
           { label: "Clients", value: data.totalUsers },
           { label: "Adresses surveillées", value: data.totalAddresses },
           { label: "Alertes envoyées", value: data.totalAlerts },
         ].map(function(stat) {
           return (
-            <div key={stat.label} style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "20px" }}>
-              <div style={{ fontSize: "13px", color: "#888", marginBottom: "8px" }}>{stat.label}</div>
-              <div style={{ fontSize: "32px", fontWeight: "bold", color: "#00d4aa" }}>{stat.value}</div>
+            <div key={stat.label} className="bg-[#111] border border-gray-800 rounded-xl p-5">
+              <div className="text-xs text-gray-500 mb-2">{stat.label}</div>
+              <div className="text-3xl font-bold text-[#00d4aa]">{stat.value}</div>
             </div>
           )
         })}
       </div>
 
-      <h2 style={{ fontSize: "18px", marginBottom: "16px", color: "#888" }}>Clients</h2>
+      <h2 className="text-base text-gray-500 mb-4">Clients</h2>
       {data.users.map(function(user) {
         return (
-          <div key={user.id} style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "16px", marginBottom: "12px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <div key={user.id} className="bg-[#111] border border-gray-800 rounded-xl p-4 mb-3 flex items-center justify-between">
             <div>
-              <div style={{ fontWeight: "bold", marginBottom: "4px", fontFamily: "monospace" }}>ID #{String(user.id).slice(-6).toUpperCase()}</div>
-              <div style={{ fontSize: "12px", color: "#555", marginTop: "4px" }}>
+              <div className="font-bold font-mono text-sm text-gray-300">ID #{String(user.id).slice(-6).toUpperCase()}</div>
+              <div className="text-xs text-gray-600 mt-1">
                 {user._count.addresses} adresse{user._count.addresses > 1 ? "s" : ""} — inscrit le {new Date(user.createdAt).toLocaleDateString("fr-FR")}
               </div>
             </div>
             <div>
               {confirmDelete === user.id ? (
-                <div style={{ display: "flex", gap: "8px" }}>
-                  <button onClick={function() { deleteUser(user.id) }} style={{ padding: "6px 12px", backgroundColor: "#ff4444", color: "#fff", border: "none", borderRadius: "4px", cursor: "pointer", fontWeight: "bold" }}>
+                <div className="flex gap-2">
+                  <button onClick={function() { deleteUser(user.id) }} className="px-3 py-1.5 text-xs rounded-lg bg-red-500 text-white font-bold">
                     Confirmer
                   </button>
-                  <button onClick={function() { setConfirmDelete(null) }} style={{ padding: "6px 12px", backgroundColor: "#333", color: "#ccc", border: "none", borderRadius: "4px", cursor: "pointer" }}>
+                  <button onClick={function() { setConfirmDelete(null) }} className="px-3 py-1.5 text-xs rounded-lg border border-gray-800 text-gray-400">
                     Annuler
                   </button>
                 </div>
               ) : (
-                <button onClick={function() { setConfirmDelete(user.id) }} style={{ padding: "6px 12px", backgroundColor: "#1a0000", border: "1px solid #661111", color: "#ff6666", borderRadius: "4px", cursor: "pointer" }}>
+                <button onClick={function() { setConfirmDelete(user.id) }} className="px-3 py-1.5 text-xs rounded-lg border border-red-500/30 text-red-400 hover:border-red-500/50 transition-colors">
                   Supprimer
                 </button>
               )}
