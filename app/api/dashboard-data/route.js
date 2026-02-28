@@ -9,14 +9,15 @@ export async function GET(request) {
     return NextResponse.json({ error: "Non autorisé" }, { status: 401 })
   }
 
-  const [totalUsers, totalAddresses, totalAlerts, users] = await Promise.all([
+  const [totalUsers, totalAddresses, totalAlerts, totalTestAlerts, users] = await Promise.all([
     prisma.user.count(),
     prisma.watchedAddress.count(),
-    prisma.alert.count(),
+    prisma.alert.count({ where: { isTest: false } }),
+    prisma.alert.count({ where: { isTest: true } }),
     prisma.user.findMany({
       orderBy: { createdAt: "desc" },
       include: { _count: { select: { addresses: true } } },
     }),
   ])
-  return NextResponse.json({ totalUsers, totalAddresses, totalAlerts, users })
+  return NextResponse.json({ totalUsers, totalAddresses, totalAlerts, totalTestAlerts, users })
 }
