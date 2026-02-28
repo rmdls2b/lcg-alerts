@@ -54,6 +54,7 @@ model AlertChannel {
 
 model Alert {
   id             String    @id @default(cuid())
+  isTest         Boolean   @default(false)
   addressId      String
   txHash         String
   fromAddr       String
