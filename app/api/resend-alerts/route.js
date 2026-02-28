@@ -23,6 +23,7 @@ export async function GET(request) {
       where: {
         status: "pending",
         acknowledgedAt: null,
+        isTest: false,          // ← ajoute cette ligne
         lastSentAt: { lt: cutoff },
         address: { user: { recurringAlerts: true } },
       },
