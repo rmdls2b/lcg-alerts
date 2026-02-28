@@ -142,9 +142,9 @@ export default function MonEspaceClient() {
      <div className="flex justify-between items-center mb-10">
         <div>
           <h1 className="text-lg font-bold text-white">Gestion des alertes</h1>
-          <p className="text-xs text-gray-600 font-mono mt-1">ID #{String(user.userId).slice(-6).toUpperCase()}</p>
+          <p className="text-xs text-white font-bold mt-1">ID #{String(user.userId).slice(-6).toUpperCase()}</p>
         </div>
-        <button onClick={logout} className="px-4 py-2 text-xs text-gray-500 border border-gray-800 rounded-lg hover:border-gray-600 transition-colors">Deconnexion</button>
+        <button onClick={logout} className="px-4 py-2 text-xs text-gray-300 font-bold border border-gray-800 rounded-lg hover:border-gray-600 transition-colors">Deconnexion</button>
       </div>
 
       {/* Wallets surveilles */}
