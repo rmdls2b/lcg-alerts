@@ -15,7 +15,6 @@ export default function RootLayout({ children }) {
             <div style={{display: "flex", gap: "20px", fontSize: "14px", alignItems: "center"}}>
               <a href="/about" style={{color: "#ccc", textDecoration: "none"}}>À propos</a>
               <a href="/mon-espace" style={{color: "#ccc", textDecoration: "none"}}>Mon espace</a>
-              <a href="/dashboard" style={{color: "#555", textDecoration: "none"}}>Admin</a>
             </div>
           </div>
         </nav>
