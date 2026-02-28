@@ -17,6 +17,37 @@ Wallert monitors outgoing transactions from a dedicated crypto wallet. If a tran
 Alerts are automatically resent every 5 minutes until a recipient confirms they've taken action.
 
 ---
+## Architecture
+
+```
+┌─────────────┐     ┌──────────────┐     ┌────────────────┐
+│  User        │────▶│  Cloudflare   │────▶│  Nginx (reverse│
+│  (browser)   │     │  (DDoS + CDN) │     │  proxy + SSL)  │
+└─────────────┘     └──────────────┘     └──────┬─────────┘
+                                                │
+                                         ┌──────┴──────────┐
+                                         │  VPS Scaleway    │
+                                         │  Podman (--net   │
+                                         │  host, port 3000)│
+                                         ├─────────────────┤
+                                         │  PostgreSQL local│
+                                         │  (port 5432)     │
+                                         ├─────────────────┤
+                                         │  Crontab local   │
+                                         │  (every 5 min)   │
+                                         └──────┬──────────┘
+                                                │
+                                         ┌──────┴──────────┐
+                                         │  External APIs   │
+                                         ├─────────────────┤
+                                         │ Alchemy (chain)  │
+                                         │ Resend (emails)  │
+                                         │ Telegram (alerts)│
+                                         └─────────────────┘
+```
+
+---
+
 
 ## Self-hosting
 
