@@ -10,10 +10,10 @@ export default function About() {
           {"J'ai passé 6 ans chez Ledger en tant que Head of Product. Depuis 2024 j'accompagne des utilisateurs dans la sécurisation de leurs actifs. J'ai vu ce que la crypto apporte, mais aussi les risques qu'elle fait peser sur ceux qui en détiennent."}
         </p>
         <p className="text-gray-400 text-base leading-relaxed mb-4">
-          {"Ces derniers temps, les agressions physiques se multiplient. Home-jackings, enlèvements, extorsions. Face à la violence, aucun hardware wallet ne vous protège. Vous êtes seul, et personne ne sait que vous êtes en danger."}
+          {"Ces derniers temps les agressions physiques se multiplient. Home-jackings, enlèvements, extorsions."}
         </p>
         <p className="text-gray-400 text-base leading-relaxed mb-4">
-          {"Face à une agression de ce type, aucun hardware wallet, aucun mot de passe, aucune seed phrase ne vous protège. Vous êtes SEUL, et personne ne sait que vous êtes en danger."}
+          {"Face à la violence, aucun hardware wallet ne vous protège. Vous êtes SEUL, et personne ne sait que vous êtes en danger."}
         </p>
         <p className="text-gray-400 text-base leading-relaxed">
           {"IMPORTANT : aujourd'hui la meilleure solution reste souvent sortir de l'équation, de ne pas avoir accès à ses fonds facilement. Mais tout le monde ne fait pas ce choix."}
