@@ -35,7 +35,7 @@ export async function POST(request) {
     let ackUrl = ""
     if (firstAddress) {
       const alert = await prisma.alert.create({
-        data: { addressId: firstAddress.id, txHash: "test_" + Date.now(), fromAddr: "0x1a2b3cd4e5f6", toAddr: "0xaa11bbcc22dd", amount: value, asset, chain: "ethereum", status: "pending", lastSentAt: new Date() },
+        data: { addressId: firstAddress.id, txHash: "test_" + Date.now(), fromAddr: "0x1a2b3cd4e5f6", toAddr: "0xaa11bbcc22dd", amount: value, asset, chain: "ethereum", status: "pending", lastSentAt: new Date(), isTest: true },
       })
       ackUrl = "https://wallert.app/api/acknowledge?id=" + alert.id
     }
