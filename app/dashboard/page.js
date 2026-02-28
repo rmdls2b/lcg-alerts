@@ -89,8 +89,7 @@ export default function Dashboard() {
         return (
           <div key={user.id} style={{ background: "#111", border: "1px solid #222", borderRadius: "8px", padding: "16px", marginBottom: "12px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
             <div>
-              <div style={{ fontWeight: "bold", marginBottom: "4px" }}>{user.pseudonym}</div>
-              <div style={{ fontSize: "13px", color: "#888" }}>{user.email}</div>
+              <div style={{ fontWeight: "bold", marginBottom: "4px", fontFamily: "monospace" }}>ID #{String(user.id).slice(-6).toUpperCase()}</div>
               <div style={{ fontSize: "12px", color: "#555", marginTop: "4px" }}>
                 {user._count.addresses} adresse{user._count.addresses > 1 ? "s" : ""} — inscrit le {new Date(user.createdAt).toLocaleDateString("fr-FR")}
               </div>
