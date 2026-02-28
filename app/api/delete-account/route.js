@@ -8,7 +8,7 @@ async function removeAddressFromAlchemy(address) {
   await fetch("https://dashboard.alchemy.com/api/update-webhook-addresses", {
     method: "PATCH",
     headers: { "Content-Type": "application/json", "X-Alchemy-Token": process.env.ALCHEMY_API_KEY },
-    body: JSON.stringify({ webhook_id: "wh_71oaymhjegok01aq", addresses_to_add: [], addresses_to_remove: [address] }),
+    body: JSON.stringify({ webhook_id: process.env.ALCHEMY_WEBHOOK_ID, addresses_to_add: [], addresses_to_remove: [address] }),
   })
 }
 
