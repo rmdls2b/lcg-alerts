@@ -76,7 +76,7 @@ The app runs on `http://localhost:3000`.
 
 ```bash
 podman build -t wallert .
-podman run -d --name wallert -p 3000:3000 --env-file .env wallert
+podman run -d --name wallert --network host --env-file .env wallert
 ```
 
 ### Alchemy webhook
@@ -91,10 +91,16 @@ Add the addresses you want to monitor.
 
 ### Recurring alerts cron
 
-To enable recurring alerts, set up a cron job (e.g. [cron-job.org](https://cron-job.org)) that calls every 5 minutes:
+Set up a local cron job to resend unacknowledged alerts every 5 minutes:
+
+```bash
+crontab -e
+```
+
+Add this line:
 
 ```
-GET https://your-domain.com/api/resend-alerts
+*/5 * * * * curl -s http://localhost:3000/api/resend-alerts > /dev/null 2>&1
 ```
 
 ### Admin dashboard
