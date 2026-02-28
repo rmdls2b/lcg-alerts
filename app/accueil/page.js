@@ -123,7 +123,7 @@ export default function Accueil() {
           </div>
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
             <div className="text-2xl font-bold text-[#00d4aa] mb-4" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>03</div>
-            <h3 className="text-base font-bold text-white mb-3">{"Signal d'alerte siliencieux"}</h3>
+            <h3 className="text-base font-bold text-white mb-3">{"Signal d'alerte silencieux"}</h3>
             <p className="text-gray-400 text-base leading-relaxed">
               {"Sous la menace, effectuez simplement le transfert depuis ce portefeuille. Le signal est envoyé instantanément et discrètement. Votre réseau peut intervenir."}
             </p>
@@ -171,22 +171,11 @@ export default function Accueil() {
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
             <h3 className="text-base font-bold text-white mb-3">Contrôle absolu</h3>
             <p className="text-gray-400 text-base leading-relaxed">
-              Activez ou couper votre protection en un clic.
+              Activez ou coupez votre protection en un clic.
             </p>
           </div>
         </div>
       </div>
-
-      {/* Fiabilité 
-      <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-16">
-        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Garantie</p>
-        <h2 className="text-white text-xl md:text-2xl font-bold mb-6 leading-tight">
-          {"Alerte jusqu'à atteinte de l'objectif."}
-        </h2>
-        <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl">
-          {"Une simple notification peut passer inaperçue. Wallert fonctionne comme une alarme : l'alerte est relancée automatiquement à intervalle programmable jusqu'à ce qu'un membre de votre réseau confirme sa prise en charge. En cas de non-réponse, le système escalade vers d'autres canaux d'alerte."}
-        </p>
-      </div>*/}
 
       {/* Sécurité & Confidentialité */}
       <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-16">
@@ -199,17 +188,26 @@ export default function Accueil() {
             <h3 className="text-base font-bold text-white mb-4">Infra & stack</h3>
             <ul className="space-y-2">
               <li className="text-gray-400 text-base leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-[#00d4aa] before:font-bold">Serveur dédié en France (Scaleway)</li>
+              <li className="text-gray-400 text-base leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-[#00d4aa] before:font-bold">Base de données PostgreSQL locale</li>
               <li className="text-gray-400 text-base leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-[#00d4aa] before:font-bold">Conteneur isolé via Podman, derrière un chiffrement HTTPS</li>
+              <li className="text-gray-400 text-base leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-[#00d4aa] before:font-bold">Protection DDoS via Cloudflare</li>
               <li className="text-gray-400 text-base leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-[#00d4aa] before:font-bold">Surveillance blockchain via Alchemy</li>
               <li className="text-gray-400 text-base leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-[#00d4aa] before:font-bold">Alertes email via Resend</li>
               <li className="text-gray-400 text-base leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-[#00d4aa] before:font-bold">{"Alertes Telegram via l'API Bot officielle"}</li>
+              <li className="text-gray-400 text-base leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-[#00d4aa] before:font-bold">
+                {"Code open source et "}
+                <a href="https://github.com/rmdls2b/lcg-alerts" target="_blank" rel="noopener noreferrer" className="text-[#00d4aa] underline hover:text-[#00b892] transition-colors">self-hostable</a>
+              </li>
             </ul>
-          </div>
+         </div>
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
             <h3 className="text-base font-bold text-white mb-4">Protection des données</h3>
-            <p className="text-gray-400 text-base leading-relaxed">
-              {"Pour une confidentialité maximale, nous recommandons une inscription avec un email non nominatif, un wallet surveillé isolé sans lien avec vos autres portefeuilles, et groupe Telegram anonyme comme canal d'alerte."}
-            </p>
+            <p className="text-gray-400 text-base leading-relaxed mb-4">Pour une confidentialité maximale, nous recommandons :</p>
+            <ul className="space-y-2">
+              <li className="text-gray-400 text-base leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-[#00d4aa] before:font-bold">Email non nominatif pour la création de compte</li>
+              <li className="text-gray-400 text-base leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-[#00d4aa] before:font-bold">Wallet surveillé isolé, sans lien avec vos autres portefeuilles</li>
+              <li className="text-gray-400 text-base leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-[#00d4aa] before:font-bold">{"Groupe Telegram anonyme comme canal d'alerte"}</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -225,8 +223,13 @@ export default function Accueil() {
       </div>
 
       {/* Footer */}
-      <div className="py-8 text-center">
+      <div className="py-8 flex items-center justify-center gap-4">
         <p className="text-gray-600 text-xs">© 2026 Wallert</p>
+        <span className="text-gray-800">·</span>
+        <a href="https://github.com/rmdls2b/lcg-alerts" target="_blank" rel="noopener noreferrer" className="text-gray-600 text-xs hover:text-gray-400 transition-colors flex items-center gap-1.5">
+          <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          Open Source
+        </a>
       </div>
     </div>
   )
