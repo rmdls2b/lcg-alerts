@@ -49,6 +49,9 @@ Required variables:
 | `TELEGRAM_BOT_TOKEN` | Telegram bot token |
 | `DASHBOARD_PASSWORD` | Admin dashboard password |
 
+### Admin dashboard
+Access the admin dashboard at `/dashboard`. The password is set via the `DASHBOARD_PASSWORD` environment variable.
+
 ### Database
 ```bash
 npx prisma generate
