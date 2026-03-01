@@ -62,8 +62,8 @@ Alerts are automatically resent every 5 minutes until a recipient confirms they'
 ### Installation
 
 ```bash
-git clone https://github.com/rmdls2b/lcg-alerts.git
-cd lcg-alerts
+git clone https://github.com/rmdls2b/wallert.git
+cd wallert
 npm install
 ```
 
