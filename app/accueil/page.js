@@ -190,11 +190,11 @@ export default function Accueil() {
                     <p className="text-gray-400 text-sm leading-relaxed">{"Appeler immédiatement le 17. Suivre ces instructions : ..."}</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 pt-2">
-                  <div className="px-4 py-2.5 bg-[#00d4aa] text-black rounded-lg font-bold text-xs">
+                <div className="flex items-center gap-2 pt-2">
+                  <div className="px-3 py-2 bg-[#00d4aa] text-black rounded-lg font-bold text-[11px] sm:text-xs sm:px-4 sm:py-2.5">
                     {"Tester l'alerte"}
                   </div>
-                  <div className="px-4 py-2.5 border border-gray-700 text-gray-400 font-bold rounded-lg text-xs">
+                  <div className="px-3 py-2 border border-gray-700 text-gray-400 rounded-lg text-[11px] sm:text-xs sm:px-4 sm:py-2.5">
                     Désactiver la protection
                   </div>
                 </div>
