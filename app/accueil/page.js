@@ -137,6 +137,80 @@ export default function Accueil() {
         <h2 className="text-white text-xl md:text-2xl font-bold mb-12 leading-tight">
           Simple, modulable, sous votre contrôle.
         </h2>
+
+        {/* Mockup interface */}
+        <div className="flex justify-center mb-12">
+          <div className="w-full max-w-[700px]">
+            <div className="border border-gray-800 rounded-2xl bg-[#111] overflow-hidden">
+              <div className="flex items-center justify-between px-6 py-4 border-b border-gray-800">
+                <div className="flex items-center gap-3">
+                  <span className="text-white text-sm font-bold tracking-tight">Walle<span className="text-[#00d4aa]">r</span>t</span>
+                  <span className="text-gray-600 text-xs">Mon espace</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#00d4aa]"></span>
+                  <span className="text-gray-500 text-xs">Protection active</span>
+                </div>
+              </div>
+              <div className="p-6 space-y-5">
+                <div>
+                  <p className="text-gray-500 text-xs font-semibold tracking-widest uppercase mb-3">Wallets surveillés</p>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between bg-[#0a0a0a] border border-gray-800 rounded-lg px-4 py-3">
+                      <div className="flex items-center gap-3">
+                        <span className="w-2 h-2 rounded-full bg-[#00d4aa]"></span>
+                        <span className="text-gray-300 text-sm font-mono">0x8a3f...c9b2</span>
+                      </div>
+                      <span className="text-gray-600 text-xs">ETH · Actif</span>
+                    </div>
+                    <div className="flex items-center justify-between bg-[#0a0a0a] border border-gray-800 rounded-lg px-4 py-3">
+                      <div className="flex items-center gap-3">
+                        <span className="w-2 h-2 rounded-full bg-[#00d4aa]"></span>
+                        <span className="text-gray-300 text-sm font-mono">0x2b7e...a1f4</span>
+                      </div>
+                      <span className="text-gray-600 text-xs">ETH · Actif</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <p className="text-gray-500 text-xs font-semibold tracking-widest uppercase mb-3">{"Canaux d'alerte"}</p>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between bg-[#0a0a0a] border border-gray-800 rounded-lg px-4 py-3">
+                      <div className="flex items-center gap-3">
+                        <span className="text-sm">📧</span>
+                        <span className="text-gray-300 text-sm">a****@proton.me</span>
+                      </div>
+                      <span className="text-[#00d4aa] text-xs font-semibold">Actif</span>
+                    </div>
+                    <div className="flex items-center justify-between bg-[#0a0a0a] border border-gray-800 rounded-lg px-4 py-3">
+                      <div className="flex items-center gap-3">
+                        <span className="text-sm">💬</span>
+                        <span className="text-gray-300 text-sm">Groupe Telegram</span>
+                      </div>
+                      <span className="text-[#00d4aa] text-xs font-semibold">Actif</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <p className="text-gray-500 text-xs font-semibold tracking-widest uppercase mb-3">{"Instructions d'urgence"}</p>
+                  <div className="bg-[#0a0a0a] border border-gray-800 rounded-lg px-4 py-3">
+                    <p className="text-gray-400 text-sm leading-relaxed">{"Appeler immédiatement le 17. Contacter maître D. au 06 ** ** ** **. Ne pas répondre à l'agresseur."}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 pt-2">
+                  <div className="px-4 py-2.5 bg-[#00d4aa] text-black rounded-lg font-bold text-xs">
+                    {"Tester l'alerte"}
+                  </div>
+                  <div className="px-4 py-2.5 border border-gray-700 text-gray-400 rounded-lg text-xs">
+                    Désactiver la protection
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p className="text-center text-gray-600 text-xs mt-4">{"Aperçu de l'espace utilisateur — données fictives"}</p>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
             <h3 className="text-base font-bold text-white mb-3">Wallets illimités</h3>
@@ -157,7 +231,7 @@ export default function Accueil() {
             </p>
           </div>
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
-            <h3 className="text-base font-bold text-white mb-3">Instructions d'urgence</h3>
+            <h3 className="text-base font-bold text-white mb-3">{"Instructions d'urgence"}</h3>
             <p className="text-gray-400 text-base leading-relaxed">
               {"Définissez un protocole d'urgence et rédigez des directives précises."}
             </p>
@@ -192,13 +266,13 @@ export default function Accueil() {
               <li className="text-gray-400 text-base leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-[#00d4aa] before:font-bold">Conteneur isolé via Podman, derrière un chiffrement HTTPS</li>
               <li className="text-gray-400 text-base leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-[#00d4aa] before:font-bold">Protection DDoS via Cloudflare</li>
               <li className="text-gray-400 text-base leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-[#00d4aa] before:font-bold">Surveillance blockchain via Alchemy</li>
-              <li className="text-gray-400 text-base leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-[#00d4aa] before:font-bold">Alertes: email via Resend, Telegram via l'API Bot officielle</li>
+              <li className="text-gray-400 text-base leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-[#00d4aa] before:font-bold">{"Alertes: email via Resend, Telegram via l'API Bot officielle"}</li>
               <li className="text-gray-400 text-base leading-relaxed pl-4 relative before:content-['·'] before:absolute before:left-0 before:text-[#00d4aa] before:font-bold">
                 {"Code open source et "}
                 <a href="https://github.com/rmdls2b/lcg-alerts" target="_blank" rel="noopener noreferrer" className="text-[#00d4aa] underline hover:text-[#00b892] transition-colors">self-hostable</a>
               </li>
             </ul>
-         </div>
+          </div>
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
             <h3 className="text-base font-bold text-white mb-4">Protection des données</h3>
             <p className="text-gray-400 text-base leading-relaxed mb-4">Pour une confidentialité maximale, nous recommandons :</p>
