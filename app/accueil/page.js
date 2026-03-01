@@ -76,17 +76,17 @@ export default function Accueil() {
           Face à une agression, chaque seconde compte.
         </h2>
         <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl mb-12">
-          {"Face à une menace importante, vous ne pouvez ni fuir, ni appeler à l'aide. Avec un signal de détresse invisible pour l'agresseur, chaque seconde gagnée rapproche l'intervention de vos proches et des forces de police."}
+          {"En cas d'agression, vous ne pouvez ni fuir, ni appeler à l'aide. Grace à un signal de détresse invisible pour l'agresseur, chaque seconde gagnée rapproche l'intervention de vos proches et des forces de police."}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
-            <h3 className="text-base font-bold text-white mb-3">Temps gagné</h3>
+            <h3 className="text-base font-bold text-white mb-3">Temps</h3>
             <p className="text-gray-400 text-base leading-relaxed">
               {"Pour l'agresseur, c'est un transfert. Pour vos proche, c'est un signal d'alarme. Plus l'alerte est rapide, plus l'intervention de la police est efficace."}
             </p>
           </div>
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
-            <h3 className="text-base font-bold text-white mb-3">Traçabilité & réponse</h3>
+            <h3 className="text-base font-bold text-white mb-3">Traçabilité</h3>
             <p className="text-gray-400 text-base leading-relaxed">
               {"Votre cercle de confiance reçoit immédiatement les détails de la transaction et peuvent solliciter SEAL 911 et tracer les fonds."}
             </p>
@@ -94,7 +94,7 @@ export default function Accueil() {
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
             <h3 className="text-base font-bold text-white mb-3">Dissuasion passive</h3>
             <p className="text-gray-400 text-base leading-relaxed">
-              {"Chaque transfert sous contrainte devient un risque pour l'agresseur. La généralisation du dispositif devient votre meilleure défense"}
+              {"Chaque transfert sous contrainte devient un risque pour l'agresseur. La généralisation de ce type de dispositif devient une défense."}
             </p>
           </div>
         </div>
@@ -109,23 +109,23 @@ export default function Accueil() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
             <div className="text-2xl font-bold text-[#00d4aa] mb-4" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>01</div>
-            <h3 className="text-base font-bold text-white mb-3">Portefeuille de protection</h3>
+            <h3 className="text-base font-bold text-white mb-3">Wallet de sécurité</h3>
             <p className="text-gray-400 text-base leading-relaxed">
-              {"Isolez une somme crédible sur un portefeuille dédié et isolé. Ce « wallet de sécurité » devient votre bouton d'urgence."}
+              {"Isolez une somme crédible sur un portefeuille dédié et sous surveillance. Ce « wallet de sécurité » devient votre bouton d'urgence."}
             </p>
           </div>
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
             <div className="text-2xl font-bold text-[#00d4aa] mb-4" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>02</div>
-            <h3 className="text-base font-bold text-white mb-3">{"Réseau de confiance et vos canaux d'alerte"}</h3>
+            <h3 className="text-base font-bold text-white mb-3">{"Cercle de confiance"}</h3>
             <p className="text-gray-400 text-base leading-relaxed">
-              {"Choisissez qui doit recevoir l'alerte (proches, experts...), par quel moyen (mail, Telegram), et les instructions urgentes à suivre."}
+              {"Définissez vos contacts d'urgence (proches, experts...), canaux d'alerte (mail, Telegram), et instructions à suivre."}
             </p>
           </div>
           <div className="bg-[#111] border border-gray-800 rounded-xl p-8">
             <div className="text-2xl font-bold text-[#00d4aa] mb-4" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>03</div>
             <h3 className="text-base font-bold text-white mb-3">{"Signal d'alerte silencieux"}</h3>
             <p className="text-gray-400 text-base leading-relaxed">
-              {"Sous la menace, effectuez simplement le transfert depuis ce portefeuille. Le signal est envoyé instantanément et discrètement. Votre réseau peut intervenir."}
+              {"Sous la menace, effectuez un transfert depuis ce portefeuille. L'alerte est déclenchée instantanément. Votre réseau peut intervenir."}
             </p>
           </div>
         </div>
