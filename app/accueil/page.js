@@ -2,7 +2,7 @@ export default function Accueil() {
   return (
     <div>
       {/* Hero */}
-      <div className="lg:min-h-[calc(100vh-65px)] flex items-center py-16 lg:py-8 px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto">
+      <div className="lg:min-h-[calc(100vh-65px)] flex items-center py-24 lg:py-8 px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 w-full">
           <div className="flex-1">
             <h1 className="text-4xl md:text-5xl font-bold mb-8 tracking-tighter leading-none">
