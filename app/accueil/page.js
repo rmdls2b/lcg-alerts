@@ -154,19 +154,12 @@ export default function Accueil() {
               </div>
               <div className="p-6 space-y-5">
                 <div>
-                  <p className="text-gray-500 text-xs font-semibold tracking-widest uppercase mb-3">Wallets surveillés</p>
+                  <p className="text-gray-500 text-xs font-semibold tracking-widest uppercase mb-3">Wallet surveillé</p>
                   <div className="space-y-2">
                     <div className="flex items-center justify-between bg-[#0a0a0a] border border-gray-800 rounded-lg px-4 py-3">
                       <div className="flex items-center gap-3">
                         <span className="w-2 h-2 rounded-full bg-[#00d4aa]"></span>
-                        <span className="text-gray-300 text-sm font-mono">0x8a3f...c9b2</span>
-                      </div>
-                      <span className="text-gray-600 text-xs">ETH · Actif</span>
-                    </div>
-                    <div className="flex items-center justify-between bg-[#0a0a0a] border border-gray-800 rounded-lg px-4 py-3">
-                      <div className="flex items-center gap-3">
-                        <span className="w-2 h-2 rounded-full bg-[#00d4aa]"></span>
-                        <span className="text-gray-300 text-sm font-mono">0x2b7e...a1f4</span>
+                        <span className="text-gray-300 text-sm font-mono">0x8a...c9b2</span>
                       </div>
                       <span className="text-gray-600 text-xs">ETH · Actif</span>
                     </div>
@@ -194,14 +187,14 @@ export default function Accueil() {
                 <div>
                   <p className="text-gray-500 text-xs font-semibold tracking-widest uppercase mb-3">{"Instructions d'urgence"}</p>
                   <div className="bg-[#0a0a0a] border border-gray-800 rounded-lg px-4 py-3">
-                    <p className="text-gray-400 text-sm leading-relaxed">{"Appeler immédiatement le 17. Contacter maître D. au 06 ** ** ** **. Ne pas répondre à l'agresseur."}</p>
+                    <p className="text-gray-400 text-sm leading-relaxed">{"Appeler immédiatement le 17. Suivre ces instructions : ..."}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 pt-2">
                   <div className="px-4 py-2.5 bg-[#00d4aa] text-black rounded-lg font-bold text-xs">
                     {"Tester l'alerte"}
                   </div>
-                  <div className="px-4 py-2.5 border border-gray-700 text-gray-400 rounded-lg text-xs">
+                  <div className="px-4 py-2.5 border border-gray-700 text-gray-400 font-bold rounded-lg text-xs">
                     Désactiver la protection
                   </div>
                 </div>
