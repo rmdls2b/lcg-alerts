@@ -134,23 +134,23 @@ export default function MonEspaceClient() {
     setTimeout(function() { setCopied(null) }, 3000)
   }
 
-  if (loading) return <p className="text-center mt-10 text-gray-500">Chargement...</p>
+  if (loading) return <p className="text-center mt-10 text-gray-500">Loading...</p>
   if (!user || !data) return null
 
   return (
     <div className="max-w-[700px] mx-auto px-6 py-8">
-     <div className="flex justify-between items-center mb-10">
+      <div className="flex justify-between items-center mb-10">
         <div>
-          <h1 className="text-lg font-bold text-white">Gestion des alertes</h1>
+          <h1 className="text-lg font-bold text-white">Alert settings</h1>
           <p className="text-xs text-white font-bold mt-1">ID #{String(user.userId).slice(-6).toUpperCase()}</p>
         </div>
-        <button onClick={logout} className="px-4 py-2 text-xs text-gray-300 font-bold border border-gray-800 rounded-lg hover:border-gray-600 transition-colors">Deconnexion</button>
+        <button onClick={logout} className="px-4 py-2 text-xs text-gray-300 font-bold border border-gray-800 rounded-lg hover:border-gray-600 transition-colors">Log out</button>
       </div>
 
-      {/* Wallets surveilles */}
+      {/* Monitored wallets */}
       <div className="bg-[#111] border border-gray-800 rounded-xl p-6 mb-4">
-        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Wallets surveillés</p>
-        {data.addresses.length === 0 && <p className="text-gray-600 text-sm mb-3">Aucun wallet surveille.</p>}
+        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Monitored wallets</p>
+        {data.addresses.length === 0 && <p className="text-gray-600 text-sm mb-3">No wallet monitored yet.</p>}
         {data.addresses.map(function(addr) {
           return (
             <div key={addr.id} className="flex items-center gap-3 py-3 border-b border-gray-800/50 last:border-0">
@@ -161,45 +161,45 @@ export default function MonEspaceClient() {
               </div>
               <div className="flex gap-2 shrink-0">
                 <button onClick={function() { toggleAddress(addr.id) }} className={"px-3 py-1 text-xs rounded-lg border transition-colors " + (addr.isActive ? "border-yellow-500/30 text-yellow-500 hover:border-yellow-500/50" : "border-[#00d4aa]/30 text-[#00d4aa] hover:border-[#00d4aa]/50")}>
-                  {addr.isActive ? "Desactiver" : "Activer"}
+                  {addr.isActive ? "Disable" : "Enable"}
                 </button>
                 {confirmDeleteAddr === addr.id ? (
                   <div className="flex gap-1">
-                    <button onClick={function() { deleteAddress(addr.id) }} className="px-3 py-1 text-xs rounded-lg bg-red-500 text-white">Confirmer</button>
-                    <button onClick={function() { setConfirmDeleteAddr(null) }} className="px-3 py-1 text-xs rounded-lg border border-gray-800 text-gray-400">Annuler</button>
+                    <button onClick={function() { deleteAddress(addr.id) }} className="px-3 py-1 text-xs rounded-lg bg-red-500 text-white">Confirm</button>
+                    <button onClick={function() { setConfirmDeleteAddr(null) }} className="px-3 py-1 text-xs rounded-lg border border-gray-800 text-gray-400">Cancel</button>
                   </div>
                 ) : (
-                  <button onClick={function() { setConfirmDeleteAddr(addr.id) }} className="px-3 py-1 text-xs rounded-lg border border-red-500/30 text-red-400 hover:border-red-500/50 transition-colors">Supprimer</button>
+                  <button onClick={function() { setConfirmDeleteAddr(addr.id) }} className="px-3 py-1 text-xs rounded-lg border border-red-500/30 text-red-400 hover:border-red-500/50 transition-colors">Delete</button>
                 )}
               </div>
             </div>
           )
         })}
         {!showAddAddress ? (
-          <button onClick={function() { setShowAddAddress(true) }} className="mt-4 px-4 py-2 text-sm border border-[#00d4aa] text-[#00d4aa] rounded-lg hover:bg-[#00d4aa]/5 transition-colors">+ Ajouter un wallet</button>
+          <button onClick={function() { setShowAddAddress(true) }} className="mt-4 px-4 py-2 text-sm border border-[#00d4aa] text-[#00d4aa] rounded-lg hover:bg-[#00d4aa]/5 transition-colors">+ Add a wallet</button>
         ) : (
           <form onSubmit={addAddress} className="mt-4 pt-4 border-t border-gray-800">
             <input type="text" required value={newAddr.address} onChange={function(e) { setNewAddr({ ...newAddr, address: e.target.value }) }} placeholder="0x..." className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600 font-mono mb-2" />
-            <input type="text" value={newAddr.label} onChange={function(e) { setNewAddr({ ...newAddr, label: e.target.value }) }} placeholder="Nom du wallet (optionnel)" className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600 mb-3" />
+            <input type="text" value={newAddr.label} onChange={function(e) { setNewAddr({ ...newAddr, label: e.target.value }) }} placeholder="Wallet name (optional)" className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600 mb-3" />
             <div className="flex gap-2">
-              <button type="submit" disabled={addingAddr} className="px-4 py-2 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors disabled:opacity-50">{addingAddr ? "Ajout..." : "Ajouter"}</button>
-              <button type="button" onClick={function() { setShowAddAddress(false) }} className="px-4 py-2 text-sm border border-gray-800 text-gray-400 rounded-lg hover:border-gray-600 transition-colors">Annuler</button>
+              <button type="submit" disabled={addingAddr} className="px-4 py-2 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors disabled:opacity-50">{addingAddr ? "Adding..." : "Add"}</button>
+              <button type="button" onClick={function() { setShowAddAddress(false) }} className="px-4 py-2 text-sm border border-gray-800 text-gray-400 rounded-lg hover:border-gray-600 transition-colors">Cancel</button>
             </div>
           </form>
         )}
       </div>
 
-      {/* Canaux d alerte */}
+      {/* Alert channels */}
       <div className="bg-[#111] border border-gray-800 rounded-xl p-6 mb-4">
-        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">{"Canaux d'alerte"}</p>
+        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Alert channels</p>
         <div className="flex items-center gap-2 py-3 border-b border-gray-800/50">
           <span className="text-sm">📧</span>
-          <span className="text-sm text-gray-300 flex-1">{user.email} (principal)</span>
-          <span className="text-xs text-[#00d4aa]">● Toujours actif</span>
+          <span className="text-sm text-gray-300 flex-1">{user.email} (primary)</span>
+          <span className="text-xs text-[#00d4aa]">● Always active</span>
         </div>
         {data.channels.map(function(ch) {
           const icon = ch.type === "email" ? "📧" : "💬"
-          const displayValue = ch.type === "email" ? ch.value : (ch.value ? "Telegram" : "Telegram (en attente)")
+          const displayValue = ch.type === "email" ? ch.value : (ch.value ? "Telegram" : "Telegram (pending)")
           return (
             <div key={ch.id} className="flex items-center gap-2 py-3 border-b border-gray-800/50 last:border-0">
               <span className="text-sm">{icon}</span>
@@ -209,53 +209,53 @@ export default function MonEspaceClient() {
               </span>
               {ch.type === "telegram" && !ch.value && (
                 <button onClick={function() { copyTelegramLink(ch.id) }} className="px-2 py-1 text-xs rounded-lg border border-blue-500/30 text-blue-400 hover:border-blue-500/50 transition-colors">
-                  {copied === ch.id ? "Lien copie !" : "Copier le lien"}
+                  {copied === ch.id ? "Link copied!" : "Copy link"}
                 </button>
               )}
               <button onClick={function() { toggleChannel(ch.id, !ch.isActive) }} className={"px-3 py-1 text-xs rounded-lg border transition-colors " + (ch.isActive ? "border-yellow-500/30 text-yellow-500 hover:border-yellow-500/50" : "border-[#00d4aa]/30 text-[#00d4aa] hover:border-[#00d4aa]/50")}>
-                {ch.isActive ? "Desactiver" : "Activer"}
+                {ch.isActive ? "Disable" : "Enable"}
               </button>
               {confirmDeleteChannel === ch.id ? (
                 <div className="flex gap-1">
-                  <button onClick={function() { removeChannel(ch.id) }} className="px-3 py-1 text-xs rounded-lg bg-red-500 text-white">Confirmer</button>
-                  <button onClick={function() { setConfirmDeleteChannel(null) }} className="px-3 py-1 text-xs rounded-lg border border-gray-800 text-gray-400">Annuler</button>
+                  <button onClick={function() { removeChannel(ch.id) }} className="px-3 py-1 text-xs rounded-lg bg-red-500 text-white">Confirm</button>
+                  <button onClick={function() { setConfirmDeleteChannel(null) }} className="px-3 py-1 text-xs rounded-lg border border-gray-800 text-gray-400">Cancel</button>
                 </div>
               ) : (
-                <button onClick={function() { setConfirmDeleteChannel(ch.id) }} className="px-3 py-1 text-xs rounded-lg border border-red-500/30 text-red-400 hover:border-red-500/50 transition-colors">Supprimer</button>
+                <button onClick={function() { setConfirmDeleteChannel(ch.id) }} className="px-3 py-1 text-xs rounded-lg border border-red-500/30 text-red-400 hover:border-red-500/50 transition-colors">Delete</button>
               )}
             </div>
           )
         })}
 
-        {/* Toggle rappels */}
+        {/* Recurring alerts toggle */}
         <div className="mt-4 pt-4 border-t border-gray-800 flex items-center gap-3">
           <button onClick={toggleRecurring} className={"w-10 h-[22px] rounded-full border-none cursor-pointer relative transition-colors " + (recurringAlerts ? "bg-[#00d4aa]" : "bg-gray-700")}>
             <span className={"absolute top-[2px] w-[18px] h-[18px] rounded-full bg-white transition-all " + (recurringAlerts ? "left-5" : "left-[2px]")}></span>
           </button>
           <div>
-            <span className="text-sm text-gray-300">Rappels récurrents</span>
-            <p className="text-xs text-gray-600 mt-0.5">{"Renvoie l'alerte toutes les 5 min jusqu'a confirmation d'un destinataire"}</p>
+            <span className="text-sm text-gray-300">Recurring alerts</span>
+            <p className="text-xs text-gray-600 mt-0.5">Resends the alert every 5 min until a recipient confirms</p>
           </div>
         </div>
 
-        {/* Ajout canaux */}
+        {/* Add channels */}
         {showAddEmail ? (
           <div className="mt-4 pt-4 border-t border-gray-800">
             <div className="flex gap-2 mb-2">
               <input type="email" required placeholder="Email..." value={newEmail} onChange={function(e) { setNewEmail(e.target.value) }} className="flex-1 px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600" />
-              <input type="text" placeholder="Label (optionnel)" value={newEmailLabel} onChange={function(e) { setNewEmailLabel(e.target.value) }} className="max-w-[160px] px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600" />
+              <input type="text" placeholder="Label (optional)" value={newEmailLabel} onChange={function(e) { setNewEmailLabel(e.target.value) }} className="max-w-[160px] px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600" />
             </div>
             <div className="flex gap-2">
-              <button onClick={addEmailChannel} className="px-4 py-2 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors">Ajouter</button>
-              <button onClick={function() { setShowAddEmail(false); setNewEmail(""); setNewEmailLabel("") }} className="px-4 py-2 text-sm border border-gray-800 text-gray-400 rounded-lg hover:border-gray-600 transition-colors">Annuler</button>
+              <button onClick={addEmailChannel} className="px-4 py-2 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors">Add</button>
+              <button onClick={function() { setShowAddEmail(false); setNewEmail(""); setNewEmailLabel("") }} className="px-4 py-2 text-sm border border-gray-800 text-gray-400 rounded-lg hover:border-gray-600 transition-colors">Cancel</button>
             </div>
           </div>
         ) : showAddTelegram ? (
           <div className="mt-4 pt-4 border-t border-gray-800">
-            <input type="text" placeholder="Label (ex: groupe famille, garde du corps, contact de confiance...)" value={newTelegramLabel} onChange={function(e) { setNewTelegramLabel(e.target.value) }} className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600 mb-3" />
+            <input type="text" placeholder="Label (e.g. family group, bodyguard, trusted contact...)" value={newTelegramLabel} onChange={function(e) { setNewTelegramLabel(e.target.value) }} className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600 mb-3" />
             <div className="flex gap-2">
-              <button onClick={addTelegramChannel} className="px-4 py-2 bg-blue-500 text-white rounded-lg font-bold text-sm hover:bg-blue-600 transition-colors">Creer et copier le lien</button>
-              <button onClick={function() { setShowAddTelegram(false); setNewTelegramLabel("") }} className="px-4 py-2 text-sm border border-gray-800 text-gray-400 rounded-lg hover:border-gray-600 transition-colors">Annuler</button>
+              <button onClick={addTelegramChannel} className="px-4 py-2 bg-blue-500 text-white rounded-lg font-bold text-sm hover:bg-blue-600 transition-colors">Create and copy link</button>
+              <button onClick={function() { setShowAddTelegram(false); setNewTelegramLabel("") }} className="px-4 py-2 text-sm border border-gray-800 text-gray-400 rounded-lg hover:border-gray-600 transition-colors">Cancel</button>
             </div>
           </div>
         ) : (
@@ -266,44 +266,44 @@ export default function MonEspaceClient() {
         )}
       </div>
 
-      {/* Nom d identification */}
+      {/* Display name */}
       <div className="bg-[#111] border border-gray-800 rounded-xl p-6 mb-4">
-        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">{"Nom d'identification"}</p>
-        <p className="text-gray-500 text-sm mb-3">{"Ce nom apparaitra dans les alertes envoyées à vos contacts pour qu'ils sachent de qui il s'agit."}</p>
-        <input type="text" value={pseudonym} onChange={function(e) { setPseudonym(e.target.value) }} placeholder="Ex: Rem, Papa, etc." className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600 mb-3" />
+        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Display name</p>
+        <p className="text-gray-500 text-sm mb-3">This name will appear in alerts sent to your contacts so they know who it's from.</p>
+        <input type="text" value={pseudonym} onChange={function(e) { setPseudonym(e.target.value) }} placeholder="E.g. Rem, Dad, etc." className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600 mb-3" />
         <button onClick={savePseudonym} className="px-4 py-2 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors">
-          {pseudonymSaved ? "Sauvegarde !" : "Sauvegarder"}
+          {pseudonymSaved ? "Saved!" : "Save"}
         </button>
       </div>
 
-      {/* Instructions d urgence */}
+      {/* Emergency instructions */}
       <div className="bg-[#111] border border-gray-800 rounded-xl p-6 mb-4">
-        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">{"Instructions d'urgence"}</p>
-        <textarea rows={4} value={instructions} onChange={function(e) { setInstructions(e.target.value) }} placeholder="Exemple (orientations) : Appelez moi. Appelez X. Contacter la police. Ouvrir un ticket sur SEAL911. Etc." className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600 resize-y" />
+        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Emergency instructions</p>
+        <textarea rows={4} value={instructions} onChange={function(e) { setInstructions(e.target.value) }} placeholder="Example: Call me. Call X. Contact the police. Open a ticket on SEAL911. Etc." className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600 resize-y" />
         <button onClick={saveInstructions} className="mt-3 px-4 py-2 bg-[#00d4aa] text-black rounded-lg font-bold text-sm hover:bg-[#00b892] transition-colors">
-          {instructionsSaved ? "Sauvegarde !" : "Sauvegarder"}
+          {instructionsSaved ? "Saved!" : "Save"}
         </button>
       </div>
 
-      {/* Tester l alerte */}
+      {/* Test alert */}
       <div className="bg-[#111] border border-gray-800 rounded-xl p-6 mb-4">
-        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Tester mon alerte</p>
-        <p className="text-gray-500 text-sm mb-4">{"Envoyez une fausse alerte pour vérifier que vos contacts recoivent bien les notifications."}</p>
-        <button onClick={async function() { await fetch("/api/test-alert", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userId: user.userId }) }); alert("Alerte test envoyee !") }} className="px-4 py-2 text-sm border border-yellow-500/30 text-yellow-500 rounded-lg hover:border-yellow-500/50 hover:bg-yellow-500/5 transition-colors">
-          Envoyer une alerte test
+        <p className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Test my alert</p>
+        <p className="text-gray-500 text-sm mb-4">Send a test alert to make sure your contacts receive the notifications.</p>
+        <button onClick={async function() { await fetch("/api/test-alert", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userId: user.userId }) }); alert("Test alert sent!") }} className="px-4 py-2 text-sm border border-yellow-500/30 text-yellow-500 rounded-lg hover:border-yellow-500/50 hover:bg-yellow-500/5 transition-colors">
+          Send a test alert
         </button>
       </div>
 
-      {/* Supprimer le compte */}
+      {/* Delete account */}
       <div className="mt-8 pt-8 border-t border-gray-800">
         {!confirmDelete ? (
-          <button onClick={function() { setConfirmDelete(true) }} className="px-5 py-2.5 text-sm border border-red-500/30 text-red-400 rounded-lg hover:border-red-500/50 hover:bg-red-500/5 transition-colors">Supprimer mon compte</button>
+          <button onClick={function() { setConfirmDelete(true) }} className="px-5 py-2.5 text-sm border border-red-500/30 text-red-400 rounded-lg hover:border-red-500/50 hover:bg-red-500/5 transition-colors">Delete my account</button>
         ) : (
           <div className="bg-red-500/5 border border-red-500/20 rounded-xl p-5">
-            <p className="text-red-300 text-sm mb-4">{"Etes-vous sur ? Cette action est irreversible."}</p>
+            <p className="text-red-300 text-sm mb-4">Are you sure? This action is irreversible.</p>
             <div className="flex gap-2">
-              <button onClick={deleteAccount} className="px-4 py-2 bg-red-500 text-white rounded-lg font-bold text-sm">Oui, supprimer</button>
-              <button onClick={function() { setConfirmDelete(false) }} className="px-4 py-2 text-sm border border-gray-800 text-gray-400 rounded-lg hover:border-gray-600 transition-colors">Annuler</button>
+              <button onClick={deleteAccount} className="px-4 py-2 bg-red-500 text-white rounded-lg font-bold text-sm">Yes, delete</button>
+              <button onClick={function() { setConfirmDelete(false) }} className="px-4 py-2 text-sm border border-gray-800 text-gray-400 rounded-lg hover:border-gray-600 transition-colors">Cancel</button>
             </div>
           </div>
         )}
