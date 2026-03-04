@@ -105,8 +105,10 @@ export default function Accueil() {
             ].map(s => (
               <div key={s.num} className="bg-[#111311] border border-white/5 rounded-xl p-7 relative overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#00FF85] to-transparent" />
-                <p className="text-[#00FF85] text-xs font-mono tracking-widest mb-4">{s.num}</p>
-                <h3 className="text-white font-bold text-base mb-3">{s.title}</h3>
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-[#00FF85] text-xs font-mono tracking-widest">{s.num}</span>
+                    <h3 className="text-white font-bold text-base">{s.title}</h3>
+                  </div>
                 <p className="text-[#C8C8C2] text-base leading-relaxed">{s.desc}</p>
               </div>
             ))}
@@ -118,7 +120,7 @@ export default function Accueil() {
       <div className="border-t border-white/5">
         <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-20">
           <p className="text-[#00FF85] text-[11px] font-semibold tracking-[3px] uppercase mb-4">Capabilities</p>
-          <h2 className="text-[clamp(26px,3.5vw,44px)] font-extrabold tracking-tight leading-[1.12] mb-12">Built for the real world.</h2>
+          <h2 className="text-[clamp(26px,3.5vw,44px)] font-extrabold tracking-tight leading-[1.12] mb-12">Simple to configure.</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               { icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>, title: "Unlimited wallets", desc: "Monitor as many addresses as needed. Each wallet is tracked independently." },
