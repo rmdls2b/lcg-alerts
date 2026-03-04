@@ -1,9 +1,8 @@
 import { PrismaClient } from "@prisma/client"
-import { NextResponse } from "next/server"
 const prisma = new PrismaClient()
 
 const page = (title, subtitle, icon, color) => `<!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,20 +74,20 @@ export async function GET(request) {
     const alertId = searchParams.get("id")
 
     if (!alertId) return new Response(
-      page("Lien invalide", "Ce lien ne correspond à aucune alerte.", "⚠️", "#f59e0b"),
+      page("Invalid link", "This link does not match any alert.", "⚠️", "#f59e0b"),
       { status: 400, headers: { "Content-Type": "text/html; charset=utf-8" } }
     )
 
     const alert = await prisma.alert.findUnique({ where: { id: alertId } })
 
     if (!alert) return new Response(
-      page("Alerte introuvable", "Cette alerte n'existe pas ou a été supprimée.", "⚠️", "#f59e0b"),
+      page("Alert not found", "This alert does not exist or has been deleted.", "⚠️", "#f59e0b"),
       { status: 404, headers: { "Content-Type": "text/html; charset=utf-8" } }
     )
 
     if (alert.acknowledgedAt) {
       return new Response(
-        page("Déjà prise en charge", "Cette alerte a déjà été confirmée. Les rappels sont arrêtés.", "✓", "#00d4aa"),
+        page("Already confirmed", "This alert has already been acknowledged. Reminders have been stopped.", "✓", "#00d4aa"),
         { status: 200, headers: { "Content-Type": "text/html; charset=utf-8" } }
       )
     }
@@ -99,52 +98,14 @@ export async function GET(request) {
     })
 
     return new Response(
-      page("Alerte prise en charge", "Votre confirmation a été enregistrée. Les rappels vont s'arrêter.", "✓", "#00d4aa"),
+      page("Alert confirmed", "Your confirmation has been recorded. Reminders will now stop.", "✓", "#00d4aa"),
       { status: 200, headers: { "Content-Type": "text/html; charset=utf-8" } }
     )
   } catch (error) {
     console.error("Acknowledge error:", error)
     return new Response(
-      page("Erreur", "Une erreur est survenue. Veuillez réessayer.", "✕", "#ef4444"),
+      page("Error", "Something went wrong. Please try again.", "✕", "#ef4444"),
       { status: 500, headers: { "Content-Type": "text/html; charset=utf-8" } }
     )
   }
 }
-
-
-
-
-{/*import { PrismaClient } from "@prisma/client"
-import { NextResponse } from "next/server"
-
-const prisma = new PrismaClient()
-
-export async function GET(request) {
-  try {
-    const { searchParams } = new URL(request.url)
-    const alertId = searchParams.get("id")
-    if (!alertId) return new Response("Lien invalide.", { status: 400, headers: { "Content-Type": "text/html; charset=utf-8" } })
-
-    const alert = await prisma.alert.findUnique({ where: { id: alertId } })
-    if (!alert) return new Response("Alerte introuvable.", { status: 404, headers: { "Content-Type": "text/html; charset=utf-8" } })
-
-    if (alert.acknowledgedAt) {
-      return new Response(`<html><body style="background:#0a0a0a;color:#e0e0e0;font-family:Arial;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;">
-        <div style="text-align:center;"><h1 style="color:#00d4aa;">Déjà confirmé</h1><p>Cette alerte a déjà été prise en charge.</p></div>
-      </body></html>`, { status: 200, headers: { "Content-Type": "text/html; charset=utf-8" } })
-    }
-
-    await prisma.alert.update({
-      where: { id: alertId },
-      data: { acknowledgedAt: new Date(), status: "acknowledged" },
-    })
-
-    return new Response(`<html><body style="background:#0a0a0a;color:#e0e0e0;font-family:Arial;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;">
-      <div style="text-align:center;"><h1 style="color:#00d4aa;">Alerte confirmée</h1><p>L'alerte a été prise en charge. Les rappels vont s'arrêter.</p></div>
-    </body></html>`, { status: 200, headers: { "Content-Type": "text/html; charset=utf-8" } })
-  } catch (error) {
-    console.error("Acknowledge error:", error)
-    return new Response("Erreur.", { status: 500, headers: { "Content-Type": "text/html; charset=utf-8" } })
-  }
-}
-*/}
