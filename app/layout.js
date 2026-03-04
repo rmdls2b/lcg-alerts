@@ -16,9 +16,9 @@ export default function RootLayout({ children }) {
               Walle<span style={{color: "#00d4aa"}}>r</span>t
             </a>
             <div style={{display: "flex", gap: "20px", fontSize: "14px", alignItems: "center"}}>
-              <a href="/about" style={{color: "#ccc", textDecoration: "none"}}>Behind Wallert</a>
-              <a href="/mon-espace" style={{color: "#ccc", textDecoration: "none"}}>My account</a>
-              <a href="https://github.com/rmdls2b/wallert" target="_blank" rel="noopener noreferrer" style={{color: "#ccc", textDecoration: "none", display: "flex", alignItems: "center"}}>
+              <a href="/about" style={{color: "#fff", textDecoration: "none"}}>Behind Wallert</a>
+              <a href="/mon-espace" style={{color: "#00d4aa", border: "1px solid rgba(0,212,170,0.25)", padding: "5px 14px", borderRadius: "6px", textDecoration: "none", fontWeight: "600", fontSize: "13px"}}>My account</a>
+              <a href="https://github.com/rmdls2b/wallert" target="_blank" rel="noopener noreferrer" style={{color: "#9a9a95", textDecoration: "none", display: "flex", alignItems: "center"}}>
                 <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
                   <path d={githubPath} />
                 </svg>
