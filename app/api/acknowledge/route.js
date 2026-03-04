@@ -37,10 +37,10 @@ const page = (title, subtitle, icon, color) => `<!DOCTYPE html>
       font-size: 28px;
     }
     .logo {
-      font-size: 0.75rem;
+      font-size: 1.5rem;
       font-weight: 700;
       letter-spacing: 0.08em;
-      color: rgba(255,255,255,0.2);
+      color: #fff;
       margin-bottom: 32px;
     }
     .logo span { color: #00d4aa; }
