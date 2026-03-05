@@ -26,16 +26,13 @@ export default function About() {
           {"I built Wallert for myself first, as an additional layer of protection."}
         </p>
         <p className="text-gray-400 text-base leading-relaxed mb-4">
-          {"The concept: a dedicated wallet, placed under surveillance. If a transfer is made under duress, that movement triggers a silent alarm, a distress signal."}
+          {"The concept: a dedicated wallet, placed under surveillance. A transfer is made under duress triggers a silent alarm, a distress signal."}
         </p>
         <p className="text-gray-400 text-base leading-relaxed mb-4">
           {"Within seconds, a trusted circle receives an alert with your instructions, call the police, etc."}
         </p>
         <p className="text-gray-400 text-base leading-relaxed mb-4">
-          {"When I showed the concept to people around me, the reaction was unanimous: \"I want the same thing.\""}
-        </p>
-        <p className="text-gray-400 text-base leading-relaxed">
-          {"So I turned it into something configurable, now accessible to everyone."}
+          {"When I showed the concept around me, the reaction was unanimous: \"I want the same thing.\"So I turned it into something configurable and accessible to everyone."}
         </p>
       </section>
 
@@ -63,29 +60,22 @@ export default function About() {
           </p>
       </section>
 
-      <section className="mb-12">
-        <h2 className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Help me make it better</h2>
+<section className="mb-12">
+        <h2 className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Help make it better</h2>
         <p className="text-gray-400 text-base leading-relaxed mb-4">
-          {"If you use Wallert, tell me what's missing, what bothers you, what you'd like to see. If you're a developer and spot things to improve, your input matters."}
-        </p>
-        <p className="text-gray-400 text-base leading-relaxed">
-          {"Every message counts. Reach out at "}
+          {"Wallert is free and I intend to keep it that way. If you use it, tell me what's missing, what bothers you. If you're a developer and spot things to improve, your input matters. Reach out at "}
           <a href="mailto:contact@wallert.app" className="text-[#00d4aa] hover:underline">contact@wallert.app</a>
-          {". I read everything and I reply."}
+          {" — I read everything and I reply."}
         </p>
-      </section>
-
-      <section className="mb-12">
-        <h2 className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Support the project</h2>
         <p className="text-gray-400 text-base leading-relaxed mb-4">
-          {"Wallert is free and I intend to keep it that way. If you find it useful and want to support: a tip or a pull request, both count:"}
+          {"If you want to support the project — a tip or a pull request, both count:"}
         </p>
         <div className="bg-[#111] border border-gray-800 rounded-lg px-4 py-3 mb-6">
           <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">ETH</p>
           <p className="text-gray-300 font-mono text-sm">{"0x..."} <span className="text-gray-600 text-xs ml-2">(coming soon)</span></p>
         </div>
         <p className="text-gray-400 text-base leading-relaxed">
-          {"Thanks. And above all, STAY SAFE."}
+          {"Thanks. And above all — stay safe."}
         </p>
       </section>
     </div>
