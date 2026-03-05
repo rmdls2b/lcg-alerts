@@ -8,11 +8,15 @@ export default function Accueil() {
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 w-full">
 
           {/* Left */}
-          <div className="flex-1 w-full">
-            <div className="inline-flex items-center gap-2 bg-[#111311] border border-white/5 rounded-full px-4 py-1.5 mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00FF85] animate-pulse" />
-              <span className="text-[#9A9A95] text-xs tracking-widest uppercase">Silent alarm · Always on</span>
-            </div>
+            <div className="flex-1 w-full">
+              <div className="flex items-center gap-2 mb-6 flex-wrap">
+                <div className="inline-flex items-center gap-2 bg-[#111311] border border-white/5 rounded-full px-4 py-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00FF85] animate-pulse" />
+                  <span className="text-[#9A9A95] text-xs tracking-widest uppercase">Silent alarm · Always on</span>
+                </div>
+                <span className="text-[10px] tracking-widest uppercase px-3 py-1 rounded-full border border-yellow-500/30 text-yellow-500/80">Beta</span>
+                <span className="text-[10px] tracking-widest uppercase px-3 py-1 rounded-full border border-white/10 text-[#9A9A95]">Open source</span>
+              </div>
 
             <h1 className="text-[clamp(36px,5vw,60px)] font-extrabold leading-[1.07] tracking-[-2px] mb-6">
               Your wallet.<br />
@@ -26,7 +30,7 @@ export default function Accueil() {
 
             <div className="flex flex-col sm:flex-row gap-3 items-start">
               <a href="/register" className="inline-block px-7 py-3.5 bg-[#00FF85] text-black rounded-lg font-bold text-sm hover:opacity-90 transition-opacity">
-                Activate protection →
+                Try Wallert →
               </a>
               <a href="#how" className="inline-block px-7 py-3.5 text-[#9A9A95] text-sm hover:text-white transition-colors">
                 See how it works ↓
@@ -222,10 +226,10 @@ export default function Accueil() {
             Set it up once.<br />Hope to never use it.
           </h2>
           <p className="text-[#C8C8C2] text-base mb-10 max-w-md mx-auto">
-            Takes 5 minutes. Free. The silence, in case of an attack, costs more than anything else.
+            Takes 5 minutes. Free. Then you don't think about it anymore..
           </p>
           <a href="/register" className="inline-block px-10 py-4 bg-[#00FF85] text-black rounded-lg font-bold text-base hover:opacity-90 transition-opacity">
-            Activate protection →
+            Try Wallert →
           </a>
         </div>
       </div>
