@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
               Walle<span className="text-[#00d4aa]">r</span>t
             </a>
             <div className="flex gap-3 md:gap-5 text-xs md:text-sm items-center">
-              <a href="/about" className="text-white no-underline">Behind Wallert</a>
+              <a href="/about" className="text-white no-underline">ABOUT</a>
               <a href="/my-account" className="text-[#00d4aa] border border-[rgba(0,212,170,0.25)] px-3 py-1 md:px-3.5 md:py-1.5 rounded-md no-underline font-semibold text-xs md:text-[13px]">My account</a>
               <a href="https://github.com/rmdls2b/wallert" target="_blank" rel="noopener noreferrer" className="text-[#9a9a95] no-underline hidden md:flex items-center">
                 <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
