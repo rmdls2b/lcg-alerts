@@ -25,6 +25,7 @@ The public instance is free but has beta limits:
 | | Limit |
 |---|---|
 | Monitored wallets | 1 |
+| Supported network | Ethereum mainnet |
 | Email channels | Primary + 1 secondary |
 | Telegram groups | 1 |
 | Reminders (real alert) | 12 (~1 hour) |
