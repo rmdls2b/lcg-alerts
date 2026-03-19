@@ -175,13 +175,6 @@ Even in case of a data breach, there is no direct link between Wallert, your ide
 - HTTP/HTTPS restricted to Cloudflare IPs only (direct IP access blocked)
 - No hardcoded URLs: APP_URL environment variable for self-hosted instances
 
-**Admin dashboard:**
-- Admin cannot acknowledge alerts — only the recipient can via their unique link
-- Account deletion by admin triggers a 72-hour delay with email notification to the user
-- Self-deletion by the account owner is immediate
-- Admin cannot read emergency instructions, secondary contacts, or Telegram chat IDs
-- Cross-tenant protection: address deregistration checks for remaining watchers
-
 Found a vulnerability? Open an issue or email [contact@wallert.app](mailto:contact@wallert.app)
 
 ---
