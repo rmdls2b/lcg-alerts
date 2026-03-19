@@ -24,7 +24,8 @@ export default function MonEspaceClient() {
   const [newEmailLabel, setNewEmailLabel] = useState("")
   const [showAddTelegram, setShowAddTelegram] = useState(false)
   const [newTelegramLabel, setNewTelegramLabel] = useState("")
-  const [copied, setCopied] = useState(null)
+  const [newTelegramGroupId, setNewTelegramGroupId] = useState("")
+  const [addingTelegram, setAddingTelegram] = useState(false)
 
   function authHeaders() {
     return { "Content-Type": "application/json", "Authorization": "Bearer " + token }
@@ -77,20 +78,19 @@ export default function MonEspaceClient() {
   }
 
   async function addTelegramChannel() {
-    const res = await fetch("/api/channels", { method: "POST", headers: authHeaders(), body: JSON.stringify({ type: "telegram", value: "", label: newTelegramLabel }) })
+    if (!newTelegramGroupId) return
+    setAddingTelegram(true)
+    const res = await fetch("/api/channels", { method: "POST", headers: authHeaders(), body: JSON.stringify({ type: "telegram", value: newTelegramGroupId.trim(), label: newTelegramLabel }) })
     if (res.ok) {
-      const json = await res.json()
-      const link = "https://t.me/" + BOT_USERNAME + "?start=" + json.channel.linkToken
-      navigator.clipboard.writeText(link)
-      setCopied(json.channel.id)
-      setTimeout(function() { setCopied(null) }, 3000)
+      setNewTelegramGroupId("")
+      setNewTelegramLabel("")
+      setShowAddTelegram(false)
+      loadData(token)
     } else {
       const err = await res.json()
       alert(err.error || "Error adding Telegram channel")
     }
-    setNewTelegramLabel("")
-    setShowAddTelegram(false)
-    loadData(token)
+    setAddingTelegram(false)
   }
 
   async function toggleChannel(id, active) {
@@ -142,13 +142,6 @@ export default function MonEspaceClient() {
   function logout() {
     localStorage.removeItem("wallert_token")
     window.location.href = "/login"
-  }
-
-  function copyTelegramLink(channelId) {
-    const link = "https://t.me/" + BOT_USERNAME + "?start=" + channelId
-    navigator.clipboard.writeText(link)
-    setCopied(channelId)
-    setTimeout(function() { setCopied(null) }, 3000)
   }
 
   if (loading) return <p className="text-center mt-10 text-gray-500">Loading...</p>
@@ -230,7 +223,7 @@ export default function MonEspaceClient() {
         </div>
         {data.channels.map(function(ch) {
           const icon = ch.type === "email" ? "📧" : "💬"
-          const displayValue = ch.type === "email" ? ch.value + (ch.verified ? "" : " (pending verification)") : (ch.value ? "Telegram" : "Telegram (pending)")
+          const displayValue = ch.type === "email" ? ch.value + (ch.verified ? "" : " (pending verification)") : (ch.value ? "Telegram group" : "Telegram (not linked)")
           return (
             <div key={ch.id} className="flex items-center gap-2 py-3 border-b border-gray-800/50 last:border-0">
               <span className="text-sm">{icon}</span>
@@ -238,11 +231,6 @@ export default function MonEspaceClient() {
                 {displayValue}
                 {ch.label && <span className="text-gray-500 ml-1">— {ch.label}</span>}
               </span>
-              {ch.type === "telegram" && !ch.value && (
-                <button onClick={function() { copyTelegramLink(ch.linkToken) }} className="px-2 py-1 text-xs rounded-lg border border-blue-500/30 text-blue-400 hover:border-blue-500/50 transition-colors">
-                  {copied === ch.id ? "Link copied!" : "Copy link"}
-                </button>
-              )}
               <button onClick={function() { toggleChannel(ch.id, !ch.isActive) }} className={"px-3 py-1 text-xs rounded-lg border transition-colors " + (ch.isActive ? "border-yellow-500/30 text-yellow-500 hover:border-yellow-500/50" : "border-[#00d4aa]/30 text-[#00d4aa] hover:border-[#00d4aa]/50")}>
                 {ch.isActive ? "Disable" : "Enable"}
               </button>
@@ -283,10 +271,20 @@ export default function MonEspaceClient() {
           </div>
         ) : showAddTelegram ? (
           <div className="mt-4 pt-4 border-t border-gray-800">
-            <input type="text" placeholder="Label (e.g. family group, bodyguard, trusted contact...)" value={newTelegramLabel} onChange={function(e) { setNewTelegramLabel(e.target.value) }} className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600 mb-3" />
+            <div className="flex items-start gap-2 mb-4 px-3 py-2.5 bg-[#0a1a0f] border-l-2 border-[#00FF85] rounded-r-lg">
+              <span className="text-[#00FF85] text-sm mt-0.5 shrink-0">ⓘ</span>
+              <div className="text-[#9A9A95] text-xs leading-relaxed">
+                <p className="mb-1"><strong className="text-gray-300">Step 1:</strong> Create a Telegram group and add your trusted contacts.</p>
+                <p className="mb-1"><strong className="text-gray-300">Step 2:</strong> Add <strong className="text-gray-300">@{BOT_USERNAME}</strong> to the group as a member.</p>
+                <p className="mb-1"><strong className="text-gray-300">Step 3:</strong> The bot will post a Group ID in the chat. Copy it.</p>
+                <p><strong className="text-gray-300">Step 4:</strong> Paste the Group ID below.</p>
+              </div>
+            </div>
+            <input type="text" placeholder="Group ID (e.g. -4012345678)" value={newTelegramGroupId} onChange={function(e) { setNewTelegramGroupId(e.target.value) }} className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600 font-mono mb-2" />
+            <input type="text" placeholder="Label (e.g. family group, bodyguard...)" value={newTelegramLabel} onChange={function(e) { setNewTelegramLabel(e.target.value) }} className="w-full px-4 py-3 bg-[#0a0a0a] border border-gray-800 rounded-lg text-gray-200 text-sm outline-none focus:border-[#00d4aa]/50 transition-colors placeholder:text-gray-600 mb-3" />
             <div className="flex gap-2">
-              <button onClick={addTelegramChannel} className="px-4 py-2 bg-blue-500 text-white rounded-lg font-bold text-sm hover:bg-blue-600 transition-colors">Create and copy link</button>
-              <button onClick={function() { setShowAddTelegram(false); setNewTelegramLabel("") }} className="px-4 py-2 text-sm border border-gray-800 text-gray-400 rounded-lg hover:border-gray-600 transition-colors">Cancel</button>
+              <button onClick={addTelegramChannel} disabled={addingTelegram || !newTelegramGroupId} className="px-4 py-2 bg-blue-500 text-white rounded-lg font-bold text-sm hover:bg-blue-600 transition-colors disabled:opacity-50">{addingTelegram ? "Linking..." : "Link group"}</button>
+              <button onClick={function() { setShowAddTelegram(false); setNewTelegramLabel(""); setNewTelegramGroupId("") }} className="px-4 py-2 text-sm border border-gray-800 text-gray-400 rounded-lg hover:border-gray-600 transition-colors">Cancel</button>
             </div>
           </div>
         ) : (
