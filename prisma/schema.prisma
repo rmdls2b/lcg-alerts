@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String          @id @default(cuid())
+  email          String          @unique
+  emailVerified    Boolean   @default(false)
+  emailVerifyToken String?   @unique @default(uuid())
+  pseudonym      String          @default("")
+  password       String          @default("")
+  instructions   String          @default("")
+  recurringAlerts Boolean  @default(false)
+  createdAt      DateTime        @default(now())
+  addresses      WatchedAddress[]
+  channels       AlertChannel[]
+  passwordResets PasswordReset[]
+  deletionRequestedAt DateTime?
+}
+
+model PasswordReset {
+  id        String   @id @default(cuid())
+  userId    String
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model WatchedAddress {
+  id        String   @id @default(cuid())
+  userId    String
+  address   String
+  chain     String   @default("ethereum")
+  label     String   @default("")
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+  alerts    Alert[]
+}
+
+model AlertChannel {
+  id        String   @id @default(cuid())
+  userId    String
+  type      String
+  value     String
+  verified       Boolean   @default(false)
+  verifyToken    String?   @unique @default(uuid())
+  linkToken      String?   @unique @default(uuid())
+  linkTokenUsed  Boolean   @default(false)
+  isActive  Boolean  @default(true)
+  label     String   @default("")
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Alert {
+  resendCount    Int       @default(0)
+  id             String    @id @default(cuid())
+  ackToken       String    @unique @default(uuid())
+  isTest         Boolean   @default(false)
+  addressId      String
+  txHash         String
+  fromAddr       String
+  toAddr         String
+  amount         String
+  asset          String    @default("ETH")
+  chain          String    @default("ethereum")
+  status         String    @default("pending")
+  acknowledgedAt DateTime?
+  lastSentAt     DateTime  @default(now())
+  createdAt      DateTime  @default(now())
+  address        WatchedAddress @relation(fields: [addressId], references: [id])
+}

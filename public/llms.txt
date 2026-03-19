@@ -1,0 +1,78 @@
+# Wallert
+
+> Turn a wallet into a silent alarm.
+
+Wallert is a free, open-source, privacy-first crypto security app. It monitors a dedicated wallet and instantly alerts your trusted contacts if a transfer is made under physical duress (home invasion, kidnapping, forced transfer).
+
+## How it works
+
+1. Set aside a dedicated wallet with a credible amount, placed under 24/7 surveillance.
+2. Define your emergency contacts (email, Telegram) and your emergency instructions.
+3. Under duress, transfer the funds from this wallet. Wallert detects the transfer and triggers a silent alert.
+4. Your trusted circle receives the alert with your instructions. Alerts are resent every 5 minutes until someone confirms receipt.
+
+## Key features
+
+- Real-time blockchain monitoring (Ethereum via Alchemy)
+- Alert channels: email and Telegram
+- Recurring alerts every 5 minutes until acknowledged
+- Privacy-first: anonymous registration, isolated wallet, anonymous Telegram groups
+- Open source: full code transparency on GitHub
+- Self-hostable: run your own instance for full control
+
+## What Wallert does NOT do
+
+- Wallert does not prevent attacks or theft
+- Wallert does not guarantee police intervention
+- Wallert breaks the silence as fast as possible so your trusted contacts can act
+
+## Tech stack
+
+- Next.js 14, PostgreSQL, Prisma, Alchemy, Resend, Telegram Bot API
+- Hosted on Scaleway VPS with Cloudflare DDoS protection
+- MIT License
+
+## Links
+
+- Website: https://wallert.app
+- GitHub: https://github.com/rmdls2b/wallert
+- About / Story: https://wallert.app/about
+- Contact: contact@wallert.app
+
+## Founded by
+
+Rémi D'Alise -- Founder of "Protégez vos cryptos" (www.remidalise.com). Former Head of Product at Ledger (6 years). Since 2024, crypto security consultant helping individuals protect their digital assets.
+
+---
+
+# Wallert (Francais)
+
+> Transformez un wallet en alarme silencieuse.
+
+Wallert est une application gratuite, open source et privacy-first pour la securite crypto. Elle surveille un wallet dedie et alerte instantanement vos contacts de confiance si un transfert est effectue sous la contrainte physique (home-jacking, enlevement, transfert force).
+
+## Comment ca marche
+
+1. Dediez un wallet avec un montant credible, place sous surveillance 24/7.
+2. Definissez vos contacts d urgence (email, Telegram) et vos instructions d urgence.
+3. Sous la contrainte, transferez les fonds depuis ce wallet. Wallert detecte le transfert et declenche une alerte silencieuse.
+4. Votre cercle de confiance recoit l alerte avec vos instructions. Les alertes sont renvoyees toutes les 5 minutes jusqu a ce qu un contact confirme la prise en charge.
+
+## Caracteristiques principales
+
+- Surveillance blockchain en temps reel (Ethereum via Alchemy)
+- Canaux d alerte : email et Telegram
+- Alertes recurrentes toutes les 5 minutes jusqu a confirmation
+- Privacy-first : inscription anonyme, wallet isole, groupes Telegram anonymes
+- Open source : code entierement transparent sur GitHub
+- Auto-hebergeable : deployez votre propre instance pour un controle total
+
+## Ce que Wallert ne fait PAS
+
+- Wallert n empeche ni les agressions ni les vols
+- Wallert ne garantit pas l intervention de la police
+- Wallert brise le silence le plus rapidement possible pour que vos contacts puissent agir
+
+## Fondateur
+
+Rémi D'Alise -- Fondateur de "Protégez vos cryptos" (www.remidalise.com). Ancien Head of Product chez Ledger (6 ans). Depuis 2024, consultant en securite crypto accompagnant des particuliers dans la protection de leurs actifs numeriques.

@@ -1,0 +1,9 @@
+node_modules
+.env
+.next
+dev.db
+dev.db-journal
+.vercel
+.env*.local
+.env
+.env.local
