@@ -30,7 +30,7 @@ export default function Accueil() {
 
             <div className="flex flex-col sm:flex-row gap-3 items-start">
               <a href="/register" className="inline-block px-7 py-3.5 bg-[#00FF85] text-black rounded-lg font-bold text-sm hover:opacity-90 transition-opacity">
-                Try Wallert →
+                Try Wallert
               </a>
               <a href="#how" className="inline-block px-7 py-3.5 text-[#9A9A95] text-sm hover:text-white transition-colors">
                 See how it works ↓
@@ -229,7 +229,7 @@ export default function Accueil() {
             Takes 5 minutes. Then you don't think about it anymore.
           </p>
           <a href="/register" className="inline-block px-10 py-4 bg-[#00FF85] text-black rounded-lg font-bold text-base hover:opacity-90 transition-opacity">
-            Try Wallert →
+            Try Wallert
           </a>
         </div>
       </div>
