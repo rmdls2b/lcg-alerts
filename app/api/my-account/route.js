@@ -20,6 +20,7 @@ export async function GET(request) {
     const { password, ...safeUser } = user
     return NextResponse.json({ user: safeUser, addresses: user.addresses, channels: user.channels })
   } catch (error) {
+    console.error("My-account error:", error)
     return NextResponse.json({ error: "An error occurred" }, { status: 500 })
   }
 }
