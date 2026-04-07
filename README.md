@@ -17,6 +17,22 @@ Wallert monitors outgoing transactions from a dedicated crypto wallet. If a tran
 Alerts are automatically resent every 5 minutes until a recipient confirms they've taken action.
 
 ---
+ 
+## Threat model
+ 
+Wallert is designed for one specific scenario: a holder of cryptocurrency facing physical coercion to transfer funds. It addresses the gap between the moment the threat occurs and the moment outside help becomes aware of it.
+ 
+It detects an outgoing transaction from a monitored wallet within seconds of broadcast, alerts a pre-defined trusted circle through email and Telegram, repeats the alert until acknowledged, and carries instructions written in advance by the user.
+ 
+It does not prevent the attack. It does not block or reverse the transaction. It does not guarantee that help will arrive in time. It is a safety net layered on top of other security practices, not a substitute for them.
+
+---
+
+## Maintainer
+ 
+Wallert is built and maintained by Rémi D'Alise, former Head of Product at Ledger. He runs an independent crypto security advisory practice at [remidalise.com](https://remidalise.com).
+
+---
 
 ## Public instance (wallert.app)
 
@@ -146,42 +162,9 @@ For maximum security, we recommend:
 Even in case of a data breach, there is no direct link between Wallert, your identity, and your funds.
 
 ---
-
-## Security
-
-**Authentication & access control:**
-- JWT authentication on all private API endpoints
-- Email verification required at registration and for secondary email channels
-- Password policy: minimum 8 characters, uppercase, lowercase, number
-- Passwords hashed with bcrypt
-- Anti-enumeration on registration
-- Password hash excluded from all API responses
-- Ownership verification on all resource operations
-
-**Rate limiting & abuse prevention:**
-- Rate limiting on login, register, forgot-password, test-alert, delete-account, and admin auth
-- Email volume rate limiting per user (30 emails/hour max)
-- Cron endpoint protected by secret key
-
-**Webhook security:**
-- HMAC signature verification on Alchemy webhooks
-- Secret token verification on Telegram webhooks
-- Webhook fan-out: all watchers of an address are alerted
-
-**Token security:**
-- Cryptographically random tokens (UUID v4) for acknowledge links
-- Single-use tokens for Telegram channel linking
-
-**Infrastructure:**
-- HTTP/HTTPS restricted to Cloudflare IPs only (direct IP access blocked)
-- No hardcoded URLs: APP_URL environment variable for self-hosted instances
-
-Found a vulnerability? Open an issue or email [contact@wallert.app](mailto:contact@wallert.app)
-
----
-
+ 
 ## Stack
-
+ 
 - Next.js 14
 - PostgreSQL + Prisma
 - Alchemy (blockchain monitoring)
@@ -191,10 +174,16 @@ Found a vulnerability? Open an issue or email [contact@wallert.app](mailto:conta
 
 ---
 
+## Security
+ 
+The codebase implements standard authentication, rate limiting and webhook verification practices. The full source is available for audit. 
+Found a vulnerability? Open an issue or email [contact@wallert.app](mailto:contact@wallert.app)
+
+---
+
 ## Contributing
 
 Wallert is in beta. Feedback, ideas, and contributions are welcome.
-
 - Open an issue or email [contact@wallert.app](mailto:contact@wallert.app)
 
 ---
