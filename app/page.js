@@ -25,7 +25,7 @@ export default function Accueil() {
             </h1>
 
             <p className="text-[#C8C8C2] text-lg leading-relaxed mb-10 max-w-lg">
-              Open-source duress alarm for crypto holders. Monitors a dedicated wallet and alerts your trusted circle the moment funds are transferred under coercion.
+              Wallert is an open-source duress alarm for crypto holders. It monitors a dedicated wallet and alerts your trusted contacts if you're forced to transfer funds.        
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 items-start">
@@ -90,6 +90,9 @@ export default function Accueil() {
           <p className="text-[#C8C8C2] text-base leading-relaxed max-w-2xl mb-10">
             Physical attacks on crypto holders are rising worldwide. When someone breaks into your home and threatens you with a weapon, you have seconds to act, no way to call for help, and no one knows you're in danger.
           </p>
+          <p className="text-white text-base font-bold leading-relaxed max-w-2xl mb-10">
+          Wallert exists so that, in those seconds, someone knows and can act.
+          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 max-w-4xl">
             <div className="bg-red-500/[0.05] border border-red-500/30 rounded-xl p-7">
@@ -105,10 +108,6 @@ export default function Accueil() {
               </p>
             </div>
           </div>
-
-          <p className="text-[#9A9A95] text-base leading-relaxed max-w-2xl">
-            Wallert exists so that, in those seconds, someone knows and can act.
-          </p>
         </div>
       </div>
 
