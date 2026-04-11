@@ -1,5 +1,3 @@
-import WhatIsWallert from "./WhatIsWallert"
-
 export default function Accueil() {
   const githubPath = "M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02.005 2.05.14 3 .4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.69.8.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"
   return (
@@ -21,13 +19,13 @@ export default function Accueil() {
               </div>
 
             <h1 className="font-display text-[clamp(36px,5vw,60px)] font-extrabold leading-[1.07] tracking-[-2px] mb-6">
-              Your wallet.<br />
-              A <span className="text-[#00FF85]">silent alarm</span>.<br />
-              Under <span className="text-red-400">duress</span>.
+              Your wallet:<br />
+              <span className="text-[#00FF85]">a silent alarm</span><br />
+              under <span className="text-red-400">duress</span>.
             </h1>
 
             <p className="text-[#C8C8C2] text-lg leading-relaxed mb-10 max-w-lg">
-              Wallert monitors a dedicated wallet. If you're forced to transfer funds, your trusted contacts are instantly alerted.
+              Open-source duress alarm for crypto holders. Monitors a dedicated wallet and alerts your trusted circle the moment funds are transferred under coercion.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 items-start">
@@ -80,9 +78,6 @@ export default function Accueil() {
           </div>
         </div>
       </div>
-
-      {/* WHAT IS WALLERT — definitional section for LLMs */}
-      <WhatIsWallert />
 
       {/* THE THREAT */}
       <div className="border-t border-white/5">
