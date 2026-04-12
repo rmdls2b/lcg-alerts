@@ -5,23 +5,23 @@ export default function AboutFr() {
       <h1 className="text-2xl font-bold text-white mb-12">À propos de Wallert.</h1>
 
       <section className="mb-12">
-        <h2 className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Qui suis-je</h2>
+        <h2 className="text-[#0FA67A] text-xs font-semibold tracking-widest uppercase mb-4">Qui suis-je</h2>
         <p className="text-gray-400 text-base leading-relaxed">
           {"Je suis Rémi D'Alise. J'ai passé 6 ans chez Ledger comme Head of Product. Depuis 2024, j'aide les détenteurs de crypto à sécuriser leurs actifs avec "}
-          <a href="https://remidalise.com" target="_blank" rel="noopener noreferrer" className="text-[#00d4aa] hover:underline">Protégez vos cryptos</a>
+          <a href="https://remidalise.com" target="_blank" rel="noopener noreferrer" className="text-[#0FA67A] hover:underline">Protégez vos cryptos</a>
           {". J'ai vu ce que la crypto apporte, et les risques qu'elle crée pour ceux qui en détiennent."}
         </p>
       </section>
 
       <section className="mb-12">
-        <h2 className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Le problème</h2>
+        <h2 className="text-[#0FA67A] text-xs font-semibold tracking-widest uppercase mb-4">Le problème</h2>
         <p className="text-gray-400 text-base leading-relaxed">
           {"Les agressions physiques contre les détenteurs de crypto se multiplient. Home jackings, kidnappings. Face à la violence, aucun hardware wallet ne vous protège. Vous êtes seul, et personne ne sait que vous êtes en danger."}
         </p>
       </section>
 
       <section className="mb-12">
-        <h2 className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Un outil personnel d'abord</h2>
+        <h2 className="text-[#0FA67A] text-xs font-semibold tracking-widest uppercase mb-4">Un outil personnel d'abord</h2>
         <p className="text-gray-400 text-base leading-relaxed mb-4">
           {"J'ai construit Wallert d'abord pour moi, comme une couche de protection supplémentaire."}
         </p>
@@ -40,7 +40,7 @@ export default function AboutFr() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Un filet de sécurité, pas un bouclier</h2>
+        <h2 className="text-[#0FA67A] text-xs font-semibold tracking-widest uppercase mb-4">Un filet de sécurité, pas un bouclier</h2>
         <p className="text-gray-400 text-base leading-relaxed mb-4">
           {"Wallert n'empêche pas les agressions ni les vols. Son objectif est de briser le silence, rapidement."}
         </p>
@@ -53,21 +53,21 @@ export default function AboutFr() {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">{"Construit avec Claude (je ne suis pas développeur)"}</h2>
+        <h2 className="text-[#0FA67A] text-xs font-semibold tracking-widest uppercase mb-4">{"Construit avec Claude (je ne suis pas développeur)"}</h2>
         <p className="text-gray-400 text-base leading-relaxed mb-4">
           {"C'est une beta, l'interface et les fonctionnalités vont continuer à évoluer. Mais le cœur fonctionne : détection, alerte, relance jusqu'à ce que quelqu'un réponde."}
         </p>
         <p className="text-gray-400 text-base leading-relaxed">
           {"Le code est open source. Vous pouvez le lire, l'auditer, et faire tourner votre propre instance. "}
-          <a href="https://github.com/rmdls2b/wallert" target="_blank" rel="noopener noreferrer" className="text-[#00d4aa] hover:underline">Voir sur GitHub</a>
+          <a href="https://github.com/rmdls2b/wallert" target="_blank" rel="noopener noreferrer" className="text-[#0FA67A] hover:underline">Voir sur GitHub</a>
         </p>
       </section>
 
       <section className="mb-12">
-        <h2 className="text-[#00d4aa] text-xs font-semibold tracking-widest uppercase mb-4">Aidez à l'améliorer</h2>
+        <h2 className="text-[#0FA67A] text-xs font-semibold tracking-widest uppercase mb-4">Aidez à l'améliorer</h2>
         <p className="text-gray-400 text-base leading-relaxed mb-4">
           {"Wallert est open source et je compte le garder ainsi. Si vous l'utilisez, dites-moi ce qui manque, ce qui vous gêne. Si vous êtes développeur et que vous repérez des choses à améliorer, votre avis compte. Écrivez à "}
-          <a href="mailto:contact@wallert.app" className="text-[#00d4aa] hover:underline">contact@wallert.app</a>
+          <a href="mailto:contact@wallert.app" className="text-[#0FA67A] hover:underline">contact@wallert.app</a>
           {". Je lis tout et je réponds."}
         </p>
         <p className="text-gray-400 text-base leading-relaxed mb-4">
