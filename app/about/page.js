@@ -2,7 +2,7 @@ export default function About() {
   return (
     <div className="max-w-[720px] mx-auto px-6 py-16">
 
-      <h1 className="text-2xl font-bold text-white mb-12">Derrière Walle<span className="text-[#0FA67A]">r</span>t.</h1>
+      <h1 className="text-2xl font-bold text-white mb-12">Behind Walle<span className="text-[#0FA67A]">r</span>t.</h1>
 
       <section className="mb-12">
         <h2 className="text-[#0FA67A] text-xs font-semibold tracking-widest uppercase mb-4">Who I am</h2>
