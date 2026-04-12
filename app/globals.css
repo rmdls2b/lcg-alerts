@@ -1,8 +1,4 @@
-@import url('https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.0.3/400.css');
-@import url('https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.0.3/500.css');
-@import url('https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.0.3/600.css');
-@import url('https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.0.3/700.css');
-@import url('https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.0.3/800.css');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,10 +6,14 @@
 
 @layer base {
   body {
-    font-family: 'Geist Sans', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     background-color: #FFFFFF;
-    color: #3A3A35;
+    color: #4A4A42;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+  ::selection {
+    background: rgba(15, 166, 122, 0.15);
+    color: #111110;
   }
 }
