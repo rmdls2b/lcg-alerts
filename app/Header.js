@@ -35,13 +35,13 @@ export default function Header() {
       <div className="px-6 md:px-16 lg:px-32 xl:px-40 py-4 max-w-[1400px] mx-auto flex justify-between items-center">
         {/* Logo */}
         <a href={homeHref} className="text-white font-bold text-xl md:text-2xl no-underline">
-          Walle<span className="text-[#00d4aa]">r</span>t
+          Walle<span className="text-[#0FA67A]">r</span>t
         </a>
         {/* Desktop nav */}
         <div className="hidden md:flex gap-5 text-sm items-center">
           <a href={aboutHref} className="text-white no-underline">{labels.about}</a>
           <a href="/my-account" className="text-white border border-white/30 px-3.5 py-1.5 rounded-md no-underline font-semibold text-[13px] hover:border-white/60 transition-colors">{labels.account}</a>
-          <a href="/register" className="bg-[#00d4aa] text-black px-3.5 py-1.5 rounded-md no-underline font-semibold text-[13px] hover:bg-[#00e4b8] transition-colors">{labels.cta}</a>
+          <a href="/register" className="bg-[#0FA67A] text-black px-3.5 py-1.5 rounded-md no-underline font-semibold text-[13px] hover:bg-[#00e4b8] transition-colors">{labels.cta}</a>
           <a href="https://github.com/rmdls2b/wallert" target="_blank" rel="noopener noreferrer" className="text-[#9a9a95] no-underline flex items-center hover:text-white transition-colors">
             <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
               <path d={githubPath} />
@@ -70,7 +70,7 @@ export default function Header() {
         <div className="md:hidden border-t border-[#1a1a1a] bg-[#0a0a0a] px-6 py-4 flex flex-col gap-4">
           <a href={aboutHref} className="text-white no-underline text-sm" onClick={() => setMenuOpen(false)}>{labels.about}</a>
           <a href="/my-account" className="text-white no-underline text-sm" onClick={() => setMenuOpen(false)}>{labels.account}</a>
-          <a href="/register" className="bg-[#00d4aa] text-black px-4 py-2.5 rounded-md no-underline font-semibold text-sm text-center" onClick={() => setMenuOpen(false)}>{labels.cta}</a>
+          <a href="/register" className="bg-[#0FA67A] text-black px-4 py-2.5 rounded-md no-underline font-semibold text-sm text-center" onClick={() => setMenuOpen(false)}>{labels.cta}</a>
           <a href="https://github.com/rmdls2b/wallert" target="_blank" rel="noopener noreferrer" className="text-[#9a9a95] no-underline text-sm flex items-center gap-2" onClick={() => setMenuOpen(false)}>
             <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
               <path d={githubPath} />
