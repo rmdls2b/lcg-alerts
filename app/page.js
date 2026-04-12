@@ -18,7 +18,7 @@ export default function Accueil() {
 
             <h1 className="font-display text-[clamp(36px,5vw,60px)] font-extrabold leading-[1.07] tracking-[-2px] mb-6">
               Your wallet:<br />
-              <span className="text-[#00FF85]">a silent alarm</span><br />
+              a silent <span className="text-[#00FF85]">alarm</span><br />
               under <span className="text-red-400">duress</span>.
             </h1>
 
@@ -31,7 +31,7 @@ export default function Accueil() {
                 Try Wallert
               </a>
               <a href="#how" className="inline-block px-7 py-3.5 text-[#9A9A95] text-sm hover:text-white transition-colors">
-                See how it works ↓
+                See wow it works
               </a>
             </div>
           </div>
@@ -80,7 +80,7 @@ export default function Accueil() {
       {/* THE THREAT */}
       <div className="border-t border-white/5">
         <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-20">
-          <p className="text-[#00FF85] text-[11px] font-semibold tracking-[3px] uppercase mb-4">The threat</p>
+          <p className="text-[#00FF85] text-[11px] font-semibold tracking-[3px] uppercase mb-4">Threat</p>
           <h2 className="font-display text-[clamp(26px,3.5vw,44px)] font-extrabold tracking-tight leading-[1.12] mb-6">
             Hardware wallets protect your keys.<br />
             Nothing protects <em>you</em>.
@@ -112,13 +112,13 @@ export default function Accueil() {
       {/* HOW IT WORKS */}
       <div className="border-t border-white/5" id="how">
         <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-20">
-          <p className="text-[#00FF85] text-[11px] font-semibold tracking-[3px] uppercase mb-4">Protocol</p>
+          <p className="text-[#00FF85] text-[11px] font-semibold tracking-[3px] uppercase mb-4">How it works</p>
           <h2 className="font-display text-[clamp(26px,3.5vw,44px)] font-extrabold tracking-tight leading-[1.12] mb-12">Three steps. No complexity.</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
               { num: "01", title: "Security wallet", desc: "Set aside a credible amount on a dedicated wallet, separate from your real holdings. This address is placed under continuous surveillance. It becomes your emergency trigger." },
               { num: "02", title: "Trusted circle", desc: "Define your emergency contacts, alert channels (email, Telegram), and exact instructions. What should they do? Call police? Contact SEAL 911? You decide in advance." },
-              { num: "03", title: "Silent signal", desc: "Transfer from the watched wallet. The attacker sees a transaction. Your network receives an instant alert with your instructions, and acts. Alerts resend every 5 minutes until confirmed." },
+              { num: "03", title: "Silent signal", desc: "Transfer from the watched wallet under duress. Your network receives an instant alert with your instructions, and acts. Alerts resend every 5 minutes until confirmed." },
             ].map(s => (
               <div key={s.num} className="bg-[#111311] border border-white/5 rounded-xl p-7 relative overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#00FF85] to-transparent" />
@@ -136,7 +136,7 @@ export default function Accueil() {
       {/* CAPABILITIES */}
       <div className="border-t border-white/5">
         <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-20">
-          <p className="text-[#00FF85] text-[11px] font-semibold tracking-[3px] uppercase mb-4">Capabilities</p>
+          <p className="text-[#00FF85] text-[11px] font-semibold tracking-[3px] uppercase mb-4">Features</p>
           <h2 className="font-display text-[clamp(26px,3.5vw,44px)] font-extrabold tracking-tight leading-[1.12] mb-12">Simple to configure.</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
