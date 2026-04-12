@@ -18,7 +18,7 @@ export default function AccueilFr() {
 
             <h1 className="font-display text-[clamp(36px,5vw,60px)] font-extrabold leading-[1.07] tracking-[-2px] mb-6">
               Votre wallet :<br />
-              une <span className="text-[#00FF85]">alarme</span><br /> silencieuse
+              une <span className="text-[#00FF85]">alarme</span>silencieuse <br /> 
               en cas d'<span className="text-red-400">agression</span>.
             </h1>
 
