@@ -18,12 +18,12 @@ export default function AccueilFr() {
 
             <h1 className="font-display text-[clamp(36px,5vw,60px)] font-extrabold leading-[1.07] tracking-[-2px] mb-6">
               Votre wallet :<br />
-              <span className="text-[#00FF85]">une alarme silencieuse</span><br />
+              une <span className="text-[#00FF85]">alarme</span><br /> silencieuse
               en cas d'<span className="text-red-400">agression</span>.
             </h1>
 
             <p className="text-[#C8C8C2] text-lg leading-relaxed mb-10 max-w-lg">
-              Wallert est une alarme open source pour les détenteurs de crypto. Elle surveille un wallet dédié et alerte vos contacts de confiance si vous êtes forcé de transférer des fonds.
+              Wallert est une alarme open source pour les détenteurs de crypto. Elle surveille un wallet dédié et alerte vos contacts de confiance si vous êtes forcé de transférer vos fonds.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 items-start">
@@ -80,7 +80,7 @@ export default function AccueilFr() {
       {/* THE THREAT */}
       <div className="border-t border-white/5">
         <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-20">
-          <p className="text-[#00FF85] text-[11px] font-semibold tracking-[3px] uppercase mb-4">La menace</p>
+          <p className="text-[#00FF85] text-[11px] font-semibold tracking-[3px] uppercase mb-4">Menace</p>
           <h2 className="font-display text-[clamp(26px,3.5vw,44px)] font-extrabold tracking-tight leading-[1.12] mb-6">
             Les hardware wallets protègent vos clés.<br />
             Rien ne <em>vous</em> protège, vous.
@@ -112,13 +112,13 @@ export default function AccueilFr() {
       {/* HOW IT WORKS */}
       <div className="border-t border-white/5" id="how">
         <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-20">
-          <p className="text-[#00FF85] text-[11px] font-semibold tracking-[3px] uppercase mb-4">Protocole</p>
+          <p className="text-[#00FF85] text-[11px] font-semibold tracking-[3px] uppercase mb-4">Comment ça fonctionne</p>
           <h2 className="font-display text-[clamp(26px,3.5vw,44px)] font-extrabold tracking-tight leading-[1.12] mb-12">Trois étapes. Aucune complexité.</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
-              { num: "01", title: "Wallet de sécurité", desc: "Mettez de côté un montant crédible sur un wallet dédié, séparé de vos fonds réels. Cette adresse est placée sous surveillance continue. Elle devient votre déclencheur d'urgence." },
-              { num: "02", title: "Cercle de confiance", desc: "Définissez vos contacts d'urgence, vos canaux d'alerte (email, Telegram), et vos instructions précises. Que doivent-ils faire ? Appeler la police ? Contacter le SEAL 911 ? Vous décidez à l'avance." },
-              { num: "03", title: "Signal silencieux", desc: "Faites un transfert depuis le wallet surveillé. L'agresseur voit une transaction. Votre réseau reçoit une alerte instantanée avec vos instructions, et agit. Les alertes sont renvoyées toutes les 5 minutes jusqu'à confirmation." },
+              { num: "01", title: "Wallet de sécurité", desc: "Mettez un montant crédible sur un wallet dédié, séparé de vos fonds principaux. Cette adresse est placée sous surveillance continue. Elle devient votre déclencheur d'urgence." },
+              { num: "02", title: "Cercle de confiance", desc: "Définissez vos contacts d'urgence, vos canaux d'alerte (email, Telegram), et vos instructions précises. Que doivent-ils faire ? Appeler la police ? Contacter le SEAL 911 ? Etc." },
+              { num: "03", title: "Signal silencieux", desc: "Faites le transfert depuis le wallet surveillé. L'agresseur voit une transaction. Votre réseau reçoit une alerte instantanée avec vos instructions pour agir rapidement. Les alertes sont renvoyées toutes les 5 minutes jusqu'à confirmation." },
             ].map(s => (
               <div key={s.num} className="bg-[#111311] border border-white/5 rounded-xl p-7 relative overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#00FF85] to-transparent" />
@@ -172,24 +172,24 @@ export default function AccueilFr() {
                 Je suis Rémi D'Alise. 6 ans Head of Product chez Ledger. Je sais ce que protègent les hardware wallets, et ce qu'ils ne protègent pas.
               </p>
               <p className="text-[#C8C8C2] text-base leading-relaxed">
-                Depuis 2024, j'aide les détenteurs de crypto à sécuriser leurs fonds. Comme la menace physique est réelle et grandissante, j'ai construit Wallert d'abord pour moi. Puis pour tout le monde.
+                Depuis 2024, j'aide les détenteurs de crypto à sécuriser leurs fonds. Face à la menace physique réelle et grandissante, j'ai d'abord construit Wallert pour moi. Puis pour tout le monde.
               </p>
             </div>
             <div className="flex-1">
               <blockquote className="border-l-2 border-[#00FF85] pl-6 mb-8">
                 <p className="text-white text-lg leading-relaxed italic font-display">
-                  "Quand vous êtes sous la menace, la seule chose qui compte c'est que quelqu'un sache. Le rôle de Wallert est de briser le silence le plus vite possible."
+                  "Quand vous êtes en danger, la seule chose qui compte c'est que quelqu'un le sache. Le rôle de Wallert est de briser le silence le plus vite possible."
                 </p>
               </blockquote>
               <p className="text-[#C8C8C2] text-base leading-relaxed mb-4">
-                La meilleure solution est souvent de se retirer entièrement de l'équation : aucun accès facile à vos fonds. Mais tout le monde ne peut pas faire ce choix.
+                La meilleure solution est souvent de se retirer entièrement de l'équation (aucun accès facile à vos fonds). Mais tout le monde ne peut pas faire ce choix.
               </p>
               <p className="text-[#C8C8C2] text-base leading-relaxed mb-8">
-                Pour ceux qui détiennent en direct : c'est un filet de sécurité. Pas une garantie. Une couche supplémentaire qui ne coûte rien à activer, et qui peut compter quand plus rien d'autre ne compte.
+                Pour ceux qui détiennent leur crypto en direct, c'est un filet de sécurité. Pas une garantie. Une couche supplémentaire qui ne coûte rien à activer, et qui peut compter quand plus rien d'autre ne compte.
               </p>
               <div className="bg-orange-500/5 border border-orange-500/20 rounded-xl p-5">
                 <p className="text-[#C8A96E] text-base leading-relaxed">
-                  <strong className="text-orange-300">⚠ Wallert ne prévient ni les agressions ni les vols.</strong> L'objectif est d'alerter votre cercle de confiance le plus vite possible. Que cela change l'issue dépend de nombreux facteurs hors de notre contrôle.
+                  <strong className="text-orange-300">⚠ Wallert ne protège pas des agressions ni du vol.</strong> L'objectif est d'alerter votre réseau de confiance le plus vite possible. L'issue dépend de nombreux facteurs hors du contrôle de l'app.
                 </p>
               </div>
             </div>
