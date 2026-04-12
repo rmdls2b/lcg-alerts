@@ -7,81 +7,54 @@ const githubPath = "M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname() || "/"
-
-  // Détection de la langue active
   const isFr = pathname === "/fr" || pathname.startsWith("/fr/")
-
-  // Construction des chemins pour chaque langue (préserve la sous-page courante)
-  // Exemples :
-  //   /            → en="/",        fr="/fr"
-  //   /about       → en="/about",   fr="/fr/about"
-  //   /fr          → en="/",        fr="/fr"
-  //   /fr/about    → en="/about",   fr="/fr/about"
   const pathWithoutLang = isFr ? (pathname.replace(/^\/fr/, "") || "/") : pathname
   const enHref = pathWithoutLang
   const frHref = pathWithoutLang === "/" ? "/fr" : `/fr${pathWithoutLang}`
-
-  // Labels selon la langue active
   const labels = isFr
     ? { about: "À PROPOS", account: "Mon compte", cta: "Commencer" }
     : { about: "ABOUT", account: "My account", cta: "Get started" }
-
-  // Liens internes selon la langue active
   const aboutHref = isFr ? "/fr/about" : "/about"
   const homeHref = isFr ? "/fr" : "/"
 
   return (
-    <nav className="border-b border-[#1a1a1a] relative">
+    <nav className="bg-bg-primary border-b border-line relative">
       <div className="px-6 md:px-16 lg:px-32 xl:px-40 py-4 max-w-[1400px] mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <a href={homeHref} className="text-white font-bold text-xl md:text-2xl no-underline">
-          Walle<span className="text-[#00d4aa]">r</span>t
+        <a href={homeHref} className="text-ink-title font-bold text-xl md:text-2xl no-underline">
+          Walle<span className="text-brand-green">r</span>t
         </a>
-        {/* Desktop nav */}
         <div className="hidden md:flex gap-5 text-sm items-center">
-          <a href={aboutHref} className="text-white no-underline">{labels.about}</a>
-          <a href="/my-account" className="text-white border border-white/30 px-3.5 py-1.5 rounded-md no-underline font-semibold text-[13px] hover:border-white/60 transition-colors">{labels.account}</a>
-          <a href="/register" className="bg-[#00d4aa] text-black px-3.5 py-1.5 rounded-md no-underline font-semibold text-[13px] hover:bg-[#00e4b8] transition-colors">{labels.cta}</a>
-          <a href="https://github.com/rmdls2b/wallert" target="_blank" rel="noopener noreferrer" className="text-[#9a9a95] no-underline flex items-center hover:text-white transition-colors">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-              <path d={githubPath} />
-            </svg>
+          <a href={aboutHref} className="text-ink-title no-underline hover:text-brand-green transition-colors">{labels.about}</a>
+          <a href="/my-account" className="text-ink-title border border-line-strong px-3.5 py-1.5 rounded-md no-underline font-semibold text-[13px] hover:border-ink-title transition-colors">{labels.account}</a>
+          <a href="/register" className="bg-ink-title text-white px-3.5 py-1.5 rounded-md no-underline font-semibold text-[13px] hover:opacity-90 transition-opacity">{labels.cta}</a>
+          <a href="https://github.com/rmdls2b/wallert" target="_blank" rel="noopener noreferrer" className="text-ink-muted no-underline flex items-center hover:text-ink-title transition-colors">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d={githubPath} /></svg>
           </a>
-          {/* Switcher EN / FR */}
-          <span className="text-[#555] text-sm flex items-center gap-2 pl-2 border-l border-white/10 ml-1">
-            <a href={enHref} className={isFr ? "text-[#9a9a95] hover:text-white transition-colors no-underline" : "text-white no-underline"}>EN</a>
+          <span className="text-ink-faint text-sm flex items-center gap-2 pl-2 border-l border-line ml-1">
+            <a href={enHref} className={isFr ? "text-ink-muted hover:text-ink-title transition-colors no-underline" : "text-ink-title no-underline font-semibold"}>EN</a>
             <span>|</span>
-            <a href={frHref} className={isFr ? "text-white no-underline" : "text-[#9a9a95] hover:text-white transition-colors no-underline"}>FR</a>
+            <a href={frHref} className={isFr ? "text-ink-title no-underline font-semibold" : "text-ink-muted hover:text-ink-title transition-colors no-underline"}>FR</a>
           </span>
         </div>
-        {/* Mobile hamburger */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden flex flex-col gap-[5px] p-1 bg-transparent border-none cursor-pointer"
-          aria-label="Menu"
-        >
-          <span className={`block w-5 h-[2px] bg-white transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
-          <span className={`block w-5 h-[2px] bg-white transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-          <span className={`block w-5 h-[2px] bg-white transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[7px]" : ""}`} />
+        <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden flex flex-col gap-[5px] p-1 bg-transparent border-none cursor-pointer" aria-label="Menu">
+          <span className={`block w-5 h-[2px] bg-ink-title transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
+          <span className={`block w-5 h-[2px] bg-ink-title transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+          <span className={`block w-5 h-[2px] bg-ink-title transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[7px]" : ""}`} />
         </button>
       </div>
-      {/* Mobile dropdown */}
       {menuOpen && (
-        <div className="md:hidden border-t border-[#1a1a1a] bg-[#0a0a0a] px-6 py-4 flex flex-col gap-4">
-          <a href={aboutHref} className="text-white no-underline text-sm" onClick={() => setMenuOpen(false)}>{labels.about}</a>
-          <a href="/my-account" className="text-white no-underline text-sm" onClick={() => setMenuOpen(false)}>{labels.account}</a>
-          <a href="/register" className="bg-[#00d4aa] text-black px-4 py-2.5 rounded-md no-underline font-semibold text-sm text-center" onClick={() => setMenuOpen(false)}>{labels.cta}</a>
-          <a href="https://github.com/rmdls2b/wallert" target="_blank" rel="noopener noreferrer" className="text-[#9a9a95] no-underline text-sm flex items-center gap-2" onClick={() => setMenuOpen(false)}>
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-              <path d={githubPath} />
-            </svg>
+        <div className="md:hidden border-t border-line bg-bg-primary px-6 py-4 flex flex-col gap-4">
+          <a href={aboutHref} className="text-ink-title no-underline text-sm" onClick={() => setMenuOpen(false)}>{labels.about}</a>
+          <a href="/my-account" className="text-ink-title no-underline text-sm" onClick={() => setMenuOpen(false)}>{labels.account}</a>
+          <a href="/register" className="bg-ink-title text-white px-4 py-2.5 rounded-md no-underline font-semibold text-sm text-center" onClick={() => setMenuOpen(false)}>{labels.cta}</a>
+          <a href="https://github.com/rmdls2b/wallert" target="_blank" rel="noopener noreferrer" className="text-ink-muted no-underline text-sm flex items-center gap-2" onClick={() => setMenuOpen(false)}>
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d={githubPath} /></svg>
             GitHub
           </a>
-          {/* Switcher EN / FR mobile */}
-          <div className="border-t border-[#1a1a1a] pt-4 mt-2 flex items-center gap-3 text-sm">
-            <a href={enHref} className={isFr ? "text-[#9a9a95] no-underline" : "text-white no-underline font-semibold"} onClick={() => setMenuOpen(false)}>EN</a>
-            <span className="text-[#555]">|</span>
-            <a href={frHref} className={isFr ? "text-white no-underline font-semibold" : "text-[#9a9a95] no-underline"} onClick={() => setMenuOpen(false)}>FR</a>
+          <div className="border-t border-line pt-4 mt-2 flex items-center gap-3 text-sm">
+            <a href={enHref} className={isFr ? "text-ink-muted no-underline" : "text-ink-title no-underline font-semibold"} onClick={() => setMenuOpen(false)}>EN</a>
+            <span className="text-ink-faint">|</span>
+            <a href={frHref} className={isFr ? "text-ink-title no-underline font-semibold" : "text-ink-muted no-underline"} onClick={() => setMenuOpen(false)}>FR</a>
           </div>
         </div>
       )}
