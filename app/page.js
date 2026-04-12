@@ -12,13 +12,9 @@ export default function Accueil() {
           {/* Left */}
             <div className="flex-1 w-full">
               <div className="flex items-center gap-2 mb-6 flex-wrap">
-                <div className="inline-flex items-center gap-2 bg-[#111311] border border-white/5 rounded-full px-4 py-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00FF85] animate-pulse" />
-                  <span className="text-[#9A9A95] text-xs tracking-widest uppercase">Silent alarm · Always on</span>
-                </div>
-                <span className="text-[10px] tracking-widest uppercase px-3 py-1 rounded-full border border-yellow-500/30 text-yellow-500/80">Beta</span>
-                <span className="text-[10px] tracking-widest uppercase px-3 py-1 rounded-full border border-white/10 text-[#9A9A95]">Open source</span>
-              </div>
+              <span className="text-[10px] tracking-widest uppercase px-3 py-1 rounded-full border border-yellow-500/30 text-yellow-500/80">Beta</span>
+              <span className="text-[10px] tracking-widest uppercase px-3 py-1 rounded-full border border-white/10 text-[#9A9A95]">Open source</span>
+            </div>
 
             <h1 className="font-display text-[clamp(36px,5vw,60px)] font-extrabold leading-[1.07] tracking-[-2px] mb-6">
               Your wallet:<br />
