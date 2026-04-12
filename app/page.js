@@ -18,7 +18,7 @@ export default function Accueil() {
 
             <h1 className="font-display text-[clamp(36px,5vw,60px)] font-extrabold leading-[1.07] tracking-[-2px] mb-6">
               Your wallet:<br />
-              a silent <span className="text-[#00FF85]">alarm</span><br />
+              a silent <span className="text-[#0FA67A]">alarm</span><br />
               under <span className="text-red-400">duress</span>.
             </h1>
 
@@ -27,7 +27,7 @@ export default function Accueil() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 items-start">
-              <a href="/register" className="inline-block px-7 py-3.5 bg-[#00FF85] text-black rounded-lg font-bold text-sm hover:opacity-90 transition-opacity">
+              <a href="/register" className="inline-block px-7 py-3.5 bg-[#0FA67A] text-black rounded-lg font-bold text-sm hover:opacity-90 transition-opacity">
                 Try Wallert
               </a>
               <a href="#how" className="inline-block px-7 py-3.5 text-[#9A9A95] text-sm hover:text-white transition-colors">
@@ -40,8 +40,8 @@ export default function Accueil() {
           <div className="w-full max-w-[300px] lg:max-w-[320px] mx-auto lg:mx-0 shrink-0">
             <div className="bg-[#111311] border border-white/7 rounded-2xl p-7">
               <div className="flex items-start gap-4 pb-5 border-b border-white/5">
-                <div className="w-9 h-9 rounded-lg bg-[#00FF85]/10 border border-[#00FF85]/20 flex items-center justify-center shrink-0 mt-0.5">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00FF85" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                <div className="w-9 h-9 rounded-lg bg-[#0FA67A]/10 border border-[#0FA67A]/20 flex items-center justify-center shrink-0 mt-0.5">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0FA67A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                 </div>
                 <div>
                   <p className="text-[10px] text-[#9A9A95] uppercase tracking-widest mb-1">Monitored</p>
@@ -80,7 +80,7 @@ export default function Accueil() {
       {/* THE THREAT */}
       <div className="border-t border-white/5">
         <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-20">
-          <p className="text-[#00FF85] text-[11px] font-semibold tracking-[3px] uppercase mb-4">Threat</p>
+          <p className="text-[#0FA67A] text-[11px] font-semibold tracking-[3px] uppercase mb-4">Threat</p>
           <h2 className="font-display text-[clamp(26px,3.5vw,44px)] font-extrabold tracking-tight leading-[1.12] mb-6">
             Hardware wallets protect your keys.<br />
             Nothing protects <em>you</em>.
@@ -99,9 +99,9 @@ export default function Accueil() {
                 <span className="text-white">sees a transfer.</span>
               </p>
             </div>
-            <div className="bg-[#00FF85]/[0.04] border border-[#00FF85]/30 rounded-xl p-7">
+            <div className="bg-[#0FA67A]/[0.04] border border-[#0FA67A]/30 rounded-xl p-7">
               <p className="font-display text-xl md:text-2xl font-bold leading-snug">
-                <span className="text-[#00FF85]">Your circle</span><br />
+                <span className="text-[#0FA67A]">Your circle</span><br />
                 <span className="text-white">receives an alarm.</span>
               </p>
             </div>
@@ -112,7 +112,7 @@ export default function Accueil() {
       {/* HOW IT WORKS */}
       <div className="border-t border-white/5" id="how">
         <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-20">
-          <p className="text-[#00FF85] text-[11px] font-semibold tracking-[3px] uppercase mb-4">How it works</p>
+          <p className="text-[#0FA67A] text-[11px] font-semibold tracking-[3px] uppercase mb-4">How it works</p>
           <h2 className="font-display text-[clamp(26px,3.5vw,44px)] font-extrabold tracking-tight leading-[1.12] mb-12">Three steps. No complexity.</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
@@ -121,9 +121,9 @@ export default function Accueil() {
               { num: "03", title: "Silent signal", desc: "Transfer from the watched wallet under duress. Your network receives an instant alert with your instructions, and acts. Alerts resend every 5 minutes until confirmed." },
             ].map(s => (
               <div key={s.num} className="bg-[#111311] border border-white/5 rounded-xl p-7 relative overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#00FF85] to-transparent" />
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#0FA67A] to-transparent" />
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="text-[#00FF85] text-xs font-mono tracking-widest">{s.num}</span>
+                    <span className="text-[#0FA67A] text-xs font-mono tracking-widest">{s.num}</span>
                     <h3 className="font-display text-white font-bold text-base">{s.title}</h3>
                   </div>
                 <p className="text-[#C8C8C2] text-base leading-relaxed">{s.desc}</p>
@@ -136,7 +136,7 @@ export default function Accueil() {
       {/* CAPABILITIES */}
       <div className="border-t border-white/5">
         <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-20">
-          <p className="text-[#00FF85] text-[11px] font-semibold tracking-[3px] uppercase mb-4">Features</p>
+          <p className="text-[#0FA67A] text-[11px] font-semibold tracking-[3px] uppercase mb-4">Features</p>
           <h2 className="font-display text-[clamp(26px,3.5vw,44px)] font-extrabold tracking-tight leading-[1.12] mb-12">Simple to configure.</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
@@ -147,9 +147,9 @@ export default function Accueil() {
               { icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>, title: "Persistent alerts", desc: "Alerts repeat every 5 minutes until a contact confirms they've acted. No message gets lost." },
               { icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>, title: "Test mode", desc: "Simulate a full alert before going live. Confirm every contact and channel works." },
             ].map(f => (
-              <div key={f.title} className="border border-white/5 rounded-xl p-6 hover:border-[#00FF85]/20 hover:bg-[#00FF85]/[0.02] transition-all">
+              <div key={f.title} className="border border-white/5 rounded-xl p-6 hover:border-[#0FA67A]/20 hover:bg-[#0FA67A]/[0.02] transition-all">
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="text-[#00FF85]">{f.icon}</span>
+                  <span className="text-[#0FA67A]">{f.icon}</span>
                   <h4 className="font-display text-white font-semibold text-base">{f.title}</h4>
                 </div>
                 <p className="text-[#9A9A95] text-base leading-relaxed">{f.desc}</p>
@@ -164,7 +164,7 @@ export default function Accueil() {
         <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-20">
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
             <div className="lg:w-[340px] shrink-0">
-              <p className="text-[#00FF85] text-[11px] font-semibold tracking-[3px] uppercase mb-4">Why it exists</p>
+              <p className="text-[#0FA67A] text-[11px] font-semibold tracking-[3px] uppercase mb-4">Why it exists</p>
               <h2 className="font-display text-[clamp(24px,3vw,36px)] font-extrabold tracking-tight leading-[1.15] mb-6">
                 I've seen both sides.
               </h2>
@@ -176,7 +176,7 @@ export default function Accueil() {
               </p>
             </div>
             <div className="flex-1">
-              <blockquote className="border-l-2 border-[#00FF85] pl-6 mb-8">
+              <blockquote className="border-l-2 border-[#0FA67A] pl-6 mb-8">
                 <p className="text-white text-lg leading-relaxed italic font-display">
                   "When you're under threat, the only thing that matters is that someone knows. Wallert's purpose is to break the silence as fast as possible."
                 </p>
@@ -200,7 +200,7 @@ export default function Accueil() {
       {/* SECURITY */}
       <div className="border-t border-white/5">
         <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-20">
-          <p className="text-[#00FF85] text-[11px] font-semibold tracking-[3px] uppercase mb-4">Privacy & Security</p>
+          <p className="text-[#0FA67A] text-[11px] font-semibold tracking-[3px] uppercase mb-4">Privacy & Security</p>
           <h2 className="font-display text-[clamp(26px,3.5vw,44px)] font-extrabold tracking-tight leading-[1.12] mb-4">Designed to leave no trace.</h2>
           <p className="text-[#C8C8C2] text-base max-w-lg mb-12">A security tool must not become a risk vector. Wallert is built to minimize exposure, even in a compromise scenario.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -211,14 +211,14 @@ export default function Accueil() {
               { title: "Private infrastructure", desc: "Dedicated server in France (Scaleway), isolated container, DDoS protection via Cloudflare." },
             ].map(s => (
               <div key={s.title} className="flex items-start gap-4 border border-white/5 rounded-xl p-6">
-                <div className="w-6 h-6 rounded-md bg-[#00FF85]/10 border border-[#00FF85]/20 flex items-center justify-center shrink-0 mt-0.5">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00FF85" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <div className="w-6 h-6 rounded-md bg-[#0FA67A]/10 border border-[#0FA67A]/20 flex items-center justify-center shrink-0 mt-0.5">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0FA67A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                 </div>
                 <div>
                   <h4 className="font-display text-white font-semibold text-base mb-1.5">{s.title}</h4>
                   <p className="text-[#9A9A95] text-base leading-relaxed">{s.desc}</p>
                   {s.hasGithub && (
-                    <a href="https://github.com/rmdls2b/wallert" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-3 text-[#00FF85] text-sm font-medium hover:opacity-80 transition-opacity">
+                    <a href="https://github.com/rmdls2b/wallert" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-3 text-[#0FA67A] text-sm font-medium hover:opacity-80 transition-opacity">
                       <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d={githubPath} /></svg>
                       View on GitHub →
                     </a>
@@ -233,14 +233,14 @@ export default function Accueil() {
       {/* CTA FINAL */}
       <div className="border-t border-white/5">
         <div className="px-6 md:px-16 lg:px-32 xl:px-40 max-w-[1400px] mx-auto py-24 text-center">
-          <p className="text-[#00FF85] text-[11px] font-semibold tracking-[3px] uppercase mb-4">Get started</p>
+          <p className="text-[#0FA67A] text-[11px] font-semibold tracking-[3px] uppercase mb-4">Get started</p>
           <h2 className="font-display text-[clamp(28px,4vw,52px)] font-extrabold tracking-tight leading-[1.1] mb-4">
             Set it up once.<br />Hope to never use it.
           </h2>
           <p className="text-[#C8C8C2] text-base mb-10 max-w-md mx-auto">
             Takes 5 minutes. Then you don't think about it anymore.
           </p>
-          <a href="/register" className="inline-block px-10 py-4 bg-[#00FF85] text-black rounded-lg font-bold text-base hover:opacity-90 transition-opacity">
+          <a href="/register" className="inline-block px-10 py-4 bg-[#0FA67A] text-black rounded-lg font-bold text-base hover:opacity-90 transition-opacity">
             Try Wallert
           </a>
         </div>
